@@ -54,11 +54,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     Iniciar Sesion
                                 </button>
-                                <!-- problemas con recordar contraseña
+
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                    Olvidaste tu contraseña?
                                 </a>
-                                 -->
+
                             </div>
                         </div>
                     </form>
