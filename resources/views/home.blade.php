@@ -13,10 +13,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="adminLTE_admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="adminLTE_admin/bower_components/font-awesome/css/font-awesome.min.css">
+   <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" rel="stylesheet">
     <!-- Ionicons -->
     <!--iconos -->
-    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" rel="stylesheet">
+    
     <link rel="stylesheet" href="adminLTE_admin/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="adminLTE_admin/css/AdminLTE.min.css">
@@ -81,6 +82,9 @@ desired effect
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    
+                </ul>
+                <ul class="nav navbar-nav">
 
                     <!-- User Account Menu -->
                     <li class="dropdown user">
@@ -127,6 +131,8 @@ desired effect
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }} </p>
                 </div>
+                <br>
+             
             </div>
 
 
@@ -136,13 +142,21 @@ desired effect
 
 
                 <!-- Optionally, you can add icons to the links -->
-                <li><a href="{{ route('c_publicacion') }}"><i class="fas fa-file-upload"></i>
-                        <span> Crear publicacion</span></a></li>
-                <li><a href="{{ route('c_evento') }}"><i class="fas fa-upload"></i> <span> Crear evento</span></a></li>
-                <li><a href="{{ route('publicaciones') }}"><i class="fas fa-photo"></i> <span> Ver publicaciones</span></a>
-                </li>
-                <li><a href="{{ route('eventos') }}"><i class="far fa-calendar-times"></i> <span> Ver eventos</span></a>
-                </li>
+                <li class="{{$datos['n1']}}">
+                    <a href="{{ route('c_publicacion') }}">
+                        <i class="fas fa-file-upload"></i><span> Crear publicacion</span></a></li>
+
+                <li class="{{$datos['n2']}}">
+                    <a href="{{ route('c_evento') }}">
+                        <i class="fas fa-upload"></i> <span> Crear evento</span></a></li>
+
+                <li class="{{$datos['n3']}}">
+                    <a href="{{ route('publicaciones') }}">
+                        <i class="fas fa-photo"></i> <span> Ver publicaciones</span></a></li>
+
+                <li class="{{$datos['n4']}}">
+                    <a href="{{ route('eventos') }}">
+                        <i class="far fa-calendar-times"></i> <span> Ver eventos</span></a></li>
 
 
             </ul>

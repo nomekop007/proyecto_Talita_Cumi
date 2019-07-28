@@ -7,7 +7,7 @@
             <small>Panel administrativo</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
+            <li><a href="#"><i class="fas fa-align-justify"></i> Menu</a></li>
             <li class="active">Eventos</li>
         </ol>
     </section>

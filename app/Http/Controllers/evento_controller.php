@@ -8,13 +8,25 @@ class evento_controller extends Controller
 {
        public function index()
     {
-       return view('v_admin.v_eventos');
+         $data = array(
+        'n3' => '',
+        'n1' => '',
+        'n2' => '',
+        'n4' => 'active'
+    );
+       return view('v_admin.v_eventos')->with('datos', $data);
     }
 
     
     public function v_create()
     {
-        return view('v_admin.v_crear_eventos');
+         $data = array(
+        'n3' => '',
+        'n1' => '',
+        'n2' => 'active',
+        'n4' => ''
+    );
+        return view('v_admin.v_crear_eventos')->with('datos', $data);
     }
 
 
