@@ -18,5 +18,9 @@ class publicacion_controller extends Controller
         return view('v_admin.v_crear_publicaciones');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
    
 }
