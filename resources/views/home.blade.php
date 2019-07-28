@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+  <link rel="stylesheet" href="adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -67,7 +67,7 @@ desired effect
         <!-- Logo -->
         <a href="#" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>T</b>CU</span>
+            <span class="logo-mini"><b>T</b>-C</span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Talita-Cumi</b></span>
         </a>
@@ -126,7 +126,7 @@ desired effect
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="-">
+                    <p>-</p>
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }} </p>
@@ -209,6 +209,14 @@ desired effect
 <!-- AdminLTE App -->
 <script src="adminLTE_admin/js/adminlte.min.js"></script>
 
+<!-- Bootstrap WYSIHTML5 -->
+<script src="adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script>
+  $(function () {
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
+  })
+</script>
 
 </body>
 </html>
