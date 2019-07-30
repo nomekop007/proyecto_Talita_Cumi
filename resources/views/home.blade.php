@@ -7,24 +7,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- habilita el jax para poder enviar los datos -->
+    <meta content="{{ csrf_token() }}" name="csrf-token">
+
     <title>Talita-Cumi</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="adminLTE_admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="adminLTE_admin/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/font-awesome/css/font-awesome.min.css')}}">
    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" rel="stylesheet">
-    <!-- Ionicons -->
-    <!--iconos -->
-    
-    <link rel="stylesheet" href="adminLTE_admin/bower_components/Ionicons/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/Ionicons/css/ionicons.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="adminLTE_admin/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ asset('css/css_admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
-    <link rel="stylesheet" href="adminLTE_admin/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/css/skins/skin-blue.min.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,10 +36,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <link rel="stylesheet" href="adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
+  <link rel="stylesheet" href="{{ asset('adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css')}}">
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+
+
+
+
+
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -203,14 +214,17 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="adminLTE_admin/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="{{ asset('adminLTE_admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('adminLTE_admin/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="adminLTE_admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ asset('adminLTE_admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="adminLTE_admin/js/adminlte.min.js"></script>
+<script src="{{ asset('adminLTE_admin/js/adminlte.min.js')}}"></script>
+<script src="{{ asset('js/sweetalert2.min.js')}}"></script>
 
 <!-- Bootstrap WYSIHTML5 -->
-<script src="adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="{{ asset('adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js')}}"></script>
 <script>
   $(function () {
     //bootstrap WYSIHTML5 - text editor
@@ -218,5 +232,7 @@ desired effect
   })
 </script>
 
+<script src="{{ asset('js/publicacion.js')}}"></script>
+<script src="{{ asset('js/sweetalert2.min.js')}}"></script>
 </body>
 </html>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\evento;
+
 
 class evento_controller extends Controller
 {

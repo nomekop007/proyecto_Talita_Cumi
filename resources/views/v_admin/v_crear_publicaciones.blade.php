@@ -1,118 +1,132 @@
 @extends('home')
 
 @section('ubicacion')
-<section class="content-header">
-    <h1>
-        crear publicacion
-        <small>
-            Panel administrativo
-        </small>
-    </h1>
-    <ol class="breadcrumb">
-        <li>
-            <a href="#">
-                <i class="fas fa-align-justify">
-                </i>
-                Menu
-            </a>
-        </li>
-        <li class="active">
+    <section class="content-header">
+        <h1>
             crear publicacion
-        </li>
-    </ol>
-</section>
+            <small>
+                Panel administrativo
+            </small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    <i class="fas fa-align-justify">
+                    </i>
+                    Menu
+                </a>
+            </li>
+            <li class="active">
+                crear publicacion
+            </li>
+        </ol>
+    </section>
 @endsection
 
 
 @section('contenido')
-<form>
-    <div class="form-row">
-        <div class="form-group col-md-12">
-            <p class="bg-info text-center">
-                Crear Publicacion en el sitio web
-            </p>
-            <div class="form row">
-                <div class="form-group col-md-6">
-                    <label for="Publicacion">
-                        Titulo Publicacion
-                    </label>
-                    <input class="form-control" id="Publicacion" maxlength="30" name="Publicacion" placeholder="ingrese un titulo" type="text">
-                    </input>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="t_publicacion">
-                        Tipo Publicacion
-                    </label>
-                    <br>
-                        <select class="form-control" id="t_publicacion" name="t_publicacion">
-                            <option value="Foto">
+    <form>
+        {{ csrf_field() }}
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <p class="bg-info text-center">
+                    Crear Publicacion en el sitio web
+                </p>
+                <div class="form row">
+
+                    @if(! $errors->isEmpty())
+                    <div class="alert alert-danger">
+                        <p><strong>Ops</strong> Ocurrio un error</p>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
+                    <div class="form-group col-md-6">
+                        <label for="titulo_publicacion">
+                            Titulo Publicacion
+                        </label>
+                        <input class="form-control" id="titulo_publicacion" maxlength="30" name="titulo_publicacion"
+                               placeholder="ingrese un titulo" type="text">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="tipo_publicacion">
+                            Tipo Publicacion
+                        </label>
+                        <br>
+                        <select class="form-control" id="tipo_publicacion" name="tipo_publicacion">
+                            <option value="1">
                                 Foto
                             </option>
-                            <option value="Video">
+                            <option value="2">
                                 Video
                             </option>
                         </select>
-                    </br>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="Categoria">
-                        Ubicacion de la Publicacion
-                    </label>
-                    <br>
+                        </br>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Categoria">
+                            Ubicacion de la Publicacion
+                        </label>
+                        <br>
                         <select class="form-control" id="Categoria" name="Categoria">
-                            <option value="galeria">
-                                En Galeria
+                            <option value="1">
+                                En Galeria multimedia
                             </option>
-                            <option value="inicio">
+                            <option value="2">
                                 Pagina de Inicio
                             </option>
-                            <option value="tienda">
+                            <option value="3">
                                 Tienda Online
                             </option>
                         </select>
-                    </br>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="Url">
-                        Buscar archivo .PNG .SVG .JPG .MP4 .MKV
-                    </label>
-                    <input id="Url" name="Url" type="file">
-                    </input>
-                </div>
-                <div class="form-group col-md-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h4 class="box-title">
-                               Descripcion
-                            </h4>
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                                <button class="btn btn-default btn-sm" data-toggle="tooltip" data-widget="collapse" title="Collapse" type="button">
-                                    <i class="fa fa-minus">
-                                    </i>
-                                </button>
+                        </br>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Url">
+                            Buscar archivo .PNG .SVG .JPG .MP4 .MKV
+                        </label>
+                        <input id="Url" name="Url" type="file">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h4 class="box-title">
+                                    Descripcion
+                                </h4>
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <button class="btn btn-default btn-sm" data-toggle="tooltip" data-widget="collapse"
+                                            title="Collapse" type="button">
+                                        <i class="fa fa-minus">
+                                        </i>
+                                    </button>
+                                </div>
+                                <!-- /. tools -->
                             </div>
-                            <!-- /. tools -->
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body pad">
-                            <form>
-                                <textarea class="textarea" placeholder="Pon un texto aquí" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                            <!-- /.box-header -->
+                            <div class="box-body pad">
+                                <!--  <form> -->
+                                <textarea class="textarea" placeholder="Pon un texto aquí" id="descripcion"
+                                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                                 </textarea>
-                            </form>
+                                <!--  </form> -->
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-
-                <div class="form-group col-md-12">
-                    <button class="btn btn-primary btn-sm" data-url="" id="btnEnviar" type="submit">
-                        Crear Publicacion
-                    </button>
+                    <div class="form-group col-md-12">
+                        <button class="btn btn-primary btn-sm" data-url="{{ route('crearPublicacion') }}" id="btnEnviar"
+                                type="submit">
+                            Crear Publicacion
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 @endsection
