@@ -35,20 +35,25 @@ class publicacion_controller extends Controller
     {
 
 
-        /* $this->validate($Request,
-             [
-                 'titulo_publicacion' => ['required'],
-                 'Url' => ['required']
-             ]); */
-
         $publicacion = new publicacion();
 
-        $publicacion->tituloPublicacion = $Request->tituloPublicacion;
-        $publicacion->descripcionPublicacion = $Request->descripcionPublicacion;
-        $publicacion->URLpublicacion = $Request->URLpublicacion;
-        $publicacion->estado = $Request->estado;
-        $publicacion->tipo = $Request->tipo;
-        $publicacion->categoria = $Request->categoria;
+        $publicacion->tituloPublicacion = $Request->titulo_publicacion;
+        $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
+
+
+        $publicacion->URLpublicacion = "x";
+
+        /*
+        if ($Request->tipo_publicacion==1){
+            $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/foto');
+        }else{
+            $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/video');
+        }
+        */
+
+        $publicacion->estado = "activo";
+        $publicacion->tipo = $Request->tipo_publicacion;
+        $publicacion->categoria = $Request->Categoria;
 
 
         //guardar en la base de datos

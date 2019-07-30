@@ -25,7 +25,12 @@
 
 
 @section('contenido')
-    <form>
+    <form
+            id="formulario"
+            method="POST"
+            action="{{ route('crearPublicacion') }}"
+            enctype="multipart/form-data">
+
         {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-12">
@@ -86,10 +91,11 @@
                         </br>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="Url">
+                        <label for="URLpublicacion">
                             Buscar archivo .PNG .SVG .JPG .MP4 .MKV
                         </label>
-                        <input id="Url" name="Url" type="file">
+                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/png" >
+
                     </div>
                     <div class="form-group col-md-12">
                         <div class="box">
@@ -110,7 +116,7 @@
                             <!-- /.box-header -->
                             <div class="box-body pad">
                                 <!--  <form> -->
-                                <textarea class="textarea" placeholder="Pon un texto aquí" id="descripcion"
+                                <textarea class="textarea" placeholder="Pon un texto aquí" id="descripcion_publicacion" name="descripcion_publicacion"
                                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                                 </textarea>
                                 <!--  </form> -->
@@ -120,7 +126,8 @@
 
 
                     <div class="form-group col-md-12">
-                        <button class="btn btn-primary btn-sm" data-url="{{ route('crearPublicacion') }}" id="btnEnviar"
+                        <button class="btn btn-primary btn-sm"
+                                 id="btnEnviar"
                                 type="submit">
                             Crear Publicacion
                         </button>
