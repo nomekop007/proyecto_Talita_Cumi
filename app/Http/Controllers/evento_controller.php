@@ -8,30 +8,30 @@ use App\evento;
 
 class evento_controller extends Controller
 {
-       public function index()
+    public function index()
     {
-         $data = array(
-        'n3' => '',
-        'n1' => '',
-        'n2' => '',
-        'n4' => 'active'
-    );
-       return view('v_admin.v_eventos')->with('datos', $data);
+        $data = array(
+            'n3' => '',
+            'n1' => '',
+            'n2' => '',
+            'n4' => 'active'
+        );
+        return view('v_admin.v_eventos')->with('datos', $data);
     }
 
-    
+
     public function v_create()
     {
-         $data = array(
-        'n3' => '',
-        'n1' => '',
-        'n2' => 'active',
-        'n4' => ''
-    );
+        $data = array(
+            'n3' => '',
+            'n1' => '',
+            'n2' => 'active',
+            'n4' => ''
+        );
         return view('v_admin.v_crear_eventos')->with('datos', $data);
     }
 
-      public function crearEvento(Request $Request)
+    public function crearEvento(Request $Request)
     {
         $evento = new evento();
 
@@ -40,8 +40,8 @@ class evento_controller extends Controller
         $evento->URLfoto = $Request->file('URLevento')->store('public/evento');
 
 
-        $evento->fechaInicio = '2017-06-15';
-        $evento->fechaFin = '2017-06-15';
+        $evento->fechaInicio = $Request->fechaInicio;
+        $evento->fechaFin = $Request->fechaFin;
 
 
         //guardar en la base de datos

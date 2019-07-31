@@ -19,8 +19,8 @@ class EventoTable extends Migration
             $table->String('tituloEvento');
             $table->text('descripcionEvento'); 
             $table->String('URLfoto')->nullable();
-            $table->date('fechaInicio'); 
-            $table->date('fechaFin');
+            $table->dateTime('fechaInicio');
+            $table->dateTime('fechaFin');
             $table->timestamps();
         });
     }
