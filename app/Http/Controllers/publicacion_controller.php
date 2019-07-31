@@ -33,27 +33,19 @@ class publicacion_controller extends Controller
 
     public function crearPublicacion(Request $Request)
     {
-
-
         $publicacion = new publicacion();
 
         $publicacion->tituloPublicacion = $Request->titulo_publicacion;
         $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
+        $publicacion->tipo = $Request->tipo_publicacion;
+        $publicacion->categoria = $Request->Categoria;
+        $publicacion->estado = "activo";
 
-
-        $publicacion->URLpublicacion = "x";
-
-        /*
         if ($Request->tipo_publicacion==1){
             $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/foto');
         }else{
             $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/video');
         }
-        */
-
-        $publicacion->estado = "activo";
-        $publicacion->tipo = $Request->tipo_publicacion;
-        $publicacion->categoria = $Request->Categoria;
 
 
         //guardar en la base de datos

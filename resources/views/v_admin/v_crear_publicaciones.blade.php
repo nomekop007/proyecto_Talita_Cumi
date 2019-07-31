@@ -39,17 +39,6 @@
                 </p>
                 <div class="form row">
 
-                    @if(! $errors->isEmpty())
-                    <div class="alert alert-danger">
-                        <p><strong>Ops</strong> Ocurrio un error</p>
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-
                     <div class="form-group col-md-6">
                         <label for="titulo_publicacion">
                             Titulo Publicacion
@@ -92,9 +81,9 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="URLpublicacion">
-                            Buscar archivo .PNG .SVG .JPG .MP4 .MKV
+                            Insertar foto o video
                         </label>
-                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/png" >
+                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*, video/mp4" >
 
                     </div>
                     <div class="form-group col-md-12">
