@@ -126,3 +126,7 @@
         </div>
     </form>
 @endsection
+
+@section('jsextra')
+    <script src="{{ asset('js/publicacion.js')}}"></script>
+@endsection

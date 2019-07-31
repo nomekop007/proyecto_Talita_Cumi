@@ -34,3 +34,4 @@ Route::get('eventos','evento_controller@index')->name('eventos');
 
 // crear publicaciones y eventos
 Route::post('crearPublicacion','publicacion_controller@crearPublicacion')->name('crearPublicacion');
+Route::post('crearEvento','evento_controller@crearEvento')->name('crearEvento');

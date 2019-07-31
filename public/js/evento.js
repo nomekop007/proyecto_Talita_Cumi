@@ -8,34 +8,43 @@ $(document).ready(function () {
 
 
 
+//Date range picker with time picker
+    $('#fecha_evento').daterangepicker({ 
+    	timePicker: true, timePickerIncrement: 30, locale: { format: 'MM/DD/YYYY hh:mm A' }});
 
 
-    //valida los campos y guarda en base de datos
+        //valida los campos y guarda en base de datos
     $('#btnEnviar').click(function (event) {
         event.preventDefault();
         validarCampos();
     });
 
-
-    //validar y guardar en bd
+ //validar y guardar en bd
     function validarCampos() {
 
 
         var paqueteDeDatos = new FormData();
         //rescatar los valores de los input y guardarlas en un formData
-        paqueteDeDatos.append('URLpublicacion', $('#URLpublicacion')[0].files[0]);
-        paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
-        paqueteDeDatos.append('descripcion_publicacion', $('#descripcion_publicacion').prop('value'));
-        paqueteDeDatos.append('Categoria', $('#Categoria').prop('value'));
-        paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
+        paqueteDeDatos.append('URLevento', $('#URLevento')[0].files[0]);
+        paqueteDeDatos.append('titulo_evento', $('#titulo_evento').prop('value'));
+        paqueteDeDatos.append('descripcion_evento', $('#descripcion_evento').prop('value'));
+        paqueteDeDatos.append('fecha_evento', $('#fecha_evento').prop('value'));
 
-        
+     
+
+
         //octener valor input por sus id
-        var titulo_publicacion = $('#titulo_publicacion').val();
-        var URLpublicacion = $('#URLpublicacion').val();
-        var descripcion_publicacion = $('#descripcion_publicacion').val();
-        if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
-            swal('Campos Vacios', 'faltan datos ', 'error')
+        var titulo_evento = $('#titulo_evento').val();
+        var url = $('#URLevento').val();
+        var descripcion_evento = $('#descripcion_evento').val();
+        var fecha_evento = $('#fecha_evento').val();
+
+  		console.log(fecha_evento);
+        if (titulo_evento.length == 0 || url.length == 0 || 
+        	descripcion_evento.length == 0 || fecha_evento.length == 0) {
+
+            swal('Campos Vacios', 'faltan datos ', 'error');
+
         }else {
 
             //recacar url del boton
@@ -52,7 +61,7 @@ $(document).ready(function () {
                         setTimeout(function () {
                             window.location = window.location;
                         }, 700);
-                        swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
+                        swal('Evento Registrado', 'guardado en base de datos!', 'success')
                     } else {
                         swal('algo paso', 'faltan datos ', 'error')
                     }
@@ -68,6 +77,5 @@ $(document).ready(function () {
 
 
     }
-
 
 });

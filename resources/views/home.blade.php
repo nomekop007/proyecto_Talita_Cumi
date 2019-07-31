@@ -41,8 +41,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+ <!-- daterange picker -->
+  <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
 
+  <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
 
+  <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}">
+
+  <link rel="stylesheet" href="{{ asset('adminLTE_admin/plugins/timepicker/bootstrap-timepicker.min.css')}}">
 
 
 
@@ -232,7 +238,13 @@ desired effect
   })
 </script>
 
-<script src="{{ asset('js/publicacion.js')}}"></script>
-<script src="{{ asset('js/sweetalert2.min.js')}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
+<script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
+
+
+@yield('jsextra')
+
 </body>
 </html>
