@@ -76,7 +76,7 @@ $(document).ready(function () {
                     if (datos == "ok") {
                         setTimeout(function () {
                             window.location = window.location;
-                        }, 700);
+                        }, 900);
                         swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
                     } else {
                         swal('algo paso', 'faltan datos ', 'error')
@@ -91,7 +91,7 @@ $(document).ready(function () {
         }
     }
 
-
+    //modal imagen
     $('.btn-img').click(function (event) {
         var url = $(this).data('url');
 
@@ -102,6 +102,7 @@ $(document).ready(function () {
         $('.contenido').html(html);
     });
 
+    //modal video
     $('.btn-video').click(function (event) {
         var url = $(this).data('url');
 
@@ -113,5 +114,21 @@ $(document).ready(function () {
 
         $('.contenido').html(html);
     });
+
+
+    //modal descripcion
+    $('.btn-descripcion').click(function (event) {
+
+        var url = $(this).data('url');
+        var titulo = $(this).data('title')
+
+        $('#mimodalLabel_des').html(titulo);
+
+        $('.b_des').html(url);
+
+
+        $('#modal_des').modal('show');
+    });
+
 
 });

@@ -90,7 +90,7 @@ $(document).ready(function () {
                     if (datos == "ok") {
                         setTimeout(function () {
                             window.location = window.location;
-                        }, 700);
+                        }, 900);
                         swal('Evento Registrado', 'guardado en base de datos!', 'success')
                     } else {
                         swal('algo paso', 'faltan datos ', 'error')

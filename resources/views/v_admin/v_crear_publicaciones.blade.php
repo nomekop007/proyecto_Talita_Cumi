@@ -81,7 +81,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="URLpublicacion">
-                            Insertar foto o video
+                            Insertar foto o video (max 100mb)
                         </label>
                         <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*, video/mp4" >
 

@@ -101,9 +101,24 @@
                             @endif
                         </td>
                         <td>
-                            {{$p->descripcionPublicacion}}
+                            <a class="btn-descripcion"
+                               data-url="{{$p->descripcionPublicacion}}"
+                               data-title="{{$p->tituloPublicacion}}">
+                                <i class="far fa-eye color"></i></i>
+                            </a>
+
+
+
                         </td>
                         <td>
+                            <button class="btn btn-info btn-edit btn-sm">
+                                <i class="far fa-edit">
+                                </i>
+                            </button>
+                            <button class="btn btn-danger btn btn-delete btn-sm">
+                                <i class="far fa-trash-alt">
+                                </i>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
@@ -120,6 +135,26 @@
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content contenido">
+            </div>
+        </div>
+    </div>
+
+    <!--Modal descripcion -->
+    <div class="modal fade" id="modal_des" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mimodalLabel_des">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body b_des">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+
+                </div>
             </div>
         </div>
     </div>
