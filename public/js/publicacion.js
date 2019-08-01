@@ -6,34 +6,33 @@ $(document).ready(function () {
         }
     });
 
- //traduccion del dataTable
-        $('.mi-dataTable').DataTable({
-            "language": {
-                "sProcessing": "Procesando...",
-                "sLengthMenu": "Mostrar _MENU_ registros",
-                "sZeroRecords": "No se encontraron resultados",
-                "sEmptyTable": "Ningún dato disponible en esta tabla",
-                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sSearch": "Buscar:",
-                "sUrl": "",
-                "sInfoThousands": ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast": "Último",
-                    "sNext": "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                }
+    //traduccion del dataTable
+    $('.mi-dataTable').DataTable({
+        "language": {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst": "Primero",
+                "sLast": "Último",
+                "sNext": "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
-        });
-
+        }
+    });
 
 
     //valida los campos y guarda en base de datos
@@ -55,14 +54,14 @@ $(document).ready(function () {
         paqueteDeDatos.append('Categoria', $('#Categoria').prop('value'));
         paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
 
-        
+
         //octener valor input por sus id
         var titulo_publicacion = $('#titulo_publicacion').val();
         var URLpublicacion = $('#URLpublicacion').val();
         var descripcion_publicacion = $('#descripcion_publicacion').val();
         if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
             swal('Campos Vacios', 'faltan datos ', 'error')
-        }else {
+        } else {
 
             //recacar url del boton
             var url = $('#formulario').attr('action');
@@ -89,12 +88,30 @@ $(document).ready(function () {
             });
 
 
-
         }
     }
 
 
-    
+    $('.btn-img').click(function (event) {
+        var url = $(this).data('url');
 
+        var html = '<div class="imagen">' +
+            '<img width="500px" src="' + url + '">' +
+            '</div>';
+
+        $('.contenido').html(html);
+    });
+
+    $('.btn-video').click(function (event) {
+        var url = $(this).data('url');
+
+        var html = '<div class="video">' +
+            '<video controls width=760>' +
+            '<source src="' + url + '" type="video/mp4">' +
+            '</video>' +
+            '</div>'
+
+        $('.contenido').html(html);
+    });
 
 });
