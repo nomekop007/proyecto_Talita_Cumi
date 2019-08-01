@@ -3,7 +3,7 @@
 @section('ubicacion')
     <section class="content-header">
         <h1>
-            crear evento
+            Crear evento
             <small>
                 Panel administrativo
             </small>
@@ -35,7 +35,7 @@
             <div class="form-group col-md-12">
                 <p class="bg-info text-center">
                     Crear Evento en el sitio web
-                </p>
+                </p><br>
                 <div class="form row">
                     <div class="form-group col-md-4">
                         <label for="titulo_evento">

@@ -50,7 +50,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <link rel="stylesheet" href="{{ asset('adminLTE_admin/plugins/timepicker/bootstrap-timepicker.min.css')}}">
 
-
+  <!-- datatable  -->
+  <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}">
 
 
 </head>
@@ -158,20 +159,19 @@ desired effect
                 <li class="header">Menu Principal</li>
 
 
-                <!-- Optionally, you can add icons to the links -->
-                <li class="{{$datos['n1']}}">
+                <li class="{{$menus['n1']}}">
                     <a href="{{ route('c_publicacion') }}">
                         <i class="fas fa-file-upload"></i><span> Crear publicacion</span></a></li>
 
-                <li class="{{$datos['n2']}}">
+                <li class="{{$menus['n2']}}">
                     <a href="{{ route('c_evento') }}">
                         <i class="fas fa-upload"></i> <span> Crear evento</span></a></li>
 
-                <li class="{{$datos['n3']}}">
+                <li class="{{$menus['n3']}}">
                     <a href="{{ route('publicaciones') }}">
                         <i class="fas fa-photo"></i> <span> Ver publicaciones</span></a></li>
 
-                <li class="{{$datos['n4']}}">
+                <li class="{{$menus['n4']}}">
                     <a href="{{ route('eventos') }}">
                         <i class="far fa-calendar-times"></i> <span> Ver eventos</span></a></li>
 
@@ -242,7 +242,8 @@ desired effect
 <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
 <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
-
+<!-- datatable -->
+<script src="{{ asset('js/dataTables.min.js')}}"></script>
 
 @yield('jsextra')
 

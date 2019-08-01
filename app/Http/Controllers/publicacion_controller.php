@@ -10,25 +10,32 @@ class publicacion_controller extends Controller
 
     public function index()
     {
-        $data = array(
+
+        $publicacions = publicacion::all();
+
+        // señal de active del menu
+        $menu = array(
             'n3' => 'active',
             'n1' => '',
             'n2' => '',
             'n4' => ''
         );
-        return view('v_admin.v_publicaciones')->with('datos', $data);
+
+        return view('v_admin.v_publicaciones',
+                    ['publicaciones' => $publicacions, 
+                    'menus' => $menu]);
     }
 
 
     public function v_create()
     {
-        $data = array(
+        $menu = array(
             'n3' => '',
             'n1' => 'active',
             'n2' => '',
             'n4' => ''
         );
-        return view('v_admin.v_crear_publicaciones')->with('datos', $data);
+        return view('v_admin.v_crear_publicaciones')->with('menus', $menu);
     }
 
     public function crearPublicacion(Request $Request)

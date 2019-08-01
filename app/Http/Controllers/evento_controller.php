@@ -10,25 +10,30 @@ class evento_controller extends Controller
 {
     public function index()
     {
-        $data = array(
+
+        $eventos = evento::all();
+
+        $menu = array(
             'n3' => '',
             'n1' => '',
             'n2' => '',
             'n4' => 'active'
         );
-        return view('v_admin.v_eventos')->with('datos', $data);
+        return view('v_admin.v_eventos',
+                    ['eventos' => $eventos, 
+                    'menus' => $menu]);
     }
 
 
     public function v_create()
     {
-        $data = array(
+        $menu = array(
             'n3' => '',
             'n1' => '',
             'n2' => 'active',
             'n4' => ''
         );
-        return view('v_admin.v_crear_eventos')->with('datos', $data);
+        return view('v_admin.v_crear_eventos')->with('menus', $menu);
     }
 
     public function crearEvento(Request $Request)

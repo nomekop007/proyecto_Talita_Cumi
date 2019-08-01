@@ -15,7 +15,40 @@
 
 
 @section('contenido')
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <p class="bg-info text-center">
+            Eventos del sitio web
+        </p>
+        <br>
+        <table class="table mi-dataTable text-center">
+            <thead class="thead-dark ">
+                <tr>
+                    <th scope="col">
+                        Titulo
+                    </th>
+                    <th scope="col">
+                        Fecha
+                    </th>
+                    <th scope="col">
+                        Foto
+                    </th>
+                    <th scope="col">
+                        Descripcion
+                    </th>
+                    <th scope="col">
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+@endsection
 
-
- 
+@section('jsextra')
+<script src="{{ asset('js/evento.js')}}">
+</script>
 @endsection
