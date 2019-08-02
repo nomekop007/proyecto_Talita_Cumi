@@ -229,14 +229,15 @@ desired effect
 <script src="{{ asset('adminLTE_admin/js/adminlte.min.js')}}"></script>
 <script src="{{ asset('js/sweetalert2.min.js')}}"></script>
 
-<!-- Bootstrap WYSIHTML5 -->
+<!-- editor de texto-->
 <script src="{{ asset('adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js')}}"></script>
-<script>
-  $(function () {
-    //bootstrap WYSIHTML5 - text editor
-    $('.textarea').wysihtml5()
-  })
-</script>
+<script src="{{ asset('adminLTE_admin/bower_components/ckeditor/ckeditor.js')}}"></script>
+
+
+
+
+
+
 
 <!-- bootstrap datepicker -->
 <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>

@@ -62,10 +62,12 @@
                         </td>
                         <td>
                             @if($p->tipo == 1)
+                                <div style="visibility: hidden">imagen</div>
                                 <i class="far fa-image fa-2x"></i>
                             @endif
 
                             @if($p->tipo == 2)
+                                    <div style="visibility: hidden">video</div>
                                 <i class="fas fa-film fa-2x"></i>
                             @endif
                         </td>
@@ -87,7 +89,7 @@
                                      data-url="{{ Storage::url($p->URLpublicacion) }}"
                                      data-toggle="modal"
                                      data-target=".media_modal"
-                                     width="60px" src="{{ Storage::url($p->URLpublicacion) }}" alt="">
+                                     width="170px" src="{{ Storage::url($p->URLpublicacion) }}" alt="">
                             @endif
 
                             @if($p->tipo == 2)
@@ -95,7 +97,7 @@
                                        data-url="{{ Storage::url($p->URLpublicacion) }}"
                                        data-toggle="modal"
                                        data-target=".media_modal"
-                                       width="60px">
+                                       width="170px">
                                     <source src="{{ Storage::url($p->URLpublicacion) }}" type="video/mp4">
                                 </video>
                             @endif
@@ -103,7 +105,9 @@
                         <td>
                             <a class="btn-descripcion"
                                data-url="{{$p->descripcionPublicacion}}"
-                               data-title="{{$p->tituloPublicacion}}">
+                               data-title="{{$p->tituloPublicacion}}"
+                               data-toggle="modal"
+                               data-target="#modal-default">
                                 <i class="far fa-eye color"></i></i>
                             </a>
 
@@ -139,27 +143,25 @@
         </div>
     </div>
 
-    <!--Modal descripcion -->
-    <div class="modal fade" id="modal_des" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+
+<!--Modal Descripcion -->
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="mimodalLabel_des">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="mimodalLabel_des">Default Modal</h4>
                 </div>
                 <div class="modal-body b_des">
+                    <p>One fine body&hellip;</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
-
+                    <button type="button" class="btn btn-primary " data-dismiss="modal">cerrar</button>
                 </div>
             </div>
         </div>
     </div>
-
-
 
 @endsection
 

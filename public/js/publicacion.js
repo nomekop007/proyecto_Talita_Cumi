@@ -6,6 +6,9 @@ $(document).ready(function () {
         }
     });
 
+
+
+
     //traduccion del dataTable
     $('.mi-dataTable').DataTable({
         "language": {
@@ -35,6 +38,34 @@ $(document).ready(function () {
     });
 
 
+    //cargar combobox tipo
+    var html = '  <option value="1" class="v-foto">' +
+        '                                Foto' +
+        '                            </option>' +
+        '                            <option value="2" class="v-video">' +
+        '                                Video' +
+        '                            </option>';
+
+    $('.combo').html(html);
+
+    //validacion de guardar imagen y video
+    $('.v-foto').click(function (event) {
+        var html = '         <label for="URLpublicacion">' +
+            '                            Insertar foto ' +
+            '                        </label>\n' +
+            '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*" >';
+        $('.URLmedia').html(html);
+    });
+    $('.v-video').click(function (event) {
+        var html = '         <label for="URLpublicacion">' +
+            '                            Insertar video (max 100mb)' +
+            '                        </label>\n' +
+            '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="video/mp4" >';
+
+        $('.URLmedia').html(html);
+    });
+
+
     //valida los campos y guarda en base de datos
     $('#btnEnviar').click(function (event) {
         event.preventDefault();
@@ -50,15 +81,19 @@ $(document).ready(function () {
         //rescatar los valores de los input y guardarlas en un formData
         paqueteDeDatos.append('URLpublicacion', $('#URLpublicacion')[0].files[0]);
         paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
-        paqueteDeDatos.append('descripcion_publicacion', $('#descripcion_publicacion').prop('value'));
+        paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
         paqueteDeDatos.append('Categoria', $('#Categoria').prop('value'));
         paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
 
 
+        console.log()
+
         //octener valor input por sus id
         var titulo_publicacion = $('#titulo_publicacion').val();
         var URLpublicacion = $('#URLpublicacion').val();
-        var descripcion_publicacion = $('#descripcion_publicacion').val();
+        var descripcion_publicacion = CKEDITOR.instances['descripcion_publicacion'].getData();
+
+
         if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
             swal('Campos Vacios', 'faltan datos ', 'error')
         } else {

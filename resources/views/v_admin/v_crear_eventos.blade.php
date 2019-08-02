@@ -66,31 +66,34 @@
 
                     </div>
                     <div class="form-group col-md-12">
-                        <div class="box">
+
+
+                        <div class="box box-info">
                             <div class="box-header">
-                                <h4 class="box-title">
-                                    Descripcion
-                                </h4>
+                                <h3 class="box-title">Descripcion
+                                    <small>CK Editor</small>
+                                </h3>
                                 <!-- tools box -->
                                 <div class="pull-right box-tools">
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip" data-widget="collapse"
-                                            title="Collapse" type="button">
-                                        <i class="fa fa-minus">
-                                        </i>
-                                    </button>
+                                    <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                            title="Collapse">
+                                        <i class="fa fa-minus"></i></button>
                                 </div>
                                 <!-- /. tools -->
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body pad">
-                                <!--  <form> -->
-                                <textarea class="textarea" id="descripcion_evento" name="descripcion_evento"
-                                          placeholder="Pon un texto aquí"
-                                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                            </textarea>
-                                <!--  </form> -->
+                    <textarea id="descripcion_evento" name="descripcion_evento" placeholder="ingrese texto aqui" rows="10" cols="80">
+                    </textarea>
                             </div>
                         </div>
+
+
+
+
+
+
+
                     </div>
                     <div class="form-group col-md-12">
                         <button class="btn btn-primary btn-sm" id="btnEnviar" type="submit">
@@ -105,5 +108,10 @@
 
 @section('jsextra')
     <script src="{{ asset('js/evento.js')}}">
+    </script>
+    <script>
+        $(function () {
+            CKEDITOR.replace('descripcion_evento')
+        })
     </script>
 @endsection

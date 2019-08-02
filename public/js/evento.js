@@ -7,6 +7,8 @@ $(document).ready(function () {
     });
 
 
+
+
 //Date range picker with time picker
     $('#fecha_evento').daterangepicker({
         timePicker: true, timePickerIncrement: 30,
@@ -16,33 +18,33 @@ $(document).ready(function () {
             monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
         },
     });
- //traduccion del dataTable
-        $('.mi-dataTable').DataTable({
-            "language": {
-                "sProcessing": "Procesando...",
-                "sLengthMenu": "Mostrar _MENU_ registros",
-                "sZeroRecords": "No se encontraron resultados",
-                "sEmptyTable": "Ningún dato disponible en esta tabla",
-                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sSearch": "Buscar:",
-                "sUrl": "",
-                "sInfoThousands": ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast": "Último",
-                    "sNext": "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                }
+    //traduccion del dataTable
+    $('.mi-dataTable').DataTable({
+        "language": {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst": "Primero",
+                "sLast": "Último",
+                "sNext": "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
-        });
+        }
+    });
 
     //valida los campos y guarda en base de datos
     $('#btnEnviar').click(function (event) {
@@ -58,7 +60,7 @@ $(document).ready(function () {
         //rescatar los valores de los input y guardarlas en un formData
         paqueteDeDatos.append('URLevento', $('#URLevento')[0].files[0]);
         paqueteDeDatos.append('titulo_evento', $('#titulo_evento').prop('value'));
-        paqueteDeDatos.append('descripcion_evento', $('#descripcion_evento').prop('value'));
+        paqueteDeDatos.append('descripcion_evento', CKEDITOR.instances['descripcion_evento'].getData());
 
         var fecha_evento = $('#fecha_evento').val();
         var dates = fecha_evento.split(" - ");
@@ -69,7 +71,7 @@ $(document).ready(function () {
         //octener valor input por sus id
         var titulo_evento = $('#titulo_evento').val();
         var url = $('#URLevento').val();
-        var descripcion_evento = $('#descripcion_evento').val();
+        var descripcion_evento = CKEDITOR.instances['descripcion_evento'].getData();
 
         if (titulo_evento.length == 0 || url.length == 0 || descripcion_evento.length == 0) {
 

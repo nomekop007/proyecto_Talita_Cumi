@@ -51,13 +51,8 @@
                             Tipo Publicacion
                         </label>
                         <br>
-                        <select class="form-control" id="tipo_publicacion" name="tipo_publicacion">
-                            <option value="1">
-                                Foto
-                            </option>
-                            <option value="2">
-                                Video
-                            </option>
+                        <select class="form-control combo" id="tipo_publicacion" name="tipo_publicacion">
+
                         </select>
                         </br>
                     </div>
@@ -79,38 +74,34 @@
                         </select>
                         </br>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 URLmedia">
                         <label for="URLpublicacion">
-                            Insertar foto o video (max 100mb)
+                            Insertar foto
                         </label>
-                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*, video/mp4" >
-
+                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*"  >
                     </div>
                     <div class="form-group col-md-12">
-                        <div class="box">
+
+                        <div class="box box-info">
                             <div class="box-header">
-                                <h4 class="box-title">
-                                    Descripcion
-                                </h4>
+                                <h3 class="box-title">Descripcion
+                                    <small>CK Editor</small>
+                                </h3>
                                 <!-- tools box -->
                                 <div class="pull-right box-tools">
-                                    <button class="btn btn-default btn-sm" data-toggle="tooltip" data-widget="collapse"
-                                            title="Collapse" type="button">
-                                        <i class="fa fa-minus">
-                                        </i>
-                                    </button>
+                                    <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                            title="Collapse">
+                                        <i class="fa fa-minus"></i></button>
                                 </div>
                                 <!-- /. tools -->
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body pad">
-                                <!--  <form> -->
-                                <textarea class="textarea" placeholder="Pon un texto aquí" id="descripcion_publicacion" name="descripcion_publicacion"
-                                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                                </textarea>
-                                <!--  </form> -->
+                    <textarea id="descripcion_publicacion" name="descripcion_publicacion" placeholder="ingrese texto aqui" rows="10" cols="80">
+                    </textarea>
                             </div>
                         </div>
+
                     </div>
 
 
@@ -129,4 +120,9 @@
 
 @section('jsextra')
     <script src="{{ asset('js/publicacion.js')}}"></script>
+    <script>
+        $(function () {
+            CKEDITOR.replace('descripcion_publicacion')
+        })
+    </script>
 @endsection
