@@ -22,10 +22,9 @@ class publicacion_controller extends Controller
         );
 
         return view('v_admin.v_publicaciones',
-                    ['publicaciones' => $publicacions, 
-                    'menus' => $menu]);
+            ['publicaciones' => $publicacions,
+                'menus' => $menu]);
     }
-
 
     public function v_create()
     {
@@ -48,9 +47,9 @@ class publicacion_controller extends Controller
         $publicacion->categoria = $Request->Categoria;
         $publicacion->estado = "activo";
 
-        if ($Request->tipo_publicacion==1){
+        if ($Request->tipo_publicacion == 1) {
             $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/foto');
-        }else{
+        } else {
             $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/video');
         }
 
@@ -66,6 +65,30 @@ class publicacion_controller extends Controller
 
 
     }
+
+    public function getByID(request $request)
+    {
+        $id = base64_decode($request->id);
+        $publicacion = publicacion::find($id);
+        return $publicacion;
+    }
+
+    public function destroy(request $request)
+    {
+        $id = base64_decode($request->id);
+        $publicacion = publicacion::find($id);
+
+        //elimina el archivo del storage
+        $url = $publicacion->URLpublicacion;
+        unlink(storage_path('app/' . $url));
+
+        if ($publicacion->delete()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+    }
+
 
     public function __construct()
     {

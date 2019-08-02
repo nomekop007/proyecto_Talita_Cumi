@@ -23,6 +23,7 @@
     color: #f7b733;
 }
 
+/* estilo de los modal (nose cual xd )*/
 .example-modal .modal {
     position: relative;
     top: auto;
@@ -32,7 +33,9 @@
     display: block;
     z-index: 1;
 }
-
+#mdialTamanio{ /*ancho del modal descripcion */
+    width: 80% !important;
+}
 .example-modal .modal {
     background: transparent !important;
 }

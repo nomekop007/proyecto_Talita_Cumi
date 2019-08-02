@@ -50,6 +50,9 @@
                         Descripcion
                     </th>
                     <th scope="col">
+                        Creado
+                    </th>
+                    <th scope="col">
                         Acciones
                     </th>
                 </tr>
@@ -67,7 +70,7 @@
                             @endif
 
                             @if($p->tipo == 2)
-                                    <div style="visibility: hidden">video</div>
+                                <div style="visibility: hidden">video</div>
                                 <i class="fas fa-film fa-2x"></i>
                             @endif
                         </td>
@@ -89,7 +92,7 @@
                                      data-url="{{ Storage::url($p->URLpublicacion) }}"
                                      data-toggle="modal"
                                      data-target=".media_modal"
-                                     width="170px" src="{{ Storage::url($p->URLpublicacion) }}" alt="">
+                                     width="150px" src="{{ Storage::url($p->URLpublicacion) }}" alt="">
                             @endif
 
                             @if($p->tipo == 2)
@@ -97,7 +100,7 @@
                                        data-url="{{ Storage::url($p->URLpublicacion) }}"
                                        data-toggle="modal"
                                        data-target=".media_modal"
-                                       width="170px">
+                                       width="150px">
                                     <source src="{{ Storage::url($p->URLpublicacion) }}" type="video/mp4">
                                 </video>
                             @endif
@@ -110,16 +113,18 @@
                                data-target="#modal-default">
                                 <i class="far fa-eye color"></i></i>
                             </a>
-
-
-
+                        </td>
+                        <td>
+                            <i>{{$p->created_at}}</i>
                         </td>
                         <td>
                             <button class="btn btn-info btn-edit btn-sm">
                                 <i class="far fa-edit">
                                 </i>
                             </button>
-                            <button class="btn btn-danger btn btn-delete btn-sm">
+                            <button class="btn btn-danger btn btn-delete btn-sm"
+                                    data-id="{{ base64_encode($p->id) }}"
+                                    data-url="{{ route('getPublicidad') }}">
                                 <i class="far fa-trash-alt">
                                 </i>
                             </button>
@@ -144,9 +149,9 @@
     </div>
 
 
-<!--Modal Descripcion -->
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
+    <!--Modal Descripcion -->
+    <div class="modal fade example-modal" id="modal-default">
+        <div class="modal-dialog" id="mdialTamanio">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -162,6 +167,31 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal de eliminar -->
+    <div class="modal fade example-modal" id="modal_eliminar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="mimodalLabel_eliminar">Default Modal</h4>
+                </div>
+                <div class="modal-body b_eliminar">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">cancelar</button>
+                    <button class="btn btn-danger" data-dismiss="modal" data-url="{{ route('deletePublicacion') }}"
+                            id="eliminar" type="button">
+                        eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection
 

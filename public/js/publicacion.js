@@ -6,6 +6,14 @@ $(document).ready(function () {
         }
     });
 
+    //cargar combobox tipo
+    var html = '  <option value="1" class="v-foto">' +
+        '                               Foto' +
+        '                            </option>' +
+        '         <option value="2" class="v-video">' +
+        '                               Video' +
+        '                            </option>';
+    $('.combo').html(html);
 
 
 
@@ -38,15 +46,6 @@ $(document).ready(function () {
     });
 
 
-    //cargar combobox tipo
-    var html = '  <option value="1" class="v-foto">' +
-        '                                Foto' +
-        '                            </option>' +
-        '                            <option value="2" class="v-video">' +
-        '                                Video' +
-        '                            </option>';
-
-    $('.combo').html(html);
 
     //validacion de guardar imagen y video
     $('.v-foto').click(function (event) {
@@ -164,6 +163,65 @@ $(document).ready(function () {
 
         $('#modal_des').modal('show');
     });
+
+
+    //modal eliminar publicacion
+    $('.btn-delete').click(function (event) {
+        var id = $(this).data('id');
+        var url = $(this).data('url');
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id: id
+            },
+            success: function (datos) { //remplazando los datos del modal con los de la base de datos
+                $('#mimodalLabel_eliminar').html( datos['tituloPublicacion']);
+
+                $('#eli').val(datos['id'])
+                var html = ' ¿esta seguro de eliminar esto?' +
+                    '<input id="eli" name="idModalEliminarPallet" type="hidden" value="' + id + '">';
+                $('.b_eliminar').html(html);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        $('#modal_eliminar').modal('show');
+    });
+
+    //eliminar publicacion
+    $('#eliminar').click(function (event) {
+        event.preventDefault();
+
+        var id = $('#eli').val();
+        var url = $(this).data('url');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                id: id
+            },
+            success: function (datos) {
+                if (datos == "ok") {
+                    setTimeout(function () {
+                        window.location = window.location;
+                    }, 900);
+                    Swal({
+                        type: 'error',
+                        title: 'Publicacion eliminada'
+                    })
+                } else {
+                    swal('algo paso', 'hubo un error ', 'error')
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
 
 
 });
