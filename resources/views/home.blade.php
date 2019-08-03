@@ -108,6 +108,7 @@ desired effect
                     <li class="dropdown user">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                            aria-haspopup="true" v-pre>
+                            <i class="fas fa-user"></i>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
@@ -230,7 +231,6 @@ desired effect
 <script src="{{ asset('js/sweetalert2.min.js')}}"></script>
 
 <!-- editor de texto-->
-<script src="{{ asset('adminLTE_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js')}}"></script>
 <script src="{{ asset('adminLTE_admin/bower_components/ckeditor/ckeditor.js')}}"></script>
 
 

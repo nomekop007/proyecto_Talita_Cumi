@@ -92,7 +92,7 @@
                                      data-url="{{ Storage::url($p->URLpublicacion) }}"
                                      data-toggle="modal"
                                      data-target=".media_modal"
-                                     width="150px" src="{{ Storage::url($p->URLpublicacion) }}" alt="">
+                                     width="120px" src="{{ Storage::url($p->URLpublicacion) }}" alt="">
                             @endif
 
                             @if($p->tipo == 2)
@@ -100,7 +100,7 @@
                                        data-url="{{ Storage::url($p->URLpublicacion) }}"
                                        data-toggle="modal"
                                        data-target=".media_modal"
-                                       width="150px">
+                                       width="120px">
                                     <source src="{{ Storage::url($p->URLpublicacion) }}" type="video/mp4">
                                 </video>
                             @endif
@@ -118,16 +118,14 @@
                             <i>{{$p->created_at}}</i>
                         </td>
                         <td>
-                            <button class="btn btn-info btn-edit btn-sm">
+                            <button class="btn btn-info btn-edit btn-sm"
+                                    data-id="{{ base64_encode($p->id) }}"
+                                    data-url="{{ route('getPublicidad') }}">
                                 <i class="far fa-edit">
                                 </i>
                             </button>
-                            <button class="btn btn-danger btn btn-delete btn-sm"
-                                    data-id="{{ base64_encode($p->id) }}"
-                                    data-url="{{ route('getPublicidad') }}">
-                                <i class="far fa-trash-alt">
-                                </i>
-                            </button>
+
+
                         </td>
                     </tr>
                 @endforeach
@@ -158,6 +156,7 @@
                         <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="mimodalLabel_des">Default Modal</h4>
                 </div>
+
                 <div class="modal-body b_des">
                     <p>One fine body&hellip;</p>
                 </div>
@@ -193,9 +192,41 @@
     </div>
 
 
+
+    <!-- Modal de editar -->
+    <div class="modal fade example-modal" id="modal_editar">
+        <div class="modal-dialog" id="mdialTamanio">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="mimodalLabel_editar">Default Modal</h4>
+                </div>
+                <div class="modal-body b_editar col-md-12">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">cancelar</button>
+
+                    <button class="btn btn-danger btn btn-delete btn-sm"
+                            data-id="{{ base64_encode($p->id) }}"
+                            data-url="{{ route('getPublicidad') }}">
+                      Eliminar Publicacion
+                    </button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" data-url="" id="editar">guardar
+                        cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 @endsection
 
 @section('jsextra')
     <script src="{{ asset('js/publicacion.js')}}">
     </script>
+
 @endsection

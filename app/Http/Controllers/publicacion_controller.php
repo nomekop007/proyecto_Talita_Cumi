@@ -45,7 +45,7 @@ class publicacion_controller extends Controller
         $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
         $publicacion->tipo = $Request->tipo_publicacion;
         $publicacion->categoria = $Request->Categoria;
-        $publicacion->estado = "activo";
+        $publicacion->estado = "inactivo";
 
         if ($Request->tipo_publicacion == 1) {
             $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/foto');

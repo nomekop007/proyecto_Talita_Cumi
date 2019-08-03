@@ -32,9 +32,13 @@
     left: auto;
     display: block;
     z-index: 1;
+
 }
 #mdialTamanio{ /*ancho del modal descripcion */
     width: 80% !important;
+}
+.b_des{ /* scroll del modal descripcion */
+    overflow-x: auto;
 }
 .example-modal .modal {
     background: transparent !important;
