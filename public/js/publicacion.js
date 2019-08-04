@@ -313,9 +313,9 @@ $(document).ready(function () {
                     '                    </div>\n' +
                     '                    <div class="form-group col-md-6 URLmediaX">\n' +
                     '                        <label for="URLpublicacionX">\n' +
-                    '                            Insertar foto\n' +
+                    '                            Actualizar foto (opcional)\n' +
                     '                        </label>\n' +
-                    '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*"  >\n' +
+                    '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*"   >\n' +
                     '                    </div>\n' +
                     '                    <div class="form-group col-md-12">\n' +
                     '\n' +
@@ -361,7 +361,7 @@ $(document).ready(function () {
                 $('.v-fotoX').click(function (event) {
                     event.preventDefault();
                     var html = '         <label for="URLpublicacionX">' +
-                        '                            Insertar foto ' +
+                        '                            Actualizar foto (opcional) ' +
                         '                        </label>\n' +
                         '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
                     $('.URLmediaX').html(html);
@@ -369,7 +369,7 @@ $(document).ready(function () {
                 $('.v-videoX').click(function (event) {
                     event.preventDefault();
                     var html = '         <label for="URLpublicacionX">' +
-                        '                            Insertar video (max 100mb)' +
+                        '                            Actualizar video (opcional) ' +
                         '                        </label>\n' +
                         '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
 
@@ -395,34 +395,32 @@ $(document).ready(function () {
         event.preventDefault();
 
 
-        var paqueteDeDatos = new FormData();
-        //rescatar los valores de los input y guardarlas en un formData
-        paqueteDeDatos.append('id', $('#edi').prop('value'));
-        paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
-        paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacionX').prop('value'));
-        paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacionX'].getData());
-        paqueteDeDatos.append('Categoria', $('#CategoriaX').prop('value'));
-        paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
-
-
 
         var titulo = $('#titulo_publicacionX').val();
-        var file = $('#URLpublicacionX').val();
         var descripcion = CKEDITOR.instances['descripcion_publicacionX'].getData();
 
-        var id = $('#edi').prop('value');
-        var categoria =$('#CategoriaX').prop('value');
-        var tipo =$('#tipo_publicacionX').prop('value');
-        console.log(id);
-        console.log(categoria);
-        console.log(tipo);
-
-
-        if (descripcion.length == 0 || file.length == 0 || titulo.length == 0) {
+        if (descripcion.length == 0 || titulo.length == 0) {
 
             swal('algo paso', 'faltaron datos que completar ', 'error')
 
         } else {
+
+            var paqueteDeDatos = new FormData();
+            //rescatar los valores de los input y guardarlas en un formData
+            paqueteDeDatos.append('id', $('#edi').prop('value'));
+
+            paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacionX').prop('value'));
+            paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacionX'].getData());
+            paqueteDeDatos.append('Categoria', $('#CategoriaX').prop('value'));
+            paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+
+            var file = $('#URLpublicacionX').val();
+            if (file == ""){
+                paqueteDeDatos.append('URLpublicacion', 'x');
+
+            }else {
+                paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
+            }
 
             var url = $(this).data('url');
 

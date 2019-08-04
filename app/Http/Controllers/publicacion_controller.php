@@ -80,7 +80,11 @@ class publicacion_controller extends Controller
 
         //elimina el archivo del storage
         $url = $publicacion->URLpublicacion;
-        unlink(storage_path('app/' . $url));
+
+        if (@getimagesize(storage_path('app/' . $url))) {
+            unlink(storage_path('app/' . $url));
+        }
+
 
         if ($publicacion->delete()) {
             return "ok";
@@ -94,23 +98,29 @@ class publicacion_controller extends Controller
         $id = base64_decode($request->id);
         $publicacion = publicacion::find($id);
 
-
-
         $publicacion->tituloPublicacion = $request->titulo_publicacion;
         $publicacion->categoria = $request->Categoria;
         $publicacion->tipo = $request->tipo_publicacion;
         $publicacion->descripcionPublicacion = $request->descripcion_publicacion;
 
-        //elimina el archivo del storage
-        $url = $publicacion->URLpublicacion;
-        unlink(storage_path('app/' . $url));
 
-        if ($publicacion->tipo == 1) {
-            $publicacion->URLpublicacion = $request->file('URLpublicacion')->store('public/foto');
-        } else {
-            $publicacion->URLpublicacion = $request->file('URLpublicacion')->store('public/video');
+        // pregunta si se selecciono un nuevo archivo
+        if ($request->URLpublicacion != 'x') {
+
+            //elimina el archivo del storage
+            $url = $publicacion->URLpublicacion;
+
+            //pregunta si el archivo esta en el storage
+            if (@getimagesize(storage_path('app/' . $url))) {
+                unlink(storage_path('app/' . $url));
+            }
+
+            if ($publicacion->tipo == 1) {
+                $publicacion->URLpublicacion = $request->file('URLpublicacion')->store('public/foto');
+            } else {
+                $publicacion->URLpublicacion = $request->file('URLpublicacion')->store('public/video');
+            }
         }
-
 
         if ($publicacion->update()) {
             return "ok";
