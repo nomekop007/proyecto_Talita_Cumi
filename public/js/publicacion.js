@@ -324,13 +324,6 @@ $(document).ready(function () {
                     '                                <h3 class="box-title">Descripcion\n' +
                     '                                    <small>CK Editor</small>\n' +
                     '                                </h3>\n' +
-                    '                                <!-- tools box -->\n' +
-                    '                                <div class="pull-right box-tools">\n' +
-                    '                                    <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"\n' +
-                    '                                            title="Collapse">\n' +
-                    '                                        <i class="fa fa-minus"></i></button>\n' +
-                    '                                </div>\n' +
-                    '                                <!-- /. tools -->\n' +
                     '                            </div>\n' +
                     '                            <!-- /.box-header -->\n' +
                     '                            <div class="box-body pad">\n' +

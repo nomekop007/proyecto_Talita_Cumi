@@ -59,7 +59,7 @@
                 </thead>
                 <tbody>
                 @foreach($publicaciones as $p)
-                    <tr>
+                    <tr >
                         <td>
                             {{ $p->tituloPublicacion }}
                         </td>
@@ -125,7 +125,12 @@
                                 </i>
                             </button>
 
-
+                            @if($p->estado == 'inactivo')
+                            <button class="btn btn-success"><i class="fas fa-upload"></i>Publicar</button>
+                            @endif
+                            @if($p->estado == 'activo')
+                                <button class="btn btn-warning"><i class="fab fa-creative-commons-pd"></i>Ocultar</button>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
@@ -209,10 +214,11 @@
 
                     <button class="btn btn-danger btn btn-delete btn-sm"
                             data-url="{{ route('getPublicidad') }}">
-                      Eliminar Publicacion
+                        Eliminar Publicacion
                     </button>
                     <!--data-dismiss="modal" -->
-                    <button type="button" class="btn btn-info"  data-url="{{ route('updatePublicacion') }}" id="editar">guardar
+                    <button type="button" class="btn btn-info" data-url="{{ route('updatePublicacion') }}" id="editar">
+                        guardar
                         cambios
                     </button>
                 </div>
