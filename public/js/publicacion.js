@@ -65,6 +65,8 @@ $(document).ready(function () {
     });
 
 
+
+
     //valida los campos y guarda en base de datos
     $('#btnEnviar').click(function (event) {
         event.preventDefault();
@@ -85,7 +87,6 @@ $(document).ready(function () {
         paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
 
 
-        console.log()
 
         //octener valor input por sus id
         var titulo_publicacion = $('#titulo_publicacion').val();
@@ -170,7 +171,7 @@ $(document).ready(function () {
     //modal eliminar publicacion
     $('.btn-delete').click(function (event) {
         event.preventDefault();
-        var id = $(this).data('id');
+        var id = $('.btn-edit').data('id');
         var url = $(this).data('url');
         $.ajax({
             type: "POST",
@@ -244,13 +245,16 @@ $(document).ready(function () {
 
 
                 var c = datos['categoria'];
-
+                var i = 0;
                 if (c == 1){
                     c =' En Galeria multimedia'
+                    i = 1;
                 } else if (c == 2){
                     c ='Pagina de Inicio'
+                    i = 2;
                 } else {
                     c ='Tienda Online'
+                    i = 3;
                 }
 
 
@@ -260,36 +264,37 @@ $(document).ready(function () {
                 var html = '<div class="form-row">\n' +
                     '            <div class="form-group col-md-12">\n' +
                     '                <div class="form row">\n' +
+                    '<input id="edi" name="idModalEditarPublicacion" type="hidden" value="' + id + '">' +
                     '\n' +
                     '                    <div class="form-group col-md-6">\n' +
-                    '                        <label for="titulo_publicacion">\n' +
+                    '                        <label for="titulo_publicacionX">\n' +
                     '                            Titulo Publicacion\n' +
                     '                        </label>\n' +
-                    '                        <input class="form-control" id="titulo_publicacion" maxlength="30" name="titulo_publicacion"\n' +
+                    '                        <input class="form-control" id="titulo_publicacionX" maxlength="30" name="titulo_publicacionX"\n' +
                     '                               placeholder="ingrese un titulo" type="text" value="'+datos['tituloPublicacion']+'">\n' +
                     '                    </div>\n' +
                     '                    <div class="form-group col-md-6">\n' +
-                    '                        <label for="tipo_publicacion">\n' +
+                    '                        <label for="tipo_publicacionX">\n' +
                     '                            Tipo Publicacion\n' +
                     '                        </label>\n' +
                     '                        <br>\n' +
-                    '                        <select class="form-control" id="tipo_publicacion" name="tipo_publicacion">\n' +
-                    '  <option value="1" class="v-foto">\n' +
+                    '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX">\n' +
+                    '                            <option value="1" class="v-fotoX">\n' +
                     '                               Foto\n' +
                     '                            </option>\n' +
-                    '         <option value="2" class="v-video">\n' +
+                    '                            <option value="2" class="v-videoX">\n' +
                     '                               Video\n' +
                     '                            </option>\n'+
                     '                        </select>\n' +
                     '                        </br>\n' +
                     '                    </div>\n' +
                     '                    <div class="form-group col-md-6">\n' +
-                    '                        <label for="Categoria">\n' +
+                    '                        <label for="CategoriaX">\n' +
                     '                            Ubicacion de la Publicacion\n' +
                     '                        </label>\n' +
                     '                        <br>\n' +
-                    '                        <select class="form-control" id="Categoria" name="Categoria">\n' +
-                    '                            <option value="'+c+'">\n' +
+                    '                        <select class="form-control" id="CategoriaX" name="CategoriaX">\n' +
+                    '                            <option value="'+i+'">\n' +
                     '                                '+
                           c
                     +'\n' +
@@ -306,11 +311,11 @@ $(document).ready(function () {
                     '                        </select>\n' +
                     '                        </br>\n' +
                     '                    </div>\n' +
-                    '                    <div class="form-group col-md-6 URLmedia">\n' +
-                    '                        <label for="URLpublicacion">\n' +
+                    '                    <div class="form-group col-md-6 URLmediaX">\n' +
+                    '                        <label for="URLpublicacionX">\n' +
                     '                            Insertar foto\n' +
                     '                        </label>\n' +
-                    '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*"  >\n' +
+                    '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*"  >\n' +
                     '                    </div>\n' +
                     '                    <div class="form-group col-md-12">\n' +
                     '\n' +
@@ -329,7 +334,7 @@ $(document).ready(function () {
                     '                            </div>\n' +
                     '                            <!-- /.box-header -->\n' +
                     '                            <div class="box-body pad">\n' +
-                    '                    <textarea id="descripcion_publicacion" name="descripcion_publicacion" placeholder="ingrese texto aqui" rows="10" cols="80">\n' +
+                    '                    <textarea id="descripcion_publicacionX" name="descripcion_publicacionX" placeholder="ingrese texto aqui" rows="10" cols="80">\n' +
                     '                                '+
                     datos['descripcionPublicacion']
                     +'\n' +
@@ -341,20 +346,42 @@ $(document).ready(function () {
                     '            </div>\n' +
                     '        </div>';
 
-                $(function () {
-                    CKEDITOR.replace('descripcion_publicacion')
-                })
-
-
 
                 $('.b_editar').html(html);
 
+
+
+
+                $(function () {
+                    CKEDITOR.replace('descripcion_publicacionX')
+                });
+
+
+                //validacion de guardar imagen y video del modal editar publiacion
+                $('.v-fotoX').click(function (event) {
+                    event.preventDefault();
+                    var html = '         <label for="URLpublicacionX">' +
+                        '                            Insertar foto ' +
+                        '                        </label>\n' +
+                        '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
+                    $('.URLmediaX').html(html);
+                });
+                $('.v-videoX').click(function (event) {
+                    event.preventDefault();
+                    var html = '         <label for="URLpublicacionX">' +
+                        '                            Insertar video (max 100mb)' +
+                        '                        </label>\n' +
+                        '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
+
+                    $('.URLmediaX').html(html);
+                });
 
 
             },
             error: function (error) {
                 console.log(error);
             }
+
         });
         $('#modal_editar').modal('show');
 
@@ -362,6 +389,68 @@ $(document).ready(function () {
 
     });
 
+
+    //editar Publicacion
+    $('#editar').click(function (event) {
+        event.preventDefault();
+
+
+        var paqueteDeDatos = new FormData();
+        //rescatar los valores de los input y guardarlas en un formData
+        paqueteDeDatos.append('id', $('#edi').prop('value'));
+        paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
+        paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacionX').prop('value'));
+        paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacionX'].getData());
+        paqueteDeDatos.append('Categoria', $('#CategoriaX').prop('value'));
+        paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+
+
+
+        var titulo = $('#titulo_publicacionX').val();
+        var file = $('#URLpublicacionX').val();
+        var descripcion = CKEDITOR.instances['descripcion_publicacionX'].getData();
+
+        var id = $('#edi').prop('value');
+        var categoria =$('#CategoriaX').prop('value');
+        var tipo =$('#tipo_publicacionX').prop('value');
+        console.log(id);
+        console.log(categoria);
+        console.log(tipo);
+
+
+        if (descripcion.length == 0 || file.length == 0 || titulo.length == 0) {
+
+            swal('algo paso', 'faltaron datos que completar ', 'error')
+
+        } else {
+
+            var url = $(this).data('url');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: paqueteDeDatos,
+                processData: false,
+                contentType: false,
+                success: function (datos) {
+                    console.log(datos);
+                    if (datos == "ok") {
+                        setTimeout(function () {
+                            window.location = window.location;
+                        }, 900);
+                        swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
+                    } else {
+                        swal('algo paso', 'faltan datos ', 'error')
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+
+        }
+    });
 
 
 

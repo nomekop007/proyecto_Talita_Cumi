@@ -204,15 +204,15 @@
                 </div>
                 <div class="modal-body b_editar col-md-12">
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer btn_editar">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">cancelar</button>
 
                     <button class="btn btn-danger btn btn-delete btn-sm"
-                            data-id="{{ base64_encode($p->id) }}"
                             data-url="{{ route('getPublicidad') }}">
                       Eliminar Publicacion
                     </button>
-                    <button type="button" class="btn btn-info" data-dismiss="modal" data-url="" id="editar">guardar
+                    <!--data-dismiss="modal" -->
+                    <button type="button" class="btn btn-info"  data-url="{{ route('updatePublicacion') }}" id="editar">guardar
                         cambios
                     </button>
                 </div>

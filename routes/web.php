@@ -43,3 +43,6 @@ Route::post('getPublicidad','publicacion_controller@getByID')->name('getPublicid
 
 //eliminar publicacion y eventos
 Route::post('deletePublicacion','publicacion_controller@destroy')->name('deletePublicacion');
+
+//actualizar publicacion y eventos
+Route::post('updatePublicacion','publicacion_controller@update')->name('updatePublicacion');
