@@ -78,7 +78,7 @@
                         <label for="URLpublicacion">
                             Insertar foto
                         </label>
-                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*"  >
+                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*">
                     </div>
                     <div class="form-group col-md-12">
 
@@ -89,7 +89,8 @@
                                 </h3>
                                 <!-- tools box -->
                                 <div class="pull-right box-tools">
-                                    <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    <button type="button" class="btn btn-info btn-sm" data-widget="collapse"
+                                            data-toggle="tooltip"
                                             title="Collapse">
                                         <i class="fa fa-minus"></i></button>
                                 </div>
@@ -97,7 +98,8 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body pad">
-                    <textarea id="descripcion_publicacion" name="descripcion_publicacion" placeholder="ingrese texto aqui" rows="10" cols="80">
+                    <textarea id="descripcion_publicacion" name="descripcion_publicacion"
+                              placeholder="ingrese texto aqui" rows="10" cols="80">
                     </textarea>
                             </div>
                         </div>
@@ -107,10 +109,15 @@
 
                     <div class="form-group col-md-12">
                         <button class="btn btn-primary btn-sm"
-                                 id="btnEnviar"
+                                id="btnEnviar"
                                 type="submit">
                             Crear Publicacion
                         </button>
+                    </div>
+                    <div class="barra form-group col-md-12">
+                        <div class="barra_azul" id="barra_estado">
+                            <span></span>
+                        </div>
                     </div>
                 </div>
             </div>

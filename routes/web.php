@@ -46,3 +46,8 @@ Route::post('deletePublicacion','publicacion_controller@destroy')->name('deleteP
 
 //actualizar publicacion y eventos
 Route::post('updatePublicacion','publicacion_controller@update')->name('updatePublicacion');
+
+
+
+//subir publicidad
+Route::post('upPublicidad','publicacion_controller@subir')->name('upPublicidad');

@@ -134,6 +134,25 @@ class publicacion_controller extends Controller
 
     }
 
+    public function subir(Request $request){
+        $id = base64_decode($request->id);
+        $publicacion = publicacion::find($id);
+
+        if ($publicacion->estado == 'inactivo'){
+
+            $publicacion->estado = 'activo';
+        }else{
+            $publicacion->estado = 'inactivo';
+        }
+
+
+        if ($publicacion->update()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+    }
+
 
     public function __construct()
     {

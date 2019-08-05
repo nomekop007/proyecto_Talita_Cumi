@@ -126,10 +126,14 @@
                             </button>
 
                             @if($p->estado == 'inactivo')
-                            <button class="btn btn-success"><i class="fas fa-upload"></i>Publicar</button>
+                            <button class="btn btn-success btn-public"
+                                    data-id="{{ base64_encode($p->id) }}"
+                                    data-url="{{ route('upPublicidad') }}"><i class="fas fa-upload"></i>Publicar</button>
                             @endif
                             @if($p->estado == 'activo')
-                                <button class="btn btn-warning"><i class="fab fa-creative-commons-pd"></i>Ocultar</button>
+                                <button class="btn btn-warning btn-ocultar"
+                                        data-id="{{ base64_encode($p->id) }}"
+                                        data-url="{{ route('upPublicidad') }}"><i class="fab fa-creative-commons-pd"></i>Ocultar</button>
                             @endif
                         </td>
                     </tr>
@@ -163,7 +167,7 @@
                 </div>
 
                 <div class="modal-body b_des">
-                    <p>One fine body&hellip;</p>
+                    <h3>Cargando...</h3>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary " data-dismiss="modal">cerrar</button>

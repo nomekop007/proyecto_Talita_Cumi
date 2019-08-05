@@ -97,7 +97,6 @@ $(document).ready(function () {
         if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
             swal('Campos Vacios', 'faltan datos ', 'error')
         } else {
-
             //recacar url del boton
             var url = $('#formulario').attr('action');
             $.ajax({
@@ -441,6 +440,106 @@ $(document).ready(function () {
 
 
         }
+    });
+
+
+    //publicar Publicacion
+    $('.btn-public').click(function (event) {
+        event.preventDefault();
+        var id = $(this).data('id');
+        var url = $(this).data('url');
+
+        Swal.fire({
+            title: 'Esta Seguro?',
+            text: "Esta apunto de publicar esta publicacion en el sitio",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Publicar!'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        id: id
+                    },
+                    success: function (datos) {
+                        if (datos == "ok") {
+                            setTimeout(function () {
+                                window.location = window.location;
+                            }, 900);
+                            Swal.fire(
+                                'Publicado!',
+                                'su publicacion ahora se puede ver en el sitio',
+                                'success'
+                            )
+                        } else {
+                            swal('algo paso', 'hubo un error ', 'error')
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+            }
+        });
+
+
+
+    });
+
+
+    //ocultar Publicacion
+    $('.btn-ocultar').click(function (event) {
+        event.preventDefault();
+        var id = $(this).data('id');
+        var url = $(this).data('url');
+
+        Swal.fire({
+            title: 'Esta Seguro?',
+            text: "Esta apunto de ocultar esta publicacion del sitio",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Ocultar!'
+        }).then((result) => {
+            if (result.value) {
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        id: id
+                    },
+                    success: function (datos) {
+                        if (datos == "ok") {
+                            setTimeout(function () {
+                                window.location = window.location;
+                            }, 900);
+                            Swal.fire(
+                                'Ocultado!',
+                                'su publicacion ahora no se muestra en el sitio',
+                                'success'
+                            )
+                        } else {
+                            swal('algo paso', 'hubo un error ', 'error')
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+            }
+        });
+
+
+
     });
 
 
