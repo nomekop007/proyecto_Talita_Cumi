@@ -85,9 +85,9 @@ desired effect
         <!-- Logo -->
         <a href="#" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>T</b>-C</span>
+            <span class="logo-mini"><img src="{{ asset('imagen_user/logo.png') }}" alt="" width="50"></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Talita-Cumi</b></span>
+            <span class="logo-lg"><img src="{{ asset('imagen_user/logo.png') }}" alt="" width="50"><b>Talita-Cumi</b></span>
         </a>
 
 

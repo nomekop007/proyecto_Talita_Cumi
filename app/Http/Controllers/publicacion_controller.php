@@ -100,18 +100,21 @@ class publicacion_controller extends Controller
 
         $publicacion->tituloPublicacion = $request->titulo_publicacion;
         $publicacion->categoria = $request->Categoria;
-        $publicacion->tipo = $request->tipo_publicacion;
+
         $publicacion->descripcionPublicacion = $request->descripcion_publicacion;
 
 
         // pregunta si se selecciono un nuevo archivo
         if ($request->URLpublicacion != 'x') {
 
-            //elimina el archivo del storage
+
             $url = $publicacion->URLpublicacion;
+            $publicacion->tipo = $request->tipo_publicacion;
+
 
             //pregunta si el archivo esta en el storage
             if (@getimagesize(storage_path('app/' . $url))) {
+                //elimina el archivo del storage
                 unlink(storage_path('app/' . $url));
             }
 
