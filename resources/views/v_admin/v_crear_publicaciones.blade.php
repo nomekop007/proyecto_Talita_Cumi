@@ -113,12 +113,14 @@
                                 type="submit">
                             Crear Publicacion
                         </button>
-                    </div>
-                    <div class="barra form-group col-md-12">
-                        <div class="barra_azul" id="barra_estado">
-                            <span></span>
+                        <!--pendiente -->
+                        <div class="overlay text-center" id="spiner" style="display:none">
+                            <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                            <h6>Subiendo...</h6>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>

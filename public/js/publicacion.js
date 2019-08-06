@@ -232,6 +232,7 @@ $(document).ready(function () {
 
 
     //modal editar Publicacion
+
     $('.btn-edit').click(function (event) {
         event.preventDefault();
         var id = $(this).data('id');
@@ -419,7 +420,7 @@ $(document).ready(function () {
             }
 
             var url = $(this).data('url');
-
+            $('#editar').attr("disabled", true);
             $.ajax({
                 type: "POST",
                 url: url,
@@ -433,6 +434,7 @@ $(document).ready(function () {
                             window.location = window.location;
                         }, 900);
                         swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
+                        $('#editar').attr("disabled", false);
                     } else {
                         swal('algo paso', 'faltan datos ', 'error')
                     }

@@ -221,7 +221,7 @@
                 </div>
                 <div class="modal-body b_editar col-md-12">
 
-                    <div class="overlay">
+                    <div class="overlay text-center">
                         <i class="fa fa-refresh fa-spin fa-2x"> </i>
                         <h6>Cargando...</h6>
                     </div>
