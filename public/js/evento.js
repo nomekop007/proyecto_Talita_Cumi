@@ -81,6 +81,8 @@ $(document).ready(function () {
 
             //recacar url del boton
             var url = $('#formulario').attr('action');
+
+            $('#btnEnviar').attr("disabled", true);
             $.ajax({
                 type: "POST",
                 url: url,
@@ -97,6 +99,7 @@ $(document).ready(function () {
                     } else {
                         swal('algo paso', 'faltan datos ', 'error')
                     }
+                    $('#btnEnviar').attr("disabled", false);
                 },
                 error: function (error) {
                     console.log(error);
