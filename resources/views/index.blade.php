@@ -7,8 +7,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"/>
     <link rel="stylesheet" href="{{ asset('css/css_user.css') }}">
     <link rel="stylesheet" href="{{ asset('css/css_user.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -21,14 +21,12 @@
 <body>
 
 
-
-
-<div class="page-header header-filter clear-filter"
-     style="background-image: url(imagen_user/fondoInicio.jpg); transform: translate3d(0px, 0px, 0px);">
+<div class="page-header header-filter clear-filter menu">
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top"
          style="background-color: transparent;font-family: 'Montserrat', sans-serif;">
-        <a style="color: white; " class="navbar-brand" href="#"><img src="{{ asset('imagen_user/logo.png') }}" alt="" width="100">
+        <a style="color: white; " class="navbar-brand" href="#"><img src="{{ asset('imagen_user/logo.png') }}" alt=""
+                                                                     width="100">
             <b> TALITA CUMI
             </b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -60,45 +58,64 @@
             EVENTOS →
         </button>
     </div>
-</div> <br>
+
+
+</div>
+<br>
 
 <h1 style="font-family: 'Montserrat', sans-serif; text-align: center ">ASPECTOS DESTACADOS</h1>
 <br>
 
-<div style="background-color: gray" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    </ol>
-    <div class="carousel-inner" style="font-family: 'Montserrat', sans-serif;">
-        <div class="carousel-item active">
-            <img style="object-fit: scale-down;height: 50vh;width: 100%;" class="" src="{{ asset('imagen_user/dance.jpg') }}" alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis impedit, commodi vero officia ad quis
-                    vel rem tempora</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis impedit, commodi vero officia ad quis
-                    vel rem tempora</p>
+
+<!--modificacion Diego -->
+<div class="row">
+    <div class="col-md-11 mx-auto">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+            <div class="carousel-inner tam">
+
+
+                <div class="carousel-item active">
+                    <img src="/imagen_user/2019.jpg" class="d-block w-100" alt="...">
+                </div>
+
+                @foreach($publicaciones as $p)
+                    @if($p->categoria == 2)
+                        @if($p->estado == 'activo')
+                            <div class="carousel-item ">
+
+                                @if($p->tipo == 1)
+                                    <img alt="First slide" class="d-block w-100"
+                                         src="{{ Storage::url($p->URLpublicacion) }}" alt="">
+                                @endif
+
+                                @if($p->tipo == 2)
+                                    <video alt="First slide" class="d-block w-100" controls width=600>
+                                        <source src="{{ Storage::url($p->URLpublicacion) }}" type="video/mp4">
+                                    </video>
+                                @endif
+                            </div>
+                        @endif
+                    @endif
+                @endforeach
+
+
             </div>
-        </div>
-        <div class="carousel-item">
-            <img style="object-fit: scale-down;height: 50vh;width: 100%;" class="" src="{{ asset('imagen_user/2019.jpg') }}" alt="Second slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis impedit, commodi vero officia ad quis
-                    vel rem tempora</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis impedit, commodi vero officia ad quis
-                    vel rem tempora</p>
-            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div><br>
+    <!--fin modificacion Diego -->
+
+</div>
+<br>
+
 
 <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">PROXIMOS EVENTOS</h1>
 
@@ -109,11 +126,13 @@
 
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}" data-holder-rendered="true"
+                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                     data-holder-rendered="true"
                      style="height: 225px; width: 100%; display: block;">
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
                         content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">18 de Agosto</small>
@@ -124,11 +143,13 @@
 
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}" data-holder-rendered="true"
+                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                     data-holder-rendered="true"
                      style="height: 225px; width: 100%; display: block;">
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
                         content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">18 de Agosto</small>
@@ -139,11 +160,13 @@
 
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}" data-holder-rendered="true"
+                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                     data-holder-rendered="true"
                      style="height: 225px; width: 100%; display: block;">
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
                         content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">18 de Agosto</small>
@@ -151,10 +174,13 @@
                 </div>
             </div>
             <button style="background-color:black;color: white" type="button" class="btn btn-lg float-right">VER MÁS
-                →</button>
-        </div><br>
+                →
+            </button>
+        </div>
+        <br>
     </div>
-</div><br>
+</div>
+<br>
 
 <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">SIGUENOS EN NUESTRAS REDES SOCIALES</h1>
 
@@ -169,18 +195,22 @@
 
 <div class="container">
     <div class="card" id="galeriaImagenes"><br>
-        <h1 style="font-family: 'Montserrat', sans-serif; text-align: center" class="text-center">Galeria de Imagenes</h1>
+        <h1 style="font-family: 'Montserrat', sans-serif; text-align: center" class="text-center">Galeria de
+            Imagenes</h1>
         <div class="card-body ">
             <div class="row">
                 <div class="col-sm-4 mb-1">
-                    <a id="" data-fancybox="gallery" href="{{ asset('imagen_user/dance.jpg') }}"><img src="{{ asset('imagen_user/dance.jpg') }}"></a>
+                    <a id="" data-fancybox="gallery" href="{{ asset('imagen_user/dance.jpg') }}"><img
+                                src="{{ asset('imagen_user/dance.jpg') }}"></a>
                 </div>
                 <div class="col-sm-4 mb-1">
-                    <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
+                    <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
+                                src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
                 </div>
 
                 <div class="col-sm-4 mb-1">
-                    <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
+                    <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
+                                src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
                 </div>
 
             </div>
@@ -208,11 +238,13 @@
 
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}" data-holder-rendered="true"
+                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                     data-holder-rendered="true"
                      style="height: 225px; width: 100%; display: block;">
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
                         content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">18 de Agosto</small>
@@ -223,11 +255,13 @@
 
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}" data-holder-rendered="true"
+                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                     data-holder-rendered="true"
                      style="height: 225px; width: 100%; display: block;">
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
                         content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">18 de Agosto</small>
@@ -238,11 +272,13 @@
 
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}" data-holder-rendered="true"
+                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                     data-holder-rendered="true"
                      style="height: 225px; width: 100%; display: block;">
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
                         content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">18 de Agosto</small>
@@ -251,7 +287,8 @@
             </div>
         </div>
     </div>
-</div><br>
+</div>
+<br>
 
 <!-- Footer -->
 <footer style="background-color: black;color: white" class="page-footer font-small blue pt-4">
@@ -346,7 +383,6 @@
 <!-- Footer -->
 
 
-
 <script src="js/js_user/vendor/modernizr-3.7.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -357,8 +393,14 @@
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    window.ga = function () {
+        ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('set', 'transport', 'beacon');
+    ga('send', 'pageview')
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

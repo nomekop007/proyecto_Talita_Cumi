@@ -31,6 +31,7 @@
                 Publicaciones del sitio web
             </p>
             <br>
+
             <table class="table mi-dataTable text-center">
                 <thead class="thead-dark ">
                 <tr>
@@ -118,6 +119,7 @@
                             <i>{{$p->created_at}}</i>
                         </td>
                         <td>
+
                             <button class="btn btn-info btn-edit btn-sm"
                                     data-id="{{ base64_encode($p->id) }}"
                                     data-url="{{ route('getPublicidad') }}">
@@ -151,6 +153,7 @@
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content contenido">
+
             </div>
         </div>
     </div>
@@ -167,7 +170,12 @@
                 </div>
 
                 <div class="modal-body b_des">
-                    <h3>Cargando...</h3>
+
+                    <div class="overlay">
+                        <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                        <h6>Cargando...</h6>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary " data-dismiss="modal">cerrar</button>
@@ -212,6 +220,12 @@
                     <h4 class="modal-title" id="mimodalLabel_editar">Default Modal</h4>
                 </div>
                 <div class="modal-body b_editar col-md-12">
+
+                    <div class="overlay">
+                        <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                        <h6>Cargando...</h6>
+                    </div>
+
                 </div>
                 <div class="modal-footer btn_editar">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">cancelar</button>

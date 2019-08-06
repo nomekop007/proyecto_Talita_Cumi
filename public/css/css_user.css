@@ -11,6 +11,28 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+/* css de diego */
+.tam img ,video{
+    width: 200%;
+    height: 600px;
+
+}
+
+.menu{
+    background: url('../imagen_user/fondoInicio.jpg');
+    width: 100%;
+    height: auto;
+    transform: translate3d(0px, 0px, 0px);
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* efecto paradax*/
+
+}
+
+/* fin css de diego */
+
+
 html {
     color: #222;
     font-size: 1em;
