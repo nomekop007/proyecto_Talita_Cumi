@@ -23,7 +23,7 @@
 
 <div class="page-header header-filter clear-filter menu">
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top"
+    <nav class="navbar navbar-expand-lg navbar-light "
          style="background-color: transparent;font-family: 'Montserrat', sans-serif;">
         <a style="color: white; " class="navbar-brand" href="#"><img src="{{ asset('imagen_user/logo.png') }}" alt=""
                                                                      width="100">
@@ -52,9 +52,9 @@
     </nav>
 
     <div class="col-md-6 offset-md-3 text-right" style="position: absolute; color: white;margin-top: 30vh">
-        <h1 style="font-family: 'Parisienne', cursive;font-weight: 700;font-size: 12vh" class="text-center">Ballet
+        <h1 style="font-family: 'Parisienne', cursive;font-weight: 700 ;font-size: 6.5vw" class="text-center">Ballet
             Cristiano Talita-Cumi</h1><br><br>
-        <button style="background-color:black;color: white" type="button" class="btn btn-lg float-right">CALENDARIO DE
+        <button style="background-color:black;color: white ; font-size: 1.5vw" type="button"  class="btn btn-lg float-right">CALENDARIO DE
             EVENTOS →
         </button>
     </div>

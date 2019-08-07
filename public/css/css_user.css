@@ -22,13 +22,15 @@
     background: url('../imagen_user/fondoInicio.jpg');
     width: 100%;
     height: auto;
-    transform: translate3d(0px, 0px, 0px);
+    /*transform: translate3d(0px, 0px, 0px);*/
     background-blend-mode: soft-light;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed; /* efecto paradax*/
 
 }
+
+
 
 /* fin css de diego */
 
