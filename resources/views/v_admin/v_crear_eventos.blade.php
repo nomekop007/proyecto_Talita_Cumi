@@ -37,7 +37,7 @@
                     Crear Evento en el sitio web
                 </p><br>
                 <div class="form row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label for="titulo_evento">
                             Titulo evento
                         </label>
@@ -58,7 +58,7 @@
                             </input>
                         </div>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-5">
                         <label for="URLevento">
                             Insertar foto
                         </label>
@@ -88,16 +88,10 @@
                             </div>
                         </div>
 
-
-
-
-
-
-
                     </div>
                     <div class="form-group col-md-12">
                         <button class="btn btn-primary btn-sm" id="btnEnviar" type="submit">
-                            Crear Publicacion
+                            Crear Evento
                         </button>
                     </div>
                 </div>

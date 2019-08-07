@@ -43,17 +43,21 @@ Route::post('crearEvento','evento_controller@crearEvento')->name('crearEvento');
 
 // buscar publicaciones y eventos
 Route::post('getPublicidad','publicacion_controller@getByID')->name('getPublicidad');
+Route::post('getEvento','evento_controller@getByID')->name('getEvento');
 
 
 //eliminar publicacion y eventos
 Route::post('deletePublicacion','publicacion_controller@destroy')->name('deletePublicacion');
+Route::post('deleteEvento','evento_controller@destroy')->name('deleteEvento');
+
 
 //actualizar publicacion y eventos
 Route::post('updatePublicacion','publicacion_controller@update')->name('updatePublicacion');
+Route::post('updateEvento','evento_controller@update')->name('updateEvento');
 
 
 
 //subir publicidad
 Route::post('upPublicidad','publicacion_controller@subir')->name('upPublicidad');
-
+Route::post('upEvento','evento_controller@subir')->name('upEvento');
 

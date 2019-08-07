@@ -11,14 +11,15 @@ class EventoTable extends Migration
      *
      * @return void
      */
-      public function up()
+    public function up()
     {
-       Schema::defaultStringLength(191);
-       Schema::create('eventos', function (Blueprint $table) {
+        Schema::defaultStringLength(191);
+        Schema::create('eventos', function (Blueprint $table) {
             $table->increments('id');
             $table->String('tituloEvento');
-            $table->text('descripcionEvento'); 
-            $table->String('URLfoto')->nullable();
+            $table->text('descripcionEvento');
+            $table->String('URLfoto');
+            $table->String('estado'); //activo / inactivo
             $table->dateTime('fechaInicio');
             $table->dateTime('fechaFin');
             $table->timestamps();
@@ -32,6 +33,6 @@ class EventoTable extends Migration
      */
     public function down()
     {
-       Schema::dropIfExists('eventos');
+        Schema::dropIfExists('eventos');
     }
 }

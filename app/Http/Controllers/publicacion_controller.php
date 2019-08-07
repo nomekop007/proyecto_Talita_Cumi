@@ -104,7 +104,7 @@ class publicacion_controller extends Controller
         $publicacion->descripcionPublicacion = $request->descripcion_publicacion;
 
 
-        // pregunta si se selecciono un nuevo archivo
+        // pregunta si no se selecciono un nuevo archivo
         if ($request->URLpublicacion != 'x') {
 
 
