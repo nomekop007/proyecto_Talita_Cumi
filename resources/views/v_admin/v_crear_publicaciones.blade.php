@@ -39,48 +39,58 @@
                 </p><br>
                 <div class="form row">
 
+
                     <div class="form-group col-md-6">
+                        <label for="Categoria">
+                            seleccionar Ubicacion
+                        </label>
+                        <select class="form-control" id="Categoria" name="Categoria">
+                            <option value="2" class="inicio">
+                                En pagina de Inicio
+                            </option>
+                            <option value="1" class="galeria">
+                                En galeria multimedia
+                            </option>
+                            <option value="3" class="tienda">
+                                En Tienda Online
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6 seleccionar">
+                        <br>
+                        <button class="btn btn-primary btn-sm"
+                                id="btnSeleccionar"
+                                type="submit">
+                            seleccionar
+                        </button>
+                    </div>
+
+                    <div class="form-group col-md-6 titulo" hidden>
                         <label for="titulo_publicacion">
                             Titulo Publicacion
                         </label>
-                        <input class="form-control" id="titulo_publicacion" maxlength="30" name="titulo_publicacion"
+                        <input class="form-control" id="titulo_publicacion" maxlength="40" name="titulo_publicacion"
                                placeholder="ingrese un titulo" type="text">
                     </div>
-                    <div class="form-group col-md-6">
+
+
+                    <div class="form-group col-md-6 tipo" hidden>
                         <label for="tipo_publicacion">
                             Tipo Publicacion
                         </label>
-                        <br>
                         <select class="form-control combo" id="tipo_publicacion" name="tipo_publicacion">
-
                         </select>
-                        </br>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="Categoria">
-                            Ubicacion de la Publicacion
-                        </label>
-                        <br>
-                        <select class="form-control" id="Categoria" name="Categoria">
-                            <option value="1">
-                                En Galeria multimedia
-                            </option>
-                            <option value="2">
-                                Pagina de Inicio
-                            </option>
-                            <option value="3">
-                                Tienda Online
-                            </option>
-                        </select>
-                        </br>
-                    </div>
-                    <div class="form-group col-md-6 URLmedia">
+                    <div class="form-group col-md-6 URLmedia" hidden>
                         <label for="URLpublicacion">
                             Insertar foto
                         </label>
                         <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*">
                     </div>
-                    <div class="form-group col-md-12">
+
+
+                    <div class="form-group col-md-12 descripcion" hidden>
 
                         <div class="box box-info">
                             <div class="box-header">
@@ -98,28 +108,28 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body pad">
-                    <textarea id="descripcion_publicacion" name="descripcion_publicacion"
-                              placeholder="ingrese texto aqui" rows="10" cols="80">
-                    </textarea>
+                                 <textarea id="descripcion_publicacion" name="descripcion_publicacion"
+                                           placeholder="ingrese texto aqui" rows="10" cols="80">
+                                </textarea>
                             </div>
                         </div>
 
                     </div>
-
-
-                    <div class="form-group col-md-12">
+                    <br>
+                    <div class="form-group col-md-12 enviar" hidden>
                         <button class="btn btn-primary btn-sm"
                                 id="btnEnviar"
                                 type="submit">
                             Crear Publicacion
                         </button>
+
                         <!--pendiente -->
                         <div class="overlay text-center" id="spiner" style="display:none">
                             <i class="fa fa-refresh fa-spin fa-2x"> </i>
                             <h6>Subiendo...</h6>
                         </div>
-                    </div>
 
+                    </div>
 
                 </div>
             </div>

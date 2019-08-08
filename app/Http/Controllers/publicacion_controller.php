@@ -41,8 +41,11 @@ class publicacion_controller extends Controller
     {
         $publicacion = new publicacion();
 
-        $publicacion->tituloPublicacion = $Request->titulo_publicacion;
-        $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
+        if ($Request->Categoria != 1){
+            $publicacion->tituloPublicacion = $Request->titulo_publicacion;
+            $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
+        }
+
         $publicacion->tipo = $Request->tipo_publicacion;
         $publicacion->categoria = $Request->Categoria;
         $publicacion->estado = "inactivo";

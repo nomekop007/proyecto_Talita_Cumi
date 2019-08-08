@@ -16,8 +16,8 @@ class PublicacionTable extends Migration
        Schema::defaultStringLength(191);
        Schema::create('publicacions', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('tituloPublicacion');
-            $table->text('descripcionPublicacion'); 
+            $table->String('tituloPublicacion')->nullable();
+            $table->text('descripcionPublicacion')->nullable();
             $table->String('URLpublicacion');
             $table->String('estado'); //activo / inactivo 
             $table->integer('tipo'); // 1:Foto , 2:video

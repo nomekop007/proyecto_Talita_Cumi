@@ -6,6 +6,42 @@ $(document).ready(function () {
         }
     });
 
+    $('.tipo').hide();
+    $('.URLmedia').hide();
+    $('.titulo').hide();
+
+    $('.enviar').hide();
+
+
+    //seleecionar ubicacion
+    $('#btnSeleccionar').click(function (event) {
+        event.preventDefault();
+
+       var c = $('#Categoria').val();
+       console.log(c)
+        //1   En galeria multimedia
+        //2    En pagina de Inicio
+        //3   En Tienda Online
+
+
+        if (c != 1){
+            $('.descripcion').show();
+            $('.titulo').show();
+        }
+
+        $('.tipo').show();
+        $('.URLmedia').show();
+        $('.enviar').show();
+
+        $('#Categoria').attr("disabled", true);
+        $('.seleccionar').hide();
+
+    });
+
+
+
+
+
     //cargar combobox tipo
     var html = '  <option value="1" class="v-foto">' +
         '                               Foto' +
@@ -67,6 +103,8 @@ $(document).ready(function () {
 
 
 
+
+
     //valida los campos y guarda en base de datos
     $('#btnEnviar').click(function (event) {
         event.preventDefault();
@@ -77,56 +115,105 @@ $(document).ready(function () {
     //validar y guardar en bd
     function validarCampos() {
 
-
+        var opcion = $('#Categoria').val();
         var paqueteDeDatos = new FormData();
         //rescatar los valores de los input y guardarlas en un formData
-        paqueteDeDatos.append('URLpublicacion', $('#URLpublicacion')[0].files[0]);
-        paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
-        paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
         paqueteDeDatos.append('Categoria', $('#Categoria').prop('value'));
+        paqueteDeDatos.append('URLpublicacion', $('#URLpublicacion')[0].files[0]);
         paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
 
 
+        if (opcion != 1){
+            paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
+            paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
 
-        //octener valor input por sus id
-        var titulo_publicacion = $('#titulo_publicacion').val();
-        var URLpublicacion = $('#URLpublicacion').val();
-        var descripcion_publicacion = CKEDITOR.instances['descripcion_publicacion'].getData();
+            //octener valor input por sus id
+            var titulo_publicacion = $('#titulo_publicacion').val();
+            var URLpublicacion = $('#URLpublicacion').val();
+            var descripcion_publicacion = CKEDITOR.instances['descripcion_publicacion'].getData();
 
 
-        if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
-            swal('Campos Vacios', 'faltan datos ', 'error')
-        } else {
-            //recacar url del boton
-            var url = $('#formulario').attr('action');
+            if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
+                swal('Campos Vacios', 'faltan datos ', 'error')
+            } else {
+                //recacar url del boton
+                var url = $('#formulario').attr('action');
 
-            $('#btnEnviar').attr("disabled", true);
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: paqueteDeDatos,
-                processData: false,
-                contentType: false,
-                success: function (datos) {
-                    console.log(datos);
-                    if (datos == "ok") {
-                        setTimeout(function () {
-                            window.location = window.location;
-                        }, 900);
-                        swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
-                    } else {
-                        swal('algo paso', 'faltan datos ', 'error')
+                $('#btnEnviar').attr("disabled", true);
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: paqueteDeDatos,
+                    processData: false,
+                    contentType: false,
+                    success: function (datos) {
+                        console.log(datos);
+                        if (datos == "ok") {
+                            setTimeout(function () {
+                                window.location = window.location;
+                            }, 900);
+                            swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
+                        } else {
+                            swal('algo paso', 'faltan datos ', 'error')
+                        }
+                        $('#btnEnviar').attr("disabled", false);
+                    },
+                    error: function (error) {
+                        console.log(error);
                     }
-                    $('#btnEnviar').attr("disabled", false);
-                },
-                error: function (error) {
-                    console.log(error);
-                }
 
-            });
+                });
+
+
+            }
+
+
+
+        }else {
+
+            //octener valor input por sus id
+            var URLpublicacion = $('#URLpublicacion').val();
+
+            if ( URLpublicacion.length == 0) {
+                swal('Campos Vacios', 'falta seleccionar archivo ', 'error')
+            } else {
+                //recacar url del boton
+                var url = $('#formulario').attr('action');
+
+                $('#btnEnviar').attr("disabled", true);
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: paqueteDeDatos,
+                    processData: false,
+                    contentType: false,
+                    success: function (datos) {
+                        console.log(datos);
+                        if (datos == "ok") {
+                            setTimeout(function () {
+                                window.location = window.location;
+                            }, 900);
+                            swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
+                        } else {
+                            swal('algo paso', 'faltan datos ', 'error')
+                        }
+                        $('#btnEnviar').attr("disabled", false);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+
+                });
+
+
+            }
+
 
 
         }
+
+
+
     }
 
     //modal imagen
@@ -274,7 +361,7 @@ $(document).ready(function () {
                     '                        <label for="titulo_publicacionX">\n' +
                     '                            Titulo Publicacion\n' +
                     '                        </label>\n' +
-                    '                        <input class="form-control" id="titulo_publicacionX" maxlength="30" name="titulo_publicacionX"\n' +
+                    '                        <input class="form-control" id="titulo_publicacionX" maxlength="40" name="titulo_publicacionX"\n' +
                     '                               placeholder="ingrese un titulo" type="text" value="'+datos['tituloPublicacion']+'">\n' +
                     '                    </div>\n' +
                     '                    <div class="form-group col-md-6">\n' +
