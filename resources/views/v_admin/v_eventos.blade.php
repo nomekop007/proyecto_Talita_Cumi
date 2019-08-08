@@ -48,6 +48,8 @@
                 @foreach($eventos as $e)
                     <tr>
                         <td>
+                            <div style="visibility: hidden">.</div>
+
                             {{ $e->tituloEvento }}
                         </td>
                         <td>
@@ -63,6 +65,7 @@
 
                         </td>
                         <td>
+                            <div style="visibility: hidden">.</div>
                             <a class="btn-descripcion"
                                data-url="{{$e->descripcionEvento}}"
                                data-title="{{$e->tituloEvento}}"
@@ -72,10 +75,11 @@
                             </a>
                         </td>
                         <td>
+                            <div style="visibility: hidden">.</div>
                             <i>{{$e->created_at}}</i>
                         </td>
                         <td>
-
+                            <div style="visibility: hidden">.</div>
                             <button class="btn btn-info btn-edit btn-sm"
                                     data-id="{{ base64_encode($e->id) }}"
                                     data-url="{{ route('getEvento') }}">

@@ -101,10 +101,14 @@ class publicacion_controller extends Controller
         $id = base64_decode($request->id);
         $publicacion = publicacion::find($id);
 
-        $publicacion->tituloPublicacion = $request->titulo_publicacion;
-        $publicacion->categoria = $request->Categoria;
 
-        $publicacion->descripcionPublicacion = $request->descripcion_publicacion;
+        if ($publicacion->categoria != 1){
+
+            $publicacion->tituloPublicacion = $request->titulo_publicacion;
+            $publicacion->categoria = $request->Categoria;
+            $publicacion->descripcionPublicacion = $request->descripcion_publicacion;
+        }
+
 
 
         // pregunta si no se selecciono un nuevo archivo

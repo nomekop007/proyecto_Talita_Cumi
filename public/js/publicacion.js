@@ -17,14 +17,14 @@ $(document).ready(function () {
     $('#btnSeleccionar').click(function (event) {
         event.preventDefault();
 
-       var c = $('#Categoria').val();
-       console.log(c)
+        var c = $('#Categoria').val();
+        console.log(c)
         //1   En galeria multimedia
         //2    En pagina de Inicio
         //3   En Tienda Online
 
 
-        if (c != 1){
+        if (c != 1) {
             $('.descripcion').show();
             $('.titulo').show();
         }
@@ -37,9 +37,6 @@ $(document).ready(function () {
         $('.seleccionar').hide();
 
     });
-
-
-
 
 
     //cargar combobox tipo
@@ -101,10 +98,6 @@ $(document).ready(function () {
     });
 
 
-
-
-
-
     //valida los campos y guarda en base de datos
     $('#btnEnviar').click(function (event) {
         event.preventDefault();
@@ -123,7 +116,7 @@ $(document).ready(function () {
         paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
 
 
-        if (opcion != 1){
+        if (opcion != 1) {
             paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
             paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
 
@@ -168,13 +161,12 @@ $(document).ready(function () {
             }
 
 
-
-        }else {
+        } else {
 
             //octener valor input por sus id
             var URLpublicacion = $('#URLpublicacion').val();
 
-            if ( URLpublicacion.length == 0) {
+            if (URLpublicacion.length == 0) {
                 swal('Campos Vacios', 'falta seleccionar archivo ', 'error')
             } else {
                 //recacar url del boton
@@ -209,9 +201,7 @@ $(document).ready(function () {
             }
 
 
-
         }
-
 
 
     }
@@ -261,7 +251,9 @@ $(document).ready(function () {
     //modal eliminar publicacion
     $('.btn-delete').click(function (event) {
         event.preventDefault();
-        var id = $('.btn-edit').data('id');
+
+        var id = $('#edi').prop('value');
+
         var url = $(this).data('url');
         $.ajax({
             type: "POST",
@@ -270,7 +262,12 @@ $(document).ready(function () {
                 id: id
             },
             success: function (datos) { //remplazando los datos del modal con los de la base de datos
-                $('#mimodalLabel_eliminar').html(datos['tituloPublicacion']);
+                if (datos['categoria'] != 1) {
+                    $('#mimodalLabel_eliminar').html(datos['tituloPublicacion']);
+                } else {
+                    $('#mimodalLabel_eliminar').html('Media N°' + datos['id'] + ' de la galeria de imagenes');
+                }
+
 
                 $('#eli').val(datos['id'])
                 var html = ' ¿esta seguro de eliminar esto?' +
@@ -290,6 +287,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var id = $('#eli').val();
+
         var url = $(this).data('url');
 
         $.ajax({
@@ -332,133 +330,192 @@ $(document).ready(function () {
                 id: id
             },
             success: function (datos) { //remplazando los datos del modal con los de la base de datos
-                $('#mimodalLabel_editar').html(datos['tituloPublicacion']);
+                if (datos['categoria'] != 1) {
+                    $('#mimodalLabel_editar').html(datos['tituloPublicacion']);
+
+                    var c = datos['categoria'];
+                    var i = 0;
+                    var x = 0;
+
+                    if (c == 2) {
+                        a1 = 'Pagina de Inicio';
+                        a2 = 'Tienda Online';
+
+                        i = 2;
+                        x = 3;
+                    } else {
+                        a1 = 'Tienda Online';
+                        a2 = 'Pagina de Inicio';
+                        i = 3;
+                        x = 2;
+                    }
 
 
-                var c = datos['categoria'];
-                var i = 0;
-                if (c == 1){
-                    c =' En Galeria multimedia'
-                    i = 1;
-                } else if (c == 2){
-                    c ='Pagina de Inicio'
-                    i = 2;
+                    //completar formulario
+                    var html = '<div class="form-row">\n' +
+                        '            <div class="form-group col-md-12">\n' +
+                        '                <div class="form row">\n' +
+                        '<input id="edi" name="idModalEditarPublicacion" type="hidden" value="' + id + '">' +
+                        '<input id="cat" name="idModalEditarPublicacion2" type="hidden" value="' + datos['categoria'] + '">' +
+                        '\n' +
+                        '                    <div class="form-group col-md-6">\n' +
+                        '                        <label for="titulo_publicacionX">\n' +
+                        '                            Titulo Publicacion\n' +
+                        '                        </label>\n' +
+                        '                        <input class="form-control" id="titulo_publicacionX" maxlength="40" name="titulo_publicacionX"\n' +
+                        '                               placeholder="ingrese un titulo" type="text" value="' + datos['tituloPublicacion'] + '">\n' +
+                        '                    </div>\n' +
+                        '                    <div class="form-group col-md-6">\n' +
+                        '                        <label for="tipo_publicacionX">\n' +
+                        '                            Tipo Publicacion\n' +
+                        '                        </label>\n' +
+                        '                        <br>\n' +
+                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX">\n' +
+                        '                            <option value="1" class="v-fotoX">\n' +
+                        '                               Foto\n' +
+                        '                            </option>\n' +
+                        '                            <option value="2" class="v-videoX">\n' +
+                        '                               Video\n' +
+                        '                            </option>\n' +
+                        '                        </select>\n' +
+                        '                        </br>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="form-group col-md-6">\n' +
+                        '                        <label for="CategoriaX">\n' +
+                        '                            Ubicacion de la Publicacion\n' +
+                        '                        </label>\n' +
+                        '                        <br>\n' +
+                        '                        <select class="form-control" id="CategoriaX" name="CategoriaX">\n' +
+                        '                            <option value="' + i + '">\n' +
+                        '                                ' +
+                        a1
+                        + '\n' +
+                        '                            </option>\n' +
+                        '                            <option value="' + x + '">\n' +
+                        '                                ' +
+                        a2
+                        + '\n' +
+                        '                            </option>\n' +
+                        '                        </select>\n' +
+                        '                        </br>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="form-group col-md-6 URLmediaX">\n' +
+                        '                        <label for="URLpublicacionX">\n' +
+                        '                            Actualizar foto (opcional)\n' +
+                        '                        </label>\n' +
+                        '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*"   >\n' +
+                        '                    </div>\n' +
+                        '                    <div class="form-group col-md-12">\n' +
+                        '\n' +
+                        '                        <div class="box box-info">\n' +
+                        '                            <div class="box-header">\n' +
+                        '                                <h3 class="box-title">Descripcion\n' +
+                        '                                    <small>CK Editor</small>\n' +
+                        '                                </h3>\n' +
+                        '                            </div>\n' +
+                        '                            <!-- /.box-header -->\n' +
+                        '                            <div class="box-body pad">\n' +
+                        '                    <textarea id="descripcion_publicacionX" name="descripcion_publicacionX" placeholder="ingrese texto aqui" rows="10" cols="80">\n' +
+                        '                                ' +
+                        datos['descripcionPublicacion']
+                        + '\n' +
+                        '                    </textarea>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '            </div>\n' +
+                        '        </div>';
+
+
+                    $('.b_editar').html(html);
+
+
+                    $(function () {
+                        CKEDITOR.replace('descripcion_publicacionX')
+                    });
+
+
+                    //validacion de guardar imagen y video del modal editar publiacion
+                    $('.v-fotoX').click(function (event) {
+                        event.preventDefault();
+                        var html = '         <label for="URLpublicacionX">' +
+                            '                            Actualizar foto (opcional) ' +
+                            '                        </label>\n' +
+                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
+                        $('.URLmediaX').html(html);
+                    });
+                    $('.v-videoX').click(function (event) {
+                        event.preventDefault();
+                        var html = '         <label for="URLpublicacionX">' +
+                            '                            Actualizar video (opcional) ' +
+                            '                        </label>\n' +
+                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
+
+                        $('.URLmediaX').html(html);
+                    });
+
+
                 } else {
-                    c ='Tienda Online'
-                    i = 3;
+
+                    $('#mimodalLabel_editar').html('Media N°' + datos['id'] + ' de la galeria de imagenes');
+                    //completar formulario
+                    var html = '<div class="form-row">\n' +
+                        '            <div class="form-group col-md-12">\n' +
+                        '                <div class="form row">\n' +
+                        '<input id="edi" name="idModalEditarPublicacion" type="hidden" value="' + id + '">' +
+                        '<input id="cat" name="idModalEditarPublicacion2" type="hidden" value="' + datos['categoria'] + '">' +
+                        '\n' +
+
+                        '                    <div class="form-group col-md-6">\n' +
+                        '                        <label for="tipo_publicacionX">\n' +
+                        '                            Tipo Publicacion\n' +
+                        '                        </label>\n' +
+                        '                        <br>\n' +
+                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX">\n' +
+                        '                            <option value="1" class="v-fotoX">\n' +
+                        '                               Foto\n' +
+                        '                            </option>\n' +
+                        '                            <option value="2" class="v-videoX">\n' +
+                        '                               Video\n' +
+                        '                            </option>\n' +
+                        '                        </select>\n' +
+                        '                        </br>\n' +
+                        '                    </div>\n' +
+
+                        '                    <div class="form-group col-md-6 URLmediaX">\n' +
+                        '                        <label for="URLpublicacionX">\n' +
+                        '                            Actualizar foto (opcional)\n' +
+                        '                        </label>\n' +
+                        '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*"   >\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '            </div>\n' +
+                        '        </div>';
+
+
+                    $('.b_editar').html(html);
+
+
+                    //validacion de guardar imagen y video del modal editar publiacion
+                    $('.v-fotoX').click(function (event) {
+                        event.preventDefault();
+                        var html = '         <label for="URLpublicacionX">' +
+                            '                            Actualizar foto (opcional) ' +
+                            '                        </label>\n' +
+                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
+                        $('.URLmediaX').html(html);
+                    });
+                    $('.v-videoX').click(function (event) {
+                        event.preventDefault();
+                        var html = '         <label for="URLpublicacionX">' +
+                            '                            Actualizar video (opcional) ' +
+                            '                        </label>\n' +
+                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
+
+                        $('.URLmediaX').html(html);
+                    });
                 }
-
-
-
-
-                //completar formulario
-                var html = '<div class="form-row">\n' +
-                    '            <div class="form-group col-md-12">\n' +
-                    '                <div class="form row">\n' +
-                    '<input id="edi" name="idModalEditarPublicacion" type="hidden" value="' + id + '">' +
-                    '\n' +
-                    '                    <div class="form-group col-md-6">\n' +
-                    '                        <label for="titulo_publicacionX">\n' +
-                    '                            Titulo Publicacion\n' +
-                    '                        </label>\n' +
-                    '                        <input class="form-control" id="titulo_publicacionX" maxlength="40" name="titulo_publicacionX"\n' +
-                    '                               placeholder="ingrese un titulo" type="text" value="'+datos['tituloPublicacion']+'">\n' +
-                    '                    </div>\n' +
-                    '                    <div class="form-group col-md-6">\n' +
-                    '                        <label for="tipo_publicacionX">\n' +
-                    '                            Tipo Publicacion\n' +
-                    '                        </label>\n' +
-                    '                        <br>\n' +
-                    '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX">\n' +
-                    '                            <option value="1" class="v-fotoX">\n' +
-                    '                               Foto\n' +
-                    '                            </option>\n' +
-                    '                            <option value="2" class="v-videoX">\n' +
-                    '                               Video\n' +
-                    '                            </option>\n'+
-                    '                        </select>\n' +
-                    '                        </br>\n' +
-                    '                    </div>\n' +
-                    '                    <div class="form-group col-md-6">\n' +
-                    '                        <label for="CategoriaX">\n' +
-                    '                            Ubicacion de la Publicacion\n' +
-                    '                        </label>\n' +
-                    '                        <br>\n' +
-                    '                        <select class="form-control" id="CategoriaX" name="CategoriaX">\n' +
-                    '                            <option value="'+i+'">\n' +
-                    '                                '+
-                          c
-                    +'\n' +
-                    '                            </option>\n' +
-                    '                            <option value="1">\n' +
-                    '                                En Galeria multimedia\n' +
-                    '                            </option>\n' +
-                    '                            <option value="2">\n' +
-                    '                                Pagina de Inicio\n' +
-                    '                            </option>\n' +
-                    '                            <option value="3">\n' +
-                    '                                Tienda Online\n' +
-                    '                            </option>\n' +
-                    '                        </select>\n' +
-                    '                        </br>\n' +
-                    '                    </div>\n' +
-                    '                    <div class="form-group col-md-6 URLmediaX">\n' +
-                    '                        <label for="URLpublicacionX">\n' +
-                    '                            Actualizar foto (opcional)\n' +
-                    '                        </label>\n' +
-                    '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*"   >\n' +
-                    '                    </div>\n' +
-                    '                    <div class="form-group col-md-12">\n' +
-                    '\n' +
-                    '                        <div class="box box-info">\n' +
-                    '                            <div class="box-header">\n' +
-                    '                                <h3 class="box-title">Descripcion\n' +
-                    '                                    <small>CK Editor</small>\n' +
-                    '                                </h3>\n' +
-                    '                            </div>\n' +
-                    '                            <!-- /.box-header -->\n' +
-                    '                            <div class="box-body pad">\n' +
-                    '                    <textarea id="descripcion_publicacionX" name="descripcion_publicacionX" placeholder="ingrese texto aqui" rows="10" cols="80">\n' +
-                    '                                '+
-                    datos['descripcionPublicacion']
-                    +'\n' +
-                    '                    </textarea>\n' +
-                    '                            </div>\n' +
-                    '                        </div>\n' +
-                    '                    </div>\n' +
-                    '                </div>\n' +
-                    '            </div>\n' +
-                    '        </div>';
-
-
-                $('.b_editar').html(html);
-
-
-
-
-                $(function () {
-                    CKEDITOR.replace('descripcion_publicacionX')
-                });
-
-
-                //validacion de guardar imagen y video del modal editar publiacion
-                $('.v-fotoX').click(function (event) {
-                    event.preventDefault();
-                    var html = '         <label for="URLpublicacionX">' +
-                        '                            Actualizar foto (opcional) ' +
-                        '                        </label>\n' +
-                        '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
-                    $('.URLmediaX').html(html);
-                });
-                $('.v-videoX').click(function (event) {
-                    event.preventDefault();
-                    var html = '         <label for="URLpublicacionX">' +
-                        '                            Actualizar video (opcional) ' +
-                        '                        </label>\n' +
-                        '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
-
-                    $('.URLmediaX').html(html);
-                });
 
 
             },
@@ -470,7 +527,6 @@ $(document).ready(function () {
         $('#modal_editar').modal('show');
 
 
-
     });
 
 
@@ -478,34 +534,19 @@ $(document).ready(function () {
     $('#editar').click(function (event) {
         event.preventDefault();
 
-
-
-        var titulo = $('#titulo_publicacionX').val();
-        var descripcion = CKEDITOR.instances['descripcion_publicacionX'].getData();
-
-        if (descripcion.length == 0 || titulo.length == 0) {
-
-            swal('algo paso', 'faltaron datos que completar ', 'error')
-
-        } else {
-
-            var paqueteDeDatos = new FormData();
-            //rescatar los valores de los input y guardarlas en un formData
-            paqueteDeDatos.append('id', $('#edi').prop('value'));
-
-            paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacionX').prop('value'));
-            paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacionX'].getData());
-            paqueteDeDatos.append('Categoria', $('#CategoriaX').prop('value'));
-            paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+       var t = $('#cat').prop('value')
+        if (t == 1) {
 
             var file = $('#URLpublicacionX').val();
-            if (file == ""){
-                paqueteDeDatos.append('URLpublicacion', 'x');
+        if (file.length == 0){
+            swal('algo paso', 'por favor seleccione un archivo ', 'error')
+        }else {
 
-            }else {
-                paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
-            }
 
+            var paqueteDeDatos = new FormData();
+            paqueteDeDatos.append('id', $('#edi').prop('value'));
+            paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+            paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
             var url = $(this).data('url');
             $('#editar').attr("disabled", true);
             $.ajax({
@@ -533,6 +574,69 @@ $(document).ready(function () {
 
 
         }
+
+
+
+
+
+
+
+        } else {
+            var titulo = $('#titulo_publicacionX').val();
+            var descripcion = CKEDITOR.instances['descripcion_publicacionX'].getData();
+
+            if (descripcion.length == 0 || titulo.length == 0) {
+
+                swal('algo paso', 'faltaron datos que completar ', 'error')
+
+            } else {
+
+                var paqueteDeDatos = new FormData();
+                //rescatar los valores de los input y guardarlas en un formData
+                paqueteDeDatos.append('id', $('#edi').prop('value'));
+
+                paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacionX').prop('value'));
+                paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacionX'].getData());
+                paqueteDeDatos.append('Categoria', $('#CategoriaX').prop('value'));
+                paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+
+                var file = $('#URLpublicacionX').val();
+                if (file == "") {
+                    paqueteDeDatos.append('URLpublicacion', 'x');
+
+                } else {
+                    paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
+                }
+
+                var url = $(this).data('url');
+                $('#editar').attr("disabled", true);
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: paqueteDeDatos,
+                    processData: false,
+                    contentType: false,
+                    success: function (datos) {
+                        console.log(datos);
+                        if (datos == "ok") {
+                            setTimeout(function () {
+                                window.location = window.location;
+                            }, 900);
+                            swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
+                            $('#editar').attr("disabled", false);
+                        } else {
+                            swal('algo paso', 'faltan datos ', 'error')
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+
+            }
+        }
+
     });
 
 
@@ -580,7 +684,6 @@ $(document).ready(function () {
 
             }
         });
-
 
 
     });
@@ -632,9 +735,7 @@ $(document).ready(function () {
         });
 
 
-
     });
-
 
 
 });

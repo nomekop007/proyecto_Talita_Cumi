@@ -141,7 +141,7 @@ $(document).ready(function () {
     //modal eliminar evento
     $('.btn-delete').click(function (event) {
         event.preventDefault();
-        var id = $('.btn-edit').data('id');
+        var id = $('#edi').prop('value');
         var url = $(this).data('url');
         $.ajax({
             type: "POST",

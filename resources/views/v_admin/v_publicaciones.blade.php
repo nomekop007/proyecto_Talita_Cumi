@@ -60,14 +60,19 @@
                 </thead>
                 <tbody>
                 @foreach($publicaciones as $p)
-                    <tr >
+                    <tr>
                         <td>
+                            <div style="visibility: hidden">.</div>
+                            @if($p->tituloPublicacion == null)
+                                Media N° {{ $p->id }}
+                            @endif
                             {{ $p->tituloPublicacion }}
                         </td>
                         <td>
                             @if($p->tipo == 1)
-                                <div style="visibility: hidden">imagen</div>
+                                <div style="visibility: hidden">foto</div>
                                 <i class="far fa-image fa-2x"></i>
+                                <div style="visibility: hidden">imagen</div>
                             @endif
 
                             @if($p->tipo == 2)
@@ -76,6 +81,7 @@
                             @endif
                         </td>
                         <td>
+                            <div style="visibility: hidden">.</div>
                             @if($p->categoria == 1)
                                 <i>Galeria multimedia</i>
                             @endif
@@ -107,19 +113,27 @@
                             @endif
                         </td>
                         <td>
-                            <a class="btn-descripcion"
-                               data-url="{{$p->descripcionPublicacion}}"
-                               data-title="{{$p->tituloPublicacion}}"
-                               data-toggle="modal"
-                               data-target="#modal-default">
-                                <i class="far fa-eye color"></i></i>
-                            </a>
+                            <div style="visibility: hidden">.</div>
+                            @if($p->descripcionPublicacion == null)
+                                <i class="far fa-eye-slash"></i>
+                            @endif
+                            @if($p->descripcionPublicacion != null)
+                                <a class="btn-descripcion"
+                                   data-url="{{$p->descripcionPublicacion}}"
+                                   data-title="{{$p->tituloPublicacion}}"
+                                   data-toggle="modal"
+                                   data-target="#modal-default">
+                                    <i class="far fa-eye color"></i></i>
+                                </a>
+                            @endif
+
                         </td>
                         <td>
+                            <div style="visibility: hidden">.</div>
                             <i>{{$p->created_at}}</i>
                         </td>
                         <td>
-
+                            <div style="visibility: hidden">.</div>
                             <button class="btn btn-info btn-edit btn-sm"
                                     data-id="{{ base64_encode($p->id) }}"
                                     data-url="{{ route('getPublicidad') }}">
@@ -128,14 +142,17 @@
                             </button>
 
                             @if($p->estado == 'inactivo')
-                            <button class="btn btn-success btn-public"
-                                    data-id="{{ base64_encode($p->id) }}"
-                                    data-url="{{ route('upPublicidad') }}"><i class="fas fa-upload"></i>Publicar</button>
+                                <button class="btn btn-success btn-public"
+                                        data-id="{{ base64_encode($p->id) }}"
+                                        data-url="{{ route('upPublicidad') }}"><i class="fas fa-upload"></i>Publicar
+                                </button>
                             @endif
                             @if($p->estado == 'activo')
                                 <button class="btn btn-warning btn-ocultar"
                                         data-id="{{ base64_encode($p->id) }}"
-                                        data-url="{{ route('upPublicidad') }}"><i class="fab fa-creative-commons-pd"></i>Ocultar</button>
+                                        data-url="{{ route('upPublicidad') }}"><i
+                                            class="fab fa-creative-commons-pd"></i>Ocultar
+                                </button>
                             @endif
                         </td>
                     </tr>
@@ -217,7 +234,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="mimodalLabel_editar">Default Modal</h4>
+                    <h4 class="modal-title" id="mimodalLabel_editar">Cargando modal</h4>
                 </div>
                 <div class="modal-body b_editar col-md-12">
 
