@@ -228,7 +228,7 @@ desired effect
 <script src="{{ asset('adminLTE_admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminLTE_admin/js/adminlte.min.js')}}"></script>
-<script src="{{ asset('js/sweetalert2.min.js')}}"></script>
+<script src="{{ asset('js/js_admin/sweetalert2.min.js')}}"></script>
 
 <!-- editor de texto-->
 <script src="{{ asset('adminLTE_admin/bower_components/ckeditor/ckeditor.js')}}"></script>
@@ -244,7 +244,7 @@ desired effect
 <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
 <!-- datatable -->
-<script src="{{ asset('js/dataTables.min.js')}}"></script>
+<script src="{{ asset('js/js_admin/dataTables.min.js')}}"></script>
 
 @yield('jsextra')
 

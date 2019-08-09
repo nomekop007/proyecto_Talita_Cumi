@@ -101,7 +101,7 @@
 @endsection
 
 @section('jsextra')
-    <script src="{{ asset('js/evento.js')}}">
+    <script src="{{ asset('js/js_admin/evento.js')}}">
     </script>
     <script>
         $(function () {

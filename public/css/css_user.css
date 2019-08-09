@@ -10,6 +10,9 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+/* CSS Document */
+
+
 
 /* css de diego */
 .tam img ,video{
@@ -29,7 +32,14 @@
     background-attachment: fixed; /* efecto paradax*/
 
 }
+@media (min-width: 768px) {
+    .carousel-multi-item-2 .col-md-3 {
+        float: left;
+        width: 25%;
+        max-width: 100%; } }
 
+.carousel-multi-item-2 .card img {
+    border-radius: 2px; }
 
 
 /* fin css de diego */

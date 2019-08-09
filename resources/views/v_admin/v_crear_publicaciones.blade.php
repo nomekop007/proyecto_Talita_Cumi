@@ -138,7 +138,7 @@
 @endsection
 
 @section('jsextra')
-    <script src="{{ asset('js/publicacion.js')}}"></script>
+    <script src="{{ asset('js/js_admin/publicacion.js')}}"></script>
     <script>
         $(function () {
             CKEDITOR.replace('descripcion_publicacion')

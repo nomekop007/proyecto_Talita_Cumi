@@ -267,7 +267,7 @@
 @endsection
 
 @section('jsextra')
-    <script src="{{ asset('js/publicacion.js')}}">
+    <script src="{{ asset('js/js_admin/publicacion.js')}}">
     </script>
 
 @endsection

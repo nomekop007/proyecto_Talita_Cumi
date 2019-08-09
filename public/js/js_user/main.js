@@ -10,5 +10,9 @@ $(document).ready(function () {
     L.marker([-35.430869, -71.662904]).addTo(map)
         .bindPopup('BALLET CRISTIANO TALITA CUMI')
         .openPopup();
+
+
+
+
 })
 

@@ -10,22 +10,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"/>
     <link rel="stylesheet" href="{{ asset('css/css_user.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/css_user.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cardSlider.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="theme-color" content="#fafafa">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Talita Cumi</title>
 </head>
 <body>
 
 
-<div class="page-header header-filter clear-filter menu">
 
-    <nav class="navbar navbar-expand-lg navbar-light "
+    @yield('header')
+
+    <nav class="navbar navbar-expand-lg navbar-light"
          style="background-color: transparent;font-family: 'Montserrat', sans-serif;">
-        <a style="color: white; " class="navbar-brand" href="#"><img src="{{ asset('imagen_user/logo.png') }}" alt=""
+        <a style="" class="navbar-brand " href="#"><img src="{{ asset('imagen_user/logo.png') }}" alt=""
                                                                      width="100">
             <b> TALITA CUMI
             </b></a>
@@ -36,259 +38,31 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a style="color: white" class="nav-link" href="#"><b>Areas de Formacion</b></a>
+                    <a style="" class="nav-link" href="#"><b>Areas de Formacion</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a style="color: white" class="nav-link" href="#"><b>Galeria</b></a>
+                    <a style="" class="nav-link" href="#"><b>Galeria</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a style="color: white" class="nav-link" href="#"><b>Historia de la Academia</b></a>
+                    <a style="" class="nav-link" href="#"><b>Historia de la Academia</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a style="color: white" class="nav-link" href="#"><b>Mision y Vision</b></a>
+                    <a style="" class="nav-link" href="#"><b>Mision y Vision</b></a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="col-md-6 offset-md-3 text-right" style="position: absolute; color: white;margin-top: 30vh">
-        <h1 style="font-family: 'Parisienne', cursive;font-weight: 700 ;font-size: 6.5vw" class="text-center">Ballet
-            Cristiano Talita-Cumi</h1><br><br>
-        <button style="background-color:black;color: white ; font-size: 1.5vw" type="button"  class="btn btn-lg float-right">CALENDARIO DE
-            EVENTOS →
-        </button>
-    </div>
+    @yield('boton')
 
 
-</div>
-<br>
 
-<h1 style="font-family: 'Montserrat', sans-serif; text-align: center ">ASPECTOS DESTACADOS</h1>
+
 <br>
 
 
-<!--modificacion Diego -->
-<div class="row">
-    <div class="col-md-11 mx-auto">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+@yield('contenido')
 
-            <div class="carousel-inner tam">
-
-
-                <div class="carousel-item active">
-                    <img src="/imagen_user/2019.jpg" class="d-block w-100" alt="...">
-                </div>
-
-                @foreach($publicaciones as $p)
-                    @if($p->categoria == 2)
-                        @if($p->estado == 'activo')
-                            <div class="carousel-item ">
-
-                                @if($p->tipo == 1)
-                                    <img alt="First slide" class="d-block w-100"
-                                         src="{{ Storage::url($p->URLpublicacion) }}" alt="">
-                                @endif
-
-                                @if($p->tipo == 2)
-                                    <video alt="First slide" class="d-block w-100" controls width=600>
-                                        <source src="{{ Storage::url($p->URLpublicacion) }}" type="video/mp4">
-                                    </video>
-                                @endif
-                            </div>
-                        @endif
-                    @endif
-                @endforeach
-
-
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-    <!--fin modificacion Diego -->
-
-</div>
-<br>
-
-
-<h1 style="font-family: 'Montserrat', sans-serif; text-align: center">PROXIMOS EVENTOS</h1>
-
-<br>
-
-<div class="container">
-    <div class="row">
-
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
-                     data-holder-rendered="true"
-                     style="height: 225px; width: 100%; display: block;">
-                <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                    <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">18 de Agosto</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
-                     data-holder-rendered="true"
-                     style="height: 225px; width: 100%; display: block;">
-                <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                    <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">18 de Agosto</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
-                     data-holder-rendered="true"
-                     style="height: 225px; width: 100%; display: block;">
-                <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                    <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">18 de Agosto</small>
-                    </div>
-                </div>
-            </div>
-            <button style="background-color:black;color: white" type="button" class="btn btn-lg float-right">VER MÁS
-                →
-            </button>
-        </div>
-        <br>
-    </div>
-</div>
-<br>
-
-<h1 style="font-family: 'Montserrat', sans-serif; text-align: center">SIGUENOS EN NUESTRAS REDES SOCIALES</h1>
-
-<br>
-
-<div class="text-center">
-    <a href="#"><img src="{{ asset('imagen_user/facebooklogo.png') }}" alt="" width="100"></a>
-    <a href="#"><img src="{{ asset('imagen_user/instagramlogo.jpg') }}" alt="" width="100"></a>
-</div>
-
-<br>
-
-<div class="container">
-    <div class="card" id="galeriaImagenes"><br>
-        <h1 style="font-family: 'Montserrat', sans-serif; text-align: center" class="text-center">Galeria de
-            Imagenes</h1>
-        <div class="card-body ">
-            <div class="row">
-                <div class="col-sm-4 mb-1">
-                    <a id="" data-fancybox="gallery" href="{{ asset('imagen_user/dance.jpg') }}"><img
-                                src="{{ asset('imagen_user/dance.jpg') }}"></a>
-                </div>
-                <div class="col-sm-4 mb-1">
-                    <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                </div>
-
-                <div class="col-sm-4 mb-1">
-                    <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<br>
-
-<h1 style="font-family: 'Montserrat', sans-serif; text-align: center">UBICANOS</h1>
-
-<br>
-
-<div id="map" class="container map" style="height: 300PX">
-</div>
-
-<br>
-
-<h1 style="font-family: 'Montserrat', sans-serif; text-align: center">EQUIPO DE TRABAJO</h1>
-
-<br>
-
-<div class="container">
-    <div class="row">
-
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
-                     data-holder-rendered="true"
-                     style="height: 225px; width: 100%; display: block;">
-                <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                    <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">18 de Agosto</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
-                     data-holder-rendered="true"
-                     style="height: 225px; width: 100%; display: block;">
-                <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                    <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">18 de Agosto</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
-                     data-holder-rendered="true"
-                     style="height: 225px; width: 100%; display: block;">
-                <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                    <h4 class="text-center">This is a wider card</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">18 de Agosto</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
 
 <!-- Footer -->
 <footer style="background-color: black;color: white" class="page-footer font-small blue pt-4">
@@ -386,7 +160,7 @@
 <script src="js/js_user/vendor/modernizr-3.7.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="js/js_user/vendor/jquery-3.4.1.min.js"><\/script>')</script>
 <script src="js/js_user/plugins.js"></script>
 <script src="js/js_user/main.js"></script>
 
@@ -411,6 +185,9 @@
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 </body>
 </html>

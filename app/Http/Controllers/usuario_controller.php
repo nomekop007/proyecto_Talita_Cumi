@@ -13,8 +13,18 @@ class usuario_controller extends Controller
     public function index()
     {
         $publicacions = publicacion::all();
+        $eventos = evento::all();
+        return view('v_user.inicio',
+            ['publicaciones' => $publicacions,
+                'eventos'=> $eventos]);
+    }
 
-        return view('index',
-            ['publicaciones' => $publicacions]);
+
+
+    public function vista_eventos(){
+
+        $eventos = evento::all();
+
+        return view('v_user.eventos',['eventos'=> $eventos]);
     }
 }

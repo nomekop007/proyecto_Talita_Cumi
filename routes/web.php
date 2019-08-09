@@ -61,3 +61,9 @@ Route::post('updateEvento','evento_controller@update')->name('updateEvento');
 Route::post('upPublicidad','publicacion_controller@subir')->name('upPublicidad');
 Route::post('upEvento','evento_controller@subir')->name('upEvento');
 
+
+//--------------------------vistas usuario---------------------------------------------
+
+//vista eventos
+Route::get('vista_eventos','usuario_controller@vista_eventos')->name('vista_eventos');
+
