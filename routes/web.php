@@ -6,7 +6,7 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/','usuario_controller@index');
+Route::get('/','usuario_controller@index')->name('index');
 
 
 

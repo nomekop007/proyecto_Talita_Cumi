@@ -1,35 +1,24 @@
-body{margin-top: 50px; margin-bottom: 100px;}
 
-/* equal card height */
-.row-equal > div[class*='col-'] {
-    display: flex;
-    flex: 1 0 auto;
+
+
+
+.post-slider .slider-title {
+    text-align: center;
+    margin: 30px auto;
 }
 
-.row-equal .card {
+
+.post-slider .post-wrapper {
     width: 100%;
+
+    margin: 0px auto;
+    overflow: hidden;
+
 }
 
-/* ensure equal card height inside carousel */
-.carousel-inner>.row-equal.active,
-.carousel-inner>.row-equal.next,
-.carousel-inner>.row-equal.prev {
-    display: flex;
+.post-slider .post-wrapper .post {
+
+    margin: 0px 10px;
+    display: inline-block;
+
 }
-
-/* prevent flicker during transition */
-.carousel-inner>.row-equal.active.left,
-.carousel-inner>.row-equal.active.right {
-    opacity: 0.5;
-    display: flex;
-}
-
-
-/* control image height */
-.card-img-top-250 {
-    max-height: 250px;
-    overflow:hidden;
-}
-
-
-.card-header{color:dodgerblue}
