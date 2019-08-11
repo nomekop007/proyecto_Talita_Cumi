@@ -22,6 +22,8 @@
             </p>
             <br>
             <table class="table mi-dataTable text-center">
+                <input data-url="{{ route('mostrar_eventos') }}" id="mostrar" type="button" hidden>
+
                 <thead class="thead-dark ">
                 <tr>
                     <th scope="col">
@@ -44,7 +46,7 @@
                     </th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody >
                 @foreach($eventos as $e)
                     <tr>
                         <td>
@@ -102,7 +104,6 @@
                         </td>
                     </tr>
                 @endforeach
-
 
                 </tbody>
             </table>
@@ -216,5 +217,7 @@
 
 @section('jsextra')
     <script src="{{ asset('js/js_admin/evento.js')}}">
+    </script>
+    <script src="{{ asset('js/js_admin/ver_evento.js')}}">
     </script>
 @endsection

@@ -116,6 +116,7 @@ $(document).ready(function () {
         paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
 
 
+        //preguntar si la categoria es en galeria
         if (opcion != 1) {
             paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
             paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
@@ -129,38 +130,52 @@ $(document).ready(function () {
             if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
                 swal('Campos Vacios', 'faltan datos ', 'error')
             } else {
-                //recacar url del boton
-                var url = $('#formulario').attr('action');
 
-                $('#btnEnviar').attr("disabled", true);
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: paqueteDeDatos,
-                    processData: false,
-                    contentType: false,
-                    success: function (datos) {
-                        console.log(datos);
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
-                            swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
-                        } else {
-                            swal('algo paso', 'faltan datos ', 'error')
+
+                var archivo = $('#URLpublicacion')[0].files[0].size;
+                console.log(archivo)
+
+
+                if (archivo > 108000000) {
+                    swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
+                } else {
+
+                    //recacar url del boton
+                    var url = $('#formulario').attr('action');
+
+                    $('#btnEnviar').attr("disabled", true);
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: paqueteDeDatos,
+                        processData: false,
+                        contentType: false,
+                        success: function (datos) {
+                            console.log(datos);
+                            if (datos == "ok") {
+                                $('.bar').width('100%');
+                                setTimeout(function () {
+                                    window.location = window.location;
+                                }, 900);
+                                swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
+                            } else {
+                                swal('algo paso', 'faltan datos ', 'error')
+                            }
+                            $('#btnEnviar').attr("disabled", false);
+                        },
+                        error: function (error) {
+                            console.log(error);
                         }
-                        $('#btnEnviar').attr("disabled", false);
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
 
-                });
+                    });
 
 
+                }
             }
 
 
+        //en caso de ser galeria
         } else {
 
             //octener valor input por sus id
@@ -169,35 +184,47 @@ $(document).ready(function () {
             if (URLpublicacion.length == 0) {
                 swal('Campos Vacios', 'falta seleccionar archivo ', 'error')
             } else {
-                //recacar url del boton
-                var url = $('#formulario').attr('action');
 
-                $('#btnEnviar').attr("disabled", true);
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: paqueteDeDatos,
-                    processData: false,
-                    contentType: false,
-                    success: function (datos) {
-                        console.log(datos);
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
-                            swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
-                        } else {
-                            swal('algo paso', 'faltan datos ', 'error')
+
+                var archivo = $('#URLpublicacion')[0].files[0].size;
+                console.log(archivo)
+
+
+                if (archivo > 108000000) {
+                    swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
+                } else {
+
+                    //recacar url del boton
+                    var url = $('#formulario').attr('action');
+
+                    $('#btnEnviar').attr("disabled", true);
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: paqueteDeDatos,
+                        processData: false,
+                        contentType: false,
+                        success: function (datos) {
+                            console.log(datos);
+                            if (datos == "ok") {
+                                $('.bar').width('100%');
+                                setTimeout(function () {
+                                    window.location = window.location;
+                                }, 900);
+
+                                swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
+                            } else {
+                                swal('algo paso', 'faltan datos ', 'error')
+                            }
+                            $('#btnEnviar').attr("disabled", false);
+                        },
+                        error: function (error) {
+                            console.log(error);
                         }
-                        $('#btnEnviar').attr("disabled", false);
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
 
-                });
+                    });
 
-
+                }
             }
 
 
@@ -534,51 +561,46 @@ $(document).ready(function () {
     $('#editar').click(function (event) {
         event.preventDefault();
 
-       var t = $('#cat').prop('value')
+        var t = $('#cat').prop('value')
         if (t == 1) {
 
             var file = $('#URLpublicacionX').val();
-        if (file.length == 0){
-            swal('algo paso', 'por favor seleccione un archivo ', 'error')
-        }else {
+            if (file.length == 0) {
+                swal('algo paso', 'por favor seleccione un archivo ', 'error')
+            } else {
 
 
-            var paqueteDeDatos = new FormData();
-            paqueteDeDatos.append('id', $('#edi').prop('value'));
-            paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
-            paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
-            var url = $(this).data('url');
-            $('#editar').attr("disabled", true);
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: paqueteDeDatos,
-                processData: false,
-                contentType: false,
-                success: function (datos) {
-                    console.log(datos);
-                    if (datos == "ok") {
-                        setTimeout(function () {
-                            window.location = window.location;
-                        }, 900);
-                        swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
-                        $('#editar').attr("disabled", false);
-                    } else {
-                        swal('algo paso', 'faltan datos ', 'error')
+                var paqueteDeDatos = new FormData();
+                paqueteDeDatos.append('id', $('#edi').prop('value'));
+                paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+                paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
+                var url = $(this).data('url');
+                $('#editar').attr("disabled", true);
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: paqueteDeDatos,
+                    processData: false,
+                    contentType: false,
+                    success: function (datos) {
+                        console.log(datos);
+                        if (datos == "ok") {
+                            setTimeout(function () {
+                                window.location = window.location;
+                            }, 900);
+                            swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
+                            $('#editar').attr("disabled", false);
+                        } else {
+                            swal('algo paso', 'faltan datos ', 'error')
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
                     }
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
+                });
 
 
-        }
-
-
-
-
-
+            }
 
 
         } else {

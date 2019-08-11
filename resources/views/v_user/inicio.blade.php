@@ -102,8 +102,7 @@
                                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                                         <h4 class="text-center">{{$e->tituloEvento}}</h4>
 
-                                        <p class="card-text text-center" style="">Lorem ipsum dolor sit aicing elit. Cupiditate,laboriosam molestias natus nemo odio. Alias dicta e
-                                            ligendi et fugit ma, omnis, quaerat.</p>
+                                        <p class="card-text text-center" style="">ubicacion en la academia Talita-Cumi Talca</p>
 
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">{{$e->fechaInicio}}</small>

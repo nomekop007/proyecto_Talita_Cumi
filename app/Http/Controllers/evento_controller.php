@@ -11,8 +11,8 @@ class evento_controller extends Controller
     public function index()
     {
 
-        $eventos = evento::all();
 
+        $eventos = evento::all();
         $menu = array(
             'n3' => '',
             'n1' => '',
@@ -20,8 +20,13 @@ class evento_controller extends Controller
             'n4' => 'active'
         );
         return view('v_admin.v_eventos',
-                    ['eventos' => $eventos, 
-                    'menus' => $menu]);
+                    ['menus' => $menu,
+                        'eventos' => $eventos]);
+    }
+
+    public function mostrar_eventos(){
+        $eventos = evento::all();
+        return response()->json($eventos);
     }
 
 

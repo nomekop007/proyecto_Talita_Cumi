@@ -36,6 +36,12 @@ Route::get('publicaciones','publicacion_controller@index')->name('publicaciones'
 Route::get('c_evento','evento_controller@v_create')->name('c_evento');
 Route::get('eventos','evento_controller@index')->name('eventos');
 
+
+
+// mostrar tablas de publicaciones y eventos
+Route::get('mostrar_eventos','evento_controller@mostrar_eventos')->name('mostrar_eventos');
+
+
 // crear publicaciones y eventos
 Route::post('crearPublicacion','publicacion_controller@crearPublicacion')->name('crearPublicacion');
 Route::post('crearEvento','evento_controller@crearEvento')->name('crearEvento');
