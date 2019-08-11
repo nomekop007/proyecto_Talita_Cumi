@@ -22,7 +22,7 @@
             </p>
             <br>
             <table class="table mi-dataTable text-center">
-                <input data-url="{{ route('mostrar_eventos') }}" id="mostrar" type="button" hidden>
+
 
                 <thead class="thead-dark ">
                 <tr>
@@ -218,6 +218,11 @@
 @section('jsextra')
     <script src="{{ asset('js/js_admin/evento.js')}}">
     </script>
-    <script src="{{ asset('js/js_admin/ver_evento.js')}}">
+
+    <script src="{{ asset('js/js_admin/cargarTabla.js')}}">
     </script>
+    <!-- DataTables -->
+    <script src="{{ asset('adminLTE_admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('adminLTE_admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
 @endsection

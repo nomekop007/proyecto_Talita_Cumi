@@ -24,10 +24,7 @@ class evento_controller extends Controller
                         'eventos' => $eventos]);
     }
 
-    public function mostrar_eventos(){
-        $eventos = evento::all();
-        return response()->json($eventos);
-    }
+
 
 
     public function v_create()

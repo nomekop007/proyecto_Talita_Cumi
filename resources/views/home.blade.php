@@ -50,9 +50,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <link rel="stylesheet" href="{{ asset('adminLTE_admin/plugins/timepicker/bootstrap-timepicker.min.css')}}">
 
-  <!-- datatable  -->
-  <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
 </head>
 <!--
@@ -243,8 +243,9 @@ desired effect
 <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
 <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
-<!-- datatable -->
-<script src="{{ asset('js/js_admin/dataTables.min.js')}}"></script>
+
+
+
 
 @yield('jsextra')
 

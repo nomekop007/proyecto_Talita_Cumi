@@ -38,8 +38,6 @@ Route::get('eventos','evento_controller@index')->name('eventos');
 
 
 
-// mostrar tablas de publicaciones y eventos
-Route::get('mostrar_eventos','evento_controller@mostrar_eventos')->name('mostrar_eventos');
 
 
 // crear publicaciones y eventos
