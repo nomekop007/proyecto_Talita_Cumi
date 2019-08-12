@@ -102,6 +102,10 @@
                                 </div>
                             </div>
                         </code>
+                        <div class="overlay text-center btn" id="subiendo" >
+                            <i class="fa fa-refresh fa-spin fa-1x"> </i>
+                            <h6>subiendo...</h6>
+                        </div>
                     </div>
                 </div>
             </div>

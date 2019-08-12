@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     $('.enviar').hide();
 
+    $('#subiendo').hide();
 
     //seleecionar ubicacion
     $('#btnSeleccionar').click(function (event) {
@@ -47,8 +48,6 @@ $(document).ready(function () {
         '                               Video' +
         '                            </option>';
     $('.combo').html(html);
-
-
 
 
     //validacion de guardar imagen y video
@@ -114,7 +113,7 @@ $(document).ready(function () {
 
                     //recacar url del boton
                     var url = $('#formulario').attr('action');
-
+                    $('#subiendo').show();
                     $('#btnEnviar').attr("disabled", true);
 
                     $.ajax({
@@ -129,11 +128,12 @@ $(document).ready(function () {
                                 $('.bar').width('100%');
                                 setTimeout(function () {
                                     window.location = window.location;
-                                }, 900);
+                                }, 1500);
                                 swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
                             } else {
                                 swal('algo paso', 'faltan datos ', 'error')
                             }
+                            $('#subiendo').hide();
                             $('#btnEnviar').attr("disabled", false);
                         },
                         error: function (error) {
@@ -147,7 +147,7 @@ $(document).ready(function () {
             }
 
 
-        //en caso de ser galeria
+            //en caso de ser galeria
         } else {
 
             //octener valor input por sus id
@@ -168,7 +168,7 @@ $(document).ready(function () {
 
                     //recacar url del boton
                     var url = $('#formulario').attr('action');
-
+                    $('#subiendo').show();
                     $('#btnEnviar').attr("disabled", true);
                     $.ajax({
                         type: "POST",
@@ -182,13 +182,14 @@ $(document).ready(function () {
                                 $('.bar').width('100%');
                                 setTimeout(function () {
                                     window.location = window.location;
-                                }, 900);
+                                }, 1500);
 
                                 swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
                             } else {
                                 swal('algo paso', 'faltan datos ', 'error')
                             }
                             $('#btnEnviar').attr("disabled", false);
+                            $('#subiendo').hide();
                         },
                         error: function (error) {
                             console.log(error);
@@ -529,10 +530,10 @@ $(document).ready(function () {
     });
 
 
+
     //editar Publicacion
     $('#editar').click(function (event) {
         event.preventDefault();
-
         var t = $('#cat').prop('value')
         if (t == 1) {
 
@@ -541,36 +542,46 @@ $(document).ready(function () {
                 swal('algo paso', 'por favor seleccione un archivo ', 'error')
             } else {
 
+                var archivo = $('#URLpublicacionX')[0].files[0].size;
 
-                var paqueteDeDatos = new FormData();
-                paqueteDeDatos.append('id', $('#edi').prop('value'));
-                paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
-                paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
-                var url = $(this).data('url');
-                $('#editar').attr("disabled", true);
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: paqueteDeDatos,
-                    processData: false,
-                    contentType: false,
-                    success: function (datos) {
-                        console.log(datos);
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
-                            swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
-                            $('#editar').attr("disabled", false);
-                        } else {
-                            swal('algo paso', 'faltan datos ', 'error')
+
+                if (archivo > 108000000) {
+                    swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
+                } else {
+                    var paqueteDeDatos = new FormData();
+                    paqueteDeDatos.append('id', $('#edi').prop('value'));
+                    paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+                    paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
+                    var url = $(this).data('url');
+                    $('#editar').attr("disabled", true);
+                    $('.btn-delete').attr("disabled", true);
+                    $('.btn-default').attr("disabled", true);
+                    $('#subiendo').show();
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: paqueteDeDatos,
+                        processData: false,
+                        contentType: false,
+                        success: function (datos) {
+                            console.log(datos);
+                            if (datos == "ok") {
+                                setTimeout(function () {
+                                    window.location = window.location;
+                                }, 900);
+                                swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
+                                $('#subiendo').hide();
+
+                            } else {
+                                swal('algo paso', 'faltan datos ', 'error')
+                            }
+                        },
+                        error: function (error) {
+                            console.log(error);
                         }
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
-                });
+                    });
 
+                }
 
             }
 
@@ -604,6 +615,9 @@ $(document).ready(function () {
 
                 var url = $(this).data('url');
                 $('#editar').attr("disabled", true);
+                $('.btn-delete').attr("disabled", true);
+                $('.btn-default').attr("disabled", true);
+                $('#subiendo').show();
                 $.ajax({
                     type: "POST",
                     url: url,
@@ -617,7 +631,7 @@ $(document).ready(function () {
                                 window.location = window.location;
                             }, 900);
                             swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
-                            $('#editar').attr("disabled", false);
+                            ('#subiendo').hide();
                         } else {
                             swal('algo paso', 'faltan datos ', 'error')
                         }

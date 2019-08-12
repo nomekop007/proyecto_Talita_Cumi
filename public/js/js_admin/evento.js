@@ -6,6 +6,7 @@ $(document).ready(function () {
         }
     });
 
+    $('#subiendo').hide();
 
 //Date range picker with time picker
     $('#fecha_evento').daterangepicker({
@@ -52,7 +53,7 @@ $(document).ready(function () {
 
             //recacar url del boton
             var url = $('#formulario').attr('action');
-
+            $('#subiendo').show();
             $('#btnEnviar').attr("disabled", true);
             $.ajax({
                 type: "POST",
@@ -66,12 +67,13 @@ $(document).ready(function () {
                         $('.bar').width('100%');
                         setTimeout(function () {
                             window.location = window.location;
-                        }, 900);
+                        }, 1500);
                         swal('Evento Registrado', 'guardado en base de datos!', 'success')
                     } else {
                         swal('algo paso', 'faltan datos ', 'error')
                     }
                     $('#btnEnviar').attr("disabled", false);
+                    $('#subiendo').hide();
                 },
                 error: function (error) {
                     console.log(error);
@@ -276,6 +278,7 @@ $(document).ready(function () {
     });
 
 
+
     //editar evento
     $('#editar').click(function (event) {
         event.preventDefault();
@@ -311,6 +314,9 @@ $(document).ready(function () {
 
             var url = $(this).data('url');
             $('#editar').attr("disabled", true);
+            $('.btn-delete').attr("disabled", true);
+            $('.btn-default').attr("disabled", true);
+            $('#subiendo').show();
             $.ajax({
                 type: "POST",
                 url: url,
@@ -324,7 +330,7 @@ $(document).ready(function () {
                             window.location = window.location;
                         }, 900);
                         swal('Evento Actualizada', 'guardado en base de datos!', 'success')
-                        $('#editar').attr("disabled", false);
+                        $('#subiendo').hide();
                     } else {
                         swal('algo paso', 'faltan datos ', 'error')
                     }
