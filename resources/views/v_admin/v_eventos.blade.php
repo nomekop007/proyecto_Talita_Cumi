@@ -17,7 +17,7 @@
 @section('contenido')
     <div class="form-row">
         <div class="form-group col-md-12">
-            <p class="bg-info text-center">
+            <p class="barra_roja text-center">
                 Eventos del sitio web
             </p>
             <br>
@@ -222,10 +222,15 @@
     <script src="{{ asset('js/js_admin/evento.js')}}">
     </script>
 
+    <!-- DataTables -->
     <script src="{{ asset('js/js_admin/cargarTabla.js')}}">
     </script>
-    <!-- DataTables -->
     <script src="{{ asset('adminLTE_admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{ asset('adminLTE_admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+    <!-- bootstrap datepicker -->
+    <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
+    <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
 
 @endsection

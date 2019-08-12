@@ -9,7 +9,7 @@ $(document).ready(function () {
     $('.tipo').hide();
     $('.URLmedia').hide();
     $('.titulo').hide();
-
+    $('.descripcion').hide();
     $('.enviar').hide();
 
     $('#subiendo').hide();

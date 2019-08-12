@@ -12,10 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/css_admin.css') }}">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top barra_roja">
             <div class="container">
                 <div class="navbar-header">
 
@@ -29,11 +30,12 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
+                        <span class="logo-mini"><img src="{{ asset('imagen_user/logo.png') }}" alt="" width="40"></span>
                        Talita-Cumi
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse " id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;

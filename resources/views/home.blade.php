@@ -28,7 +28,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
-    <link rel="stylesheet" href="{{ asset('adminLTE_admin/css/skins/skin-blue.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/css/skins/skin-black.css')}}">
+
+    <link rel="stylesheet" href="{{ asset('adminLTE_admin/css/skins/skin-blue.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,7 +77,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
 
     <!-- Main Header -->
@@ -232,19 +234,6 @@ desired effect
 
 <!-- editor de texto-->
 <script src="{{ asset('adminLTE_admin/bower_components/ckeditor/ckeditor.js')}}"></script>
-
-
-
-
-
-
-
-<!-- bootstrap datepicker -->
-<script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
-<script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
-
-
 
 
 @yield('jsextra')

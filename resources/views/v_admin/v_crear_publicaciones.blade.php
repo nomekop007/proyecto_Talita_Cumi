@@ -34,7 +34,7 @@
         {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-12">
-                <p class="bg-info text-center">
+                <p class="barra_roja text-center">
                     Crear Publicacion en el sitio web
                 </p><br>
                 <div class="form row">
@@ -90,7 +90,7 @@
                     </div>
 
 
-                    <div class="form-group col-md-12 descripcion" hidden>
+                    <div class="form-group col-md-12 descripcion" >
 
                         <div class="box box-info">
                             <div class="box-header">

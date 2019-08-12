@@ -33,7 +33,7 @@
         {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-12">
-                <p class="bg-info text-center">
+                <p class="barra_roja text-center">
                     Crear Evento en el sitio web
                 </p><br>
                 <div class="form row">
@@ -116,9 +116,16 @@
 @section('jsextra')
     <script src="{{ asset('js/js_admin/evento.js')}}">
     </script>
+
+    <!--editor de texto avanzado -->
     <script>
         $(function () {
             CKEDITOR.replace('descripcion_evento')
         })
     </script>
+    <!-- bootstrap datepicker -->
+    <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
+    <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
+
 @endsection
