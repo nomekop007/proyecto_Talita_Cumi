@@ -22,7 +22,7 @@ class PublicacionTable extends Migration
             $table->String('estado'); //activo / inactivo 
             $table->integer('tipo'); // 1:Foto , 2:video
             $table->integer('categoria'); 
-            //1:Galeria multimediao , 2:Pagina de inicio , 3:Tienda online
+            //1:Galeria multimedia , 2:Pagina de inicio , 3:Tienda online
             $table->timestamps();
         });
     }

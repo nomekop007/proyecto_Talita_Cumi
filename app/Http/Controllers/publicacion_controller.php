@@ -84,7 +84,7 @@ class publicacion_controller extends Controller
         //elimina el archivo del storage
         $url = $publicacion->URLpublicacion;
 
-        if (@getimagesize(storage_path('app/' . $url))) {
+        if (file_exists(storage_path('app/' . $url))) {
             unlink(storage_path('app/' . $url));
         }
 
@@ -120,7 +120,7 @@ class publicacion_controller extends Controller
 
 
             //pregunta si el archivo esta en el storage
-            if (@getimagesize(storage_path('app/' . $url))) {
+            if (file_exists(storage_path('app/' . $url))) {
                 //elimina el archivo del storage
                 unlink(storage_path('app/' . $url));
             }

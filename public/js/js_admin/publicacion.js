@@ -106,7 +106,6 @@ $(document).ready(function () {
 
 
                 var archivo = $('#URLpublicacion')[0].files[0].size;
-                console.log(archivo)
 
 
                 if (archivo > 108000000) {

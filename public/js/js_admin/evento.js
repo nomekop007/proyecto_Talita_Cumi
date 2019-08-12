@@ -63,6 +63,7 @@ $(document).ready(function () {
                 success: function (datos) {
                     console.log(datos);
                     if (datos == "ok") {
+                        $('.bar').width('100%');
                         setTimeout(function () {
                             window.location = window.location;
                         }, 900);

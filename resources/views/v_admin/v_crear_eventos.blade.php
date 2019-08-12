@@ -93,6 +93,15 @@
                         <button class="btn btn-primary btn-sm" id="btnEnviar" type="submit">
                             Crear Evento
                         </button>
+                        <br>
+                        <code>
+                            <div class="progress progress-sm active">
+                                <div class="progress-bar progress-bar-light-blue progress-bar-striped bar"  role="progressbar"
+                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                    <span class="sr-only">20% Complete</span>
+                                </div>
+                            </div>
+                        </code>
                     </div>
                 </div>
             </div>

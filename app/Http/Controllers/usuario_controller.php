@@ -14,6 +14,7 @@ class usuario_controller extends Controller
     {
         $publicacions = publicacion::all();
         $eventos = evento::all();
+
         return view('v_user.inicio',
             ['publicaciones' => $publicacions,
                 'eventos'=> $eventos]);
