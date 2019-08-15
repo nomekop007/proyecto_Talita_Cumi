@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top barra_roja">
+        <nav class="navbar navbar-default navbar-static-top  barra_rosado_claro">
             <div class="container">
                 <div class="navbar-header">
 

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default barra_plomo">
-                <div class="panel-heading barra_roja">Restaurar Contraseña</div>
+                <div class="panel-heading barra_rosado_claro">Restaurar Contraseña</div>
 
                 <div class="panel-body">
                     @if (session('status'))

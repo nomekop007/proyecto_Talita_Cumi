@@ -27,13 +27,13 @@
 @section('contenido')
     <div class="form-row">
         <div class="form-group col-md-12">
-            <p class="barra_roja text-center">
+            <p class="barra_plomo text-center">
                 Publicaciones del sitio web
             </p>
             <br>
 
             <table class="table mi-dataTable text-center ">
-                <thead class="thead-dark  ">
+                <thead class="thead-dark  barra_rosado_oscuro">
                 <tr>
                     <th scope="col">
                         Titulo
@@ -58,7 +58,7 @@
                     </th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="barra_plomo">
                 @foreach($publicaciones as $p)
                     <tr>
                         <td>

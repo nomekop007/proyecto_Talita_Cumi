@@ -66,12 +66,19 @@ height: 25px;
 
 }
 
+
+.barra_rosado_oscuro{
+    background-color: #367fa9 !important;
+    /*azul   367fa9   */
+    /*rosado da669f   */
+}
 .barra_plomo{
     background-color: #dad9d9 !important;
 }
 
-.barra_roja{
-    background-color: #df1867 !important;
+
+.barra_rosado_claro{
+    background-color: #fdb5d9 !important;
 }
 
 #barra_estado span{

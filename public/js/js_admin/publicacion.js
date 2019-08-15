@@ -631,7 +631,7 @@ $(document).ready(function () {
                                 window.location = window.location;
                             }, 900);
                             swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
-                            ('#subiendo').hide();
+                            $('#subiendo').hide();
                         } else {
                             swal('algo paso', 'faltan datos ', 'error')
                         }
