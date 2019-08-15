@@ -297,10 +297,10 @@ $(document).ready(function () {
                 id: id
             },
             success: function (datos) {
-                if (datos == "ok") {
-                    setTimeout(function () {
-                        window.location = window.location;
-                    }, 900);
+                if (datos != "error") {
+                    var id = datos;
+
+                    $('.TablaPublicacion' + id).remove();
                     Swal({
                         type: 'error',
                         title: 'Publicacion eliminada'
@@ -672,10 +672,8 @@ $(document).ready(function () {
                         id: id
                     },
                     success: function (datos) {
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
+                        if (datos != "error") {
+                            estado(datos);
                             Swal.fire(
                                 'Publicado!',
                                 'su publicacion ahora se puede ver en el sitio',
@@ -721,10 +719,8 @@ $(document).ready(function () {
                         id: id
                     },
                     success: function (datos) {
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
+                        if (datos != "error") {
+                            estado(datos);
                             Swal.fire(
                                 'Ocultado!',
                                 'su publicacion ahora no se muestra en el sitio',
@@ -744,6 +740,26 @@ $(document).ready(function () {
 
 
     });
+
+
+
+    function estado(datos) {
+
+        var html = "";
+        if (datos['estado'] == 'activo') {
+            html = "<button class='btn btn-warning  disabled'>\n" +
+                "      <i class='fab fa-creative-commons-pd'></i>Ocultar\n" +
+                "   </button>";
+        } else {
+
+            html = " <button class='btn btn-success  disabled'>\n" +
+                "      <i class='fas fa-upload'></i>Publicar\n" +
+                "    </button>";
+        }
+        $('.publicacion' + datos['id']).replaceWith(html);
+
+
+    }
 
 
 });

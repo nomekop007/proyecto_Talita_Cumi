@@ -87,7 +87,7 @@ class evento_controller extends Controller
 
 
         if ($evento->delete()) {
-            return "ok";
+            return $id;
         } else {
             return "error";
         }
@@ -142,7 +142,7 @@ class evento_controller extends Controller
 
 
         if ($evento->update()) {
-            return "ok";
+            return $evento;
         } else {
             return "error";
         }

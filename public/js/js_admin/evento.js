@@ -156,10 +156,10 @@ $(document).ready(function () {
                 id: id
             },
             success: function (datos) {
-                if (datos == "ok") {
-                    setTimeout(function () {
-                        window.location = window.location;
-                    }, 900);
+                if (datos != "error") {
+                    var id = datos;
+                    console.log(id)
+                    $('.TablaEvento' + id).remove();
                     Swal({
                         type: 'error',
                         title: 'Evento Eliminado'
@@ -263,9 +263,9 @@ $(document).ready(function () {
                         daysOfWeek: ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'],
                         monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
                     },
-                    "startDate" : datos['fechaInicio'],
-                    "endDate" : datos['fechaFin'],
-                    "autoApply" : true
+                    "startDate": datos['fechaInicio'],
+                    "endDate": datos['fechaFin'],
+                    "autoApply": true
                 });
 
             },
@@ -276,7 +276,6 @@ $(document).ready(function () {
         });
         $('#modal_editar').modal('show');
     });
-
 
 
     //editar evento
@@ -305,18 +304,19 @@ $(document).ready(function () {
 
 
             var file = $('#URLeventoX').val();
-            if (file == ""){
+            if (file == "") {
                 paqueteDeDatos.append('URLevento', 'x');
 
-            }else {
+            } else {
                 paqueteDeDatos.append('URLevento', $('#URLeventoX')[0].files[0]);
             }
 
             var url = $(this).data('url');
+
+            $('#subiendo').show();
             $('#editar').attr("disabled", true);
             $('.btn-delete').attr("disabled", true);
             $('.btn-default').attr("disabled", true);
-            $('#subiendo').show();
             $.ajax({
                 type: "POST",
                 url: url,
@@ -324,7 +324,6 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 success: function (datos) {
-                    console.log(datos);
                     if (datos == "ok") {
                         setTimeout(function () {
                             window.location = window.location;
@@ -350,7 +349,7 @@ $(document).ready(function () {
         event.preventDefault();
         var id = $(this).data('id');
         var url = $(this).data('url');
-
+        console.log(id)
         Swal.fire({
             title: 'Esta Seguro?',
             text: "Esta apunto de publicar este evento en el sitio",
@@ -369,10 +368,9 @@ $(document).ready(function () {
                         id: id
                     },
                     success: function (datos) {
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
+                        if (datos != "error") {
+                            estado(datos);
+
                             Swal.fire(
                                 'Publicado!',
                                 'su evento ahora se puede ver en el sitio',
@@ -398,6 +396,7 @@ $(document).ready(function () {
         var id = $(this).data('id');
         var url = $(this).data('url');
 
+        console.log(id)
         Swal.fire({
             title: 'Esta Seguro?',
             text: "Esta apunto de ocultar esta publicacion del sitio",
@@ -416,10 +415,9 @@ $(document).ready(function () {
                         id: id
                     },
                     success: function (datos) {
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
+                        if (datos != "error") {
+                            estado(datos);
+
                             Swal.fire(
                                 'Ocultado!',
                                 'su evento ahora no se muestra en el sitio',
@@ -438,5 +436,23 @@ $(document).ready(function () {
         });
     });
 
+
+    function estado(datos) {
+
+        var html = "";
+        if (datos['estado'] == 'activo') {
+            html = "<button class='btn btn-warning  disabled'>\n" +
+                "      <i class='fab fa-creative-commons-pd'></i>Ocultar\n" +
+                "   </button>";
+        } else {
+
+            html = " <button class='btn btn-success  disabled'>\n" +
+                "      <i class='fas fa-upload'></i>Publicar\n" +
+                "    </button>";
+        }
+        $('.evento' + datos['id']).replaceWith(html);
+
+
+    }
 
 });

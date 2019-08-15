@@ -60,7 +60,7 @@
                 </thead>
                 <tbody class="barra_plomo">
                 @foreach($publicaciones as $p)
-                    <tr>
+                    <tr class="TablaPublicacion{{ $p->id }}">
                         <td>
                             <div style="visibility: hidden">.</div>
                             @if($p->tituloPublicacion == null)
@@ -134,13 +134,13 @@
                         </td>
                         <td>
                             <div style="visibility: hidden">.</div>
-                            <button class="btn btn-info btn-edit btn-sm"
+                            <button class="btn btn-primary btn-edit btn-sm"
                                     data-id="{{ base64_encode($p->id) }}"
                                     data-url="{{ route('getPublicidad') }}">
                                 <i class="far fa-edit">
                                 </i>
                             </button>
-
+                            <i class="publicacion{{$p->id}}">
                             @if($p->estado == 'inactivo')
                                 <button class="btn btn-success btn-public"
                                         data-id="{{ base64_encode($p->id) }}"
@@ -154,6 +154,7 @@
                                             class="fab fa-creative-commons-pd"></i>Ocultar
                                 </button>
                             @endif
+                            </i>
                         </td>
                     </tr>
                 @endforeach

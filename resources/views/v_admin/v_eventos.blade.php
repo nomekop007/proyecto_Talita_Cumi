@@ -48,7 +48,7 @@
                 </thead>
                 <tbody class="barra_plomo">
                 @foreach($eventos as $e)
-                    <tr>
+                    <tr class="TablaEvento{{ $e->id }}">
                         <td>
                             <div style="visibility: hidden">.</div>
 
@@ -82,25 +82,25 @@
                         </td>
                         <td>
                             <div style="visibility: hidden">.</div>
-                            <button class="btn btn-info btn-edit btn-sm"
+                            <button class="btn btn-primary btn-edit btn-sm"
                                     data-id="{{ base64_encode($e->id) }}"
                                     data-url="{{ route('getEvento') }}">
                                 <i class="far fa-edit">
                                 </i>
                             </button>
 
-                            @if($e->estado == 'inactivo')
-                                <button class="btn btn-success btn-public"
-                                        data-id="{{ base64_encode($e->id) }}"
-                                        data-url="{{ route('upEvento') }}"><i class="fas fa-upload"></i>Publicar
-                                </button>
-                            @endif
-                            @if($e->estado == 'activo')
-                                <button class="btn btn-warning btn-ocultar"
-                                        data-id="{{ base64_encode($e->id) }}"
-                                        data-url="{{ route('upEvento') }}"><i class="fab fa-creative-commons-pd"></i>Ocultar
-                                </button>
-                            @endif
+                            <i class="evento{{$e->id}}">
+                                @if($e->estado == 'inactivo')
+                                    <button class="btn btn-success btn-public" data-id="{{ base64_encode($e->id) }}" data-url="{{ route('upEvento') }}">
+                                        <i class="fas fa-upload"></i>Publicar
+                                    </button>
+                                @endif
+                                @if($e->estado == 'activo')
+                                    <button class="btn btn-warning btn-ocultar" data-id="{{ base64_encode($e->id) }}" data-url="{{ route('upEvento') }}">
+                                        <i class="fab fa-creative-commons-pd"></i>Ocultar
+                                    </button>
+                                @endif
+                            </i>
                         </td>
                     </tr>
                 @endforeach
@@ -194,7 +194,7 @@
                 </div>
                 <div class="modal-footer btn_editar">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">cancelar</button>
-                    <div class="overlay text-center btn" id="subiendo" >
+                    <div class="overlay text-center btn" id="subiendo">
                         <i class="fa fa-refresh fa-spin fa-1x"> </i>
                         <h6>actualizando...</h6>
                     </div>

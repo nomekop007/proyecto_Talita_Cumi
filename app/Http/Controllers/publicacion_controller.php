@@ -90,7 +90,7 @@ class publicacion_controller extends Controller
 
 
         if ($publicacion->delete()) {
-            return "ok";
+            return $id;
         } else {
             return "error";
         }
@@ -154,7 +154,7 @@ class publicacion_controller extends Controller
 
 
         if ($publicacion->update()) {
-            return "ok";
+            return $publicacion;
         } else {
             return "error";
         }
