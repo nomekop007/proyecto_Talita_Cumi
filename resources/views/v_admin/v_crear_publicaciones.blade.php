@@ -81,7 +81,7 @@
                         <label for="tipo_publicacion">
                             Tipo Publicacion
                         </label>
-                        <select class="form-control combo" id="tipo_publicacion" name="tipo_publicacion">
+                        <select class="form-control combo" id="tipo_publicacion" name="tipo_publicacion" onchange="opcion()">
                         </select>
                     </div>
                     <div class="form-group col-md-6 URLmedia" hidden>
@@ -92,7 +92,7 @@
                     </div>
 
 
-                    <div class="form-group col-md-12 descripcion " >
+                    <div class="form-group col-md-12 descripcion">
 
                         <div class="box box-primary">
                             <div class="box-header ">
@@ -148,7 +148,6 @@
 @endsection
 
 @section('jsextra')
-    <script src="{{ asset('js/js_admin/publicacion.js')}}"></script>
     <script>
         $('.tipo').hide();
         $('.URLmedia').hide();
@@ -156,16 +155,41 @@
         $('.descripcion').hide();
         $('.enviar').hide();
 
-
         //cargar combobox tipo
-        var html = '  <option value="1" class="v-foto">' +
+        var html = '  <option value="1" id="v-foto">' +
             '                               Foto' +
             '                            </option>' +
-            '         <option value="2" class="v-video">' +
+            '         <option value="2" id="v-video">' +
             '                               Video' +
             '                            </option>';
         $('.combo').html(html);
+
+
+
+        function opcion() {
+            var a = $("#tipo_publicacion option:selected" ).val();
+            if (a == 1){
+                var html = '         <label for="URLpublicacion">' +
+                    '                            Insertar foto ' +
+                    '                        </label>\n' +
+                    '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*" >';
+            } else {
+                var html = '         <label for="URLpublicacion">' +
+                    '                            Insertar video (max 100mb)' +
+                    '                        </label>\n' +
+                    '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="video/mp4" >';
+
+
+            }
+            $('.URLmedia').html(html);
+        }
+
+
+
+
     </script>
+    <script src="{{ asset('js/js_admin/publicacion.js')}}"></script>
+
     <script>
         $(function () {
             CKEDITOR.replace('descripcion_publicacion')

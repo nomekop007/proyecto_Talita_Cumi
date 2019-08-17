@@ -37,24 +37,6 @@ $(document).ready(function () {
 
 
 
-    //validacion de guardar imagen y video
-    $('.v-foto').click(function (event) {
-        event.preventDefault();
-        var html = '         <label for="URLpublicacion">' +
-            '                            Insertar foto ' +
-            '                        </label>\n' +
-            '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*" >';
-        $('.URLmedia').html(html);
-    });
-    $('.v-video').click(function (event) {
-        event.preventDefault();
-        var html = '         <label for="URLpublicacion">' +
-            '                            Insertar video (max 100mb)' +
-            '                        </label>\n' +
-            '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="video/mp4" >';
-
-        $('.URLmedia').html(html);
-    });
 
 
     //valida los campos y guarda en base de datos
@@ -346,7 +328,7 @@ $(document).ready(function () {
                         '                            Tipo Publicacion\n' +
                         '                        </label>\n' +
                         '                        <br>\n' +
-                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX">\n' +
+                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX" onchange="opcionX()" >\n' +
                         '                            <option value="1" class="v-fotoX">\n' +
                         '                               Foto\n' +
                         '                            </option>\n' +
@@ -412,26 +394,6 @@ $(document).ready(function () {
                     });
 
 
-                    //validacion de guardar imagen y video del modal editar publiacion
-                    $('.v-fotoX').click(function (event) {
-                        event.preventDefault();
-                        var html = '         <label for="URLpublicacionX">' +
-                            '                            Actualizar foto (opcional) ' +
-                            '                        </label>\n' +
-                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
-                        $('.URLmediaX').html(html);
-                    });
-                    $('.v-videoX').click(function (event) {
-                        event.preventDefault();
-                        var html = '         <label for="URLpublicacionX">' +
-                            '                            Actualizar video (opcional) ' +
-                            '                        </label>\n' +
-                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
-
-                        $('.URLmediaX').html(html);
-                    });
-
-
                 } else {
 
                     $('#mimodalLabel_editar').html('Media N°' + datos['id'] + ' de la galeria de imagenes');
@@ -448,7 +410,7 @@ $(document).ready(function () {
                         '                            Tipo Publicacion\n' +
                         '                        </label>\n' +
                         '                        <br>\n' +
-                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX">\n' +
+                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX" onchange="opcionX()">\n' +
                         '                            <option value="1" class="v-fotoX">\n' +
                         '                               Foto\n' +
                         '                            </option>\n' +
@@ -469,31 +431,9 @@ $(document).ready(function () {
                         '            </div>\n' +
                         '        </div>';
 
-
                     $('.b_editar').html(html);
 
-
-                    //validacion de guardar imagen y video del modal editar publiacion
-                    $('.v-fotoX').click(function (event) {
-                        event.preventDefault();
-                        var html = '         <label for="URLpublicacionX">' +
-                            '                            Actualizar foto (opcional) ' +
-                            '                        </label>\n' +
-                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
-                        $('.URLmediaX').html(html);
-                    });
-                    $('.v-videoX').click(function (event) {
-                        event.preventDefault();
-                        var html = '         <label for="URLpublicacionX">' +
-                            '                            Actualizar video (opcional) ' +
-                            '                        </label>\n' +
-                            '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
-
-                        $('.URLmediaX').html(html);
-                    });
                 }
-
-
             },
             error: function (error) {
                 console.log(error);

@@ -274,6 +274,28 @@
     <script src="{{ asset('js/js_admin/publicacion.js')}}">
     </script>
 
+    <script>
+        //validacion de guardar imagen y video del modal editar publicacion
+        function opcionX() {
+            var b = $("#tipo_publicacionX option:selected" ).val();
+            if (b == 1){
+                var html = '         <label for="URLpublicacionX">' +
+                    '                            Insertar foto ' +
+                    '                        </label>\n' +
+                    '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*" >';
+            } else {
+                var html = '         <label for="URLpublicacion">' +
+                    '                            Insertar video (max 100mb)' +
+                    '                        </label>\n' +
+                    '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="video/mp4" >';
+
+
+            }
+            $('.URLmediaX').html(html);
+        }
+    </script>
+
+
     <!-- DataTables -->
     <script src="{{ asset('js/js_admin/cargarTabla.js')}}">
     </script>
