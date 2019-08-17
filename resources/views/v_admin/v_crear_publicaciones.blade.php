@@ -57,9 +57,11 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-6 seleccionar">
-                        <br>
-                        <button class="btn btn-primary btn-sm"
+                    <div class="form-group col-md-2 seleccionar">
+                        <label for="Categoria">
+
+                        </label>
+                        <button class="btn btn-primary  form-control"
                                 id="btnSeleccionar"
                                 type="submit">
                             seleccionar
@@ -90,16 +92,16 @@
                     </div>
 
 
-                    <div class="form-group col-md-12 descripcion" >
+                    <div class="form-group col-md-12 descripcion " >
 
-                        <div class="box box-info">
-                            <div class="box-header">
-                                <h3 class="box-title">Descripcion
+                        <div class="box box-primary">
+                            <div class="box-header ">
+                                <h3 class="box-title ">Descripcion
                                     <small>CK Editor</small>
                                 </h3>
                                 <!-- tools box -->
-                                <div class="pull-right box-tools">
-                                    <button type="button" class="btn btn-info btn-sm" data-widget="collapse"
+                                <div class="pull-right box-tools ">
+                                    <button type="button" class="btn btn-primary btn-sm" data-widget="collapse"
                                             data-toggle="tooltip"
                                             title="Collapse">
                                         <i class="fa fa-minus"></i></button>
@@ -117,7 +119,7 @@
                     </div>
                     <br>
                     <div class="form-group col-md-12 enviar" hidden>
-                        <button class="btn btn-primary btn-sm"
+                        <button class="btn btn-primary"
                                 id="btnEnviar"
                                 type="submit">
                             Crear Publicacion
@@ -147,6 +149,23 @@
 
 @section('jsextra')
     <script src="{{ asset('js/js_admin/publicacion.js')}}"></script>
+    <script>
+        $('.tipo').hide();
+        $('.URLmedia').hide();
+        $('.titulo').hide();
+        $('.descripcion').hide();
+        $('.enviar').hide();
+
+
+        //cargar combobox tipo
+        var html = '  <option value="1" class="v-foto">' +
+            '                               Foto' +
+            '                            </option>' +
+            '         <option value="2" class="v-video">' +
+            '                               Video' +
+            '                            </option>';
+        $('.combo').html(html);
+    </script>
     <script>
         $(function () {
             CKEDITOR.replace('descripcion_publicacion')

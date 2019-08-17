@@ -77,6 +77,9 @@ $(document).ready(function () {
                 },
                 error: function (error) {
                     console.log(error);
+                    swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
+                    $('#btnEnviar').attr("disabled", false);
+                    $('#subiendo').hide();
                 }
             });
 
@@ -135,6 +138,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
             }
         });
         $('#modal_editar').modal('hide');
@@ -170,6 +174,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
             }
         });
     });
@@ -227,7 +232,7 @@ $(document).ready(function () {
                     '                    <div class="form-group col-md-12">\n' +
                     '\n' +
                     '\n' +
-                    '                        <div class="box box-info">\n' +
+                    '                        <div class="box box-primary">\n' +
                     '                            <div class="box-header">\n' +
                     '                                <h3 class="box-title">Descripcion\n' +
                     '                                    <small>CK Editor</small>\n' +
@@ -271,6 +276,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
             }
 
         });
@@ -336,6 +342,11 @@ $(document).ready(function () {
                 },
                 error: function (error) {
                     console.log(error);
+                    swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
+                    $('#editar').attr("disabled", false);
+                    $('.btn-delete').attr("disabled", false);
+                    $('.btn-default').attr("disabled", false);
+                    $('#subiendo').hide();
                 }
             });
 
@@ -382,6 +393,7 @@ $(document).ready(function () {
                     },
                     error: function (error) {
                         console.log(error);
+                        swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
                     }
                 });
 
@@ -429,6 +441,7 @@ $(document).ready(function () {
                     },
                     error: function (error) {
                         console.log(error);
+                        swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
                     }
                 });
 

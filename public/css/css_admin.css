@@ -5,7 +5,7 @@
 
 .imagen img{ /*imagen a ocupar el ta tabla*/
     width: 100%;
-    height: 450px;
+    height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -68,7 +68,7 @@ height: 25px;
 
 
 .barra_rosado_oscuro{
-    background-color: #da669f !important;
+    background-color: #367fa9 !important;
     /*azul   367fa9   */
     /*rosado da669f   */
 }
@@ -78,9 +78,16 @@ height: 25px;
 
 
 .barra_rosado_claro{
-    background-color: #fdb5d9 !important;
+    background-color: #367fa9 !important;
+    /*azul   367fa9   */
+    /*rosado da669f   */
 }
-
+.BTNbarra_rosado_oscuro{
+    background-color: #da669f !important;
+    color: #ffffff;
+    /*azul   367fa9   */
+    /*rosado da669f   */
+}
 
 
 #barra_estado span{

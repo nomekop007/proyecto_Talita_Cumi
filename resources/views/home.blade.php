@@ -77,7 +77,7 @@ desired effect
 |---------------------------------------------------------|
 -->
 
-<body class="hold-transition skin-black sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <!-- Main Header -->
@@ -111,7 +111,7 @@ desired effect
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                            aria-haspopup="true" v-pre>
                             <i class="fas fa-user"></i>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->email }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu">

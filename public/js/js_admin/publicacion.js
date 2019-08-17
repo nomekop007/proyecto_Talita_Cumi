@@ -1,18 +1,14 @@
 $(document).ready(function () {
 
+    $('#subiendo').hide();
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
-    $('.tipo').hide();
-    $('.URLmedia').hide();
-    $('.titulo').hide();
-    $('.descripcion').hide();
-    $('.enviar').hide();
 
-    $('#subiendo').hide();
 
     //seleecionar ubicacion
     $('#btnSeleccionar').click(function (event) {
@@ -23,7 +19,6 @@ $(document).ready(function () {
         //1   En galeria multimedia
         //2    En pagina de Inicio
         //3   En Tienda Online
-
 
         if (c != 1) {
             $('.descripcion').show();
@@ -36,18 +31,10 @@ $(document).ready(function () {
 
         $('#Categoria').attr("disabled", true);
         $('.seleccionar').hide();
-
     });
 
 
-    //cargar combobox tipo
-    var html = '  <option value="1" class="v-foto">' +
-        '                               Foto' +
-        '                            </option>' +
-        '         <option value="2" class="v-video">' +
-        '                               Video' +
-        '                            </option>';
-    $('.combo').html(html);
+
 
 
     //validacion de guardar imagen y video
@@ -80,7 +67,10 @@ $(document).ready(function () {
     //validar y guardar en bd
     function validarCampos() {
 
+        //recacar url del boton
+        var url = $('#formulario').attr('action');
         var opcion = $('#Categoria').val();
+
         var paqueteDeDatos = new FormData();
         //rescatar los valores de los input y guardarlas en un formData
         paqueteDeDatos.append('Categoria', $('#Categoria').prop('value'));
@@ -93,11 +83,12 @@ $(document).ready(function () {
             paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
             paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
 
+
+
             //octener valor input por sus id
             var titulo_publicacion = $('#titulo_publicacion').val();
             var URLpublicacion = $('#URLpublicacion').val();
             var descripcion_publicacion = CKEDITOR.instances['descripcion_publicacion'].getData();
-
 
             if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
                 swal('Campos Vacios', 'faltan datos ', 'error')
@@ -111,37 +102,7 @@ $(document).ready(function () {
                     swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
                 } else {
 
-                    //recacar url del boton
-                    var url = $('#formulario').attr('action');
-                    $('#subiendo').show();
-                    $('#btnEnviar').attr("disabled", true);
-
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: paqueteDeDatos,
-                        processData: false,
-                        contentType: false,
-                        success: function (datos) {
-                            console.log(datos);
-                            if (datos == "ok") {
-                                $('.bar').width('100%');
-                                setTimeout(function () {
-                                    window.location = window.location;
-                                }, 1500);
-                                swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
-                            } else {
-                                swal('algo paso', 'faltan datos ', 'error')
-                            }
-                            $('#subiendo').hide();
-                            $('#btnEnviar').attr("disabled", false);
-                        },
-                        error: function (error) {
-                            console.log(error);
-                        }
-
-                    });
-
+                    guardarPublicacion(url,paqueteDeDatos);
 
                 }
             }
@@ -166,36 +127,7 @@ $(document).ready(function () {
                     swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
                 } else {
 
-                    //recacar url del boton
-                    var url = $('#formulario').attr('action');
-                    $('#subiendo').show();
-                    $('#btnEnviar').attr("disabled", true);
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: paqueteDeDatos,
-                        processData: false,
-                        contentType: false,
-                        success: function (datos) {
-                            console.log(datos);
-                            if (datos == "ok") {
-                                $('.bar').width('100%');
-                                setTimeout(function () {
-                                    window.location = window.location;
-                                }, 1500);
-
-                                swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
-                            } else {
-                                swal('algo paso', 'faltan datos ', 'error')
-                            }
-                            $('#btnEnviar').attr("disabled", false);
-                            $('#subiendo').hide();
-                        },
-                        error: function (error) {
-                            console.log(error);
-                        }
-
-                    });
+                  guardarPublicacion(url,paqueteDeDatos);
 
                 }
             }
@@ -205,6 +137,48 @@ $(document).ready(function () {
 
 
     }
+
+
+
+    function guardarPublicacion(url,paquete){
+
+        $('#subiendo').show();
+        $('#btnEnviar').attr("disabled", true);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: paquete,
+            processData: false,
+            contentType: false,
+            success: function (datos) {
+                console.log(datos);
+                if (datos == "ok") {
+                    $('.bar').width('100%');
+                    setTimeout(function () {
+                        window.location = window.location;
+                    }, 1500);
+
+                    swal('Publicacion Registrada', 'guardado en base de datos!', 'success')
+                } else {
+                    swal('algo paso', 'faltan datos ', 'error')
+                }
+                $('#btnEnviar').attr("disabled", false);
+                $('#subiendo').hide();
+            },
+            error: function (error) {
+                console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
+                $('#btnEnviar').attr("disabled", false);
+                $('#subiendo').hide();
+            }
+
+        });
+    }
+
+
+
+
+
 
     //modal imagen
     $('.btn-img').click(function (event) {
@@ -276,6 +250,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
             }
         });
         $('#modal_editar').modal('hide');
@@ -311,6 +286,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
             }
         });
     });
@@ -407,7 +383,7 @@ $(document).ready(function () {
                         '                    </div>\n' +
                         '                    <div class="form-group col-md-12">\n' +
                         '\n' +
-                        '                        <div class="box box-info">\n' +
+                        '                        <div class="box box-primary">\n' +
                         '                            <div class="box-header">\n' +
                         '                                <h3 class="box-title">Descripcion\n' +
                         '                                    <small>CK Editor</small>\n' +
@@ -521,6 +497,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
             }
 
         });
@@ -534,7 +511,9 @@ $(document).ready(function () {
     //editar Publicacion
     $('#editar').click(function (event) {
         event.preventDefault();
-        var t = $('#cat').prop('value')
+        var t = $('#cat').prop('value'); //categoria de la publicacion
+        var url = $(this).data('url');
+
         if (t == 1) {
 
             var file = $('#URLpublicacionX').val();
@@ -552,38 +531,12 @@ $(document).ready(function () {
                     paqueteDeDatos.append('id', $('#edi').prop('value'));
                     paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
                     paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
-                    var url = $(this).data('url');
-                    $('#editar').attr("disabled", true);
-                    $('.btn-delete').attr("disabled", true);
-                    $('.btn-default').attr("disabled", true);
-                    $('#subiendo').show();
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: paqueteDeDatos,
-                        processData: false,
-                        contentType: false,
-                        success: function (datos) {
-                            console.log(datos);
-                            if (datos == "ok") {
-                                setTimeout(function () {
-                                    window.location = window.location;
-                                }, 900);
-                                swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
-                                $('#subiendo').hide();
-
-                            } else {
-                                swal('algo paso', 'faltan datos ', 'error')
-                            }
-                        },
-                        error: function (error) {
-                            console.log(error);
-                        }
-                    });
-
+                    actualizar(url,paqueteDeDatos);
                 }
 
             }
+
+
 
 
         } else {
@@ -613,39 +566,52 @@ $(document).ready(function () {
                     paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
                 }
 
-                var url = $(this).data('url');
-                $('#editar').attr("disabled", true);
-                $('.btn-delete').attr("disabled", true);
-                $('.btn-default').attr("disabled", true);
-                $('#subiendo').show();
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: paqueteDeDatos,
-                    processData: false,
-                    contentType: false,
-                    success: function (datos) {
-                        console.log(datos);
-                        if (datos == "ok") {
-                            setTimeout(function () {
-                                window.location = window.location;
-                            }, 900);
-                            swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
-                            $('#subiendo').hide();
-                        } else {
-                            swal('algo paso', 'faltan datos ', 'error')
-                        }
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
-                });
-
+                actualizar(url,paqueteDeDatos);
 
             }
         }
 
+
     });
+
+
+
+    function actualizar(url,paquete){
+
+        $('#editar').attr("disabled", true);
+        $('.btn-delete').attr("disabled", true);
+        $('.btn-default').attr("disabled", true);
+        $('#subiendo').show();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: paquete,
+            processData: false,
+            contentType: false,
+            success: function (datos) {
+                console.log(datos);
+                if (datos == "ok") {
+                    setTimeout(function () {
+                        window.location = window.location;
+                    }, 900);
+                    swal('Publicacion Actualizada', 'guardado en base de datos!', 'success')
+                    $('#subiendo').hide();
+                } else {
+                    swal('algo paso', 'faltan datos ', 'error')
+                }
+            },
+            error: function (error) {
+                console.log(error);
+                swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
+                $('#subiendo').hide();
+                $('#editar').attr("disabled", false);
+                $('.btn-delete').attr("disabled", false);
+                $('.btn-default').attr("disabled", false);
+            }
+        });
+    }
+
+
 
 
     //publicar Publicacion
@@ -685,6 +651,7 @@ $(document).ready(function () {
                     },
                     error: function (error) {
                         console.log(error);
+                        swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
                     }
                 });
 
@@ -732,6 +699,7 @@ $(document).ready(function () {
                     },
                     error: function (error) {
                         console.log(error);
+                        swal('algo paso!', 'Pongase en contacto con soporte tecnico ', 'error')
                     }
                 });
 
