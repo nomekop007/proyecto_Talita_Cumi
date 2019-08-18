@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 
 
-    //seleecionar ubicacion
+    //selecionar ubicacion
     $('#btnSeleccionar').click(function (event) {
         event.preventDefault();
 

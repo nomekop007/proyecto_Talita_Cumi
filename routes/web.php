@@ -15,7 +15,7 @@ Route::get('cpanel', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('cpanel', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-// Registration Routes...
+// Registration Routes... !!!!!COMENTAR ESTAS LINEAS AL TERMINAR DE CREAR LOS USUARIOS!!!!
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 

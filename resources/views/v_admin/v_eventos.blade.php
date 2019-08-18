@@ -118,7 +118,10 @@
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content contenido">
-
+                <div class="overlay text-center">
+                    <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                    <h6>Cargando...</h6>
+                </div>
             </div>
         </div>
     </div>
@@ -136,7 +139,7 @@
 
                 <div class="modal-body b_des">
 
-                    <div class="overlay">
+                    <div class="overlay text-center">
                         <i class="fa fa-refresh fa-spin fa-2x"> </i>
                         <h6>Cargando...</h6>
                     </div>
@@ -160,7 +163,10 @@
                     <h4 class="modal-title" id="mimodalLabel_eliminar">Default Modal</h4>
                 </div>
                 <div class="modal-body b_eliminar">
-                    <p>One fine body&hellip;</p>
+                    <div class="overlay text-center">
+                        <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                        <h6>Cargando...</h6>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">cancelar</button>

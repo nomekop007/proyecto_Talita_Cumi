@@ -14,7 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/css_admin.css') }}">
 </head>
-<body>
+<body class="fondo">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top  ">
             <div class="container">

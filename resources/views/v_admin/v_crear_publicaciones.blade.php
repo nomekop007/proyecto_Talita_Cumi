@@ -82,6 +82,7 @@
                             Tipo Publicacion
                         </label>
                         <select class="form-control combo" id="tipo_publicacion" name="tipo_publicacion" onchange="opcion()">
+                            <!--se carga abajo en el script -->
                         </select>
                     </div>
                     <div class="form-group col-md-6 URLmedia" hidden>
@@ -93,30 +94,10 @@
 
 
                     <div class="form-group col-md-12 descripcion">
-
-                        <div class="box box-primary">
-                            <div class="box-header ">
-                                <h3 class="box-title ">Descripcion
-                                    <small>CK Editor</small>
-                                </h3>
-                                <!-- tools box -->
-                                <div class="pull-right box-tools ">
-                                    <button type="button" class="btn btn-primary btn-sm" data-widget="collapse"
-                                            data-toggle="tooltip"
-                                            title="Collapse">
-                                        <i class="fa fa-minus"></i></button>
-                                </div>
-                                <!-- /. tools -->
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body pad">
-                                 <textarea id="descripcion_publicacion" name="descripcion_publicacion"
-                                           placeholder="ingrese texto aqui" rows="10" cols="80">
-                                </textarea>
-                            </div>
-                        </div>
-
+                        <!--se carga abajo en el script -->
                     </div>
+
+
                     <br>
                     <div class="form-group col-md-12 enviar" hidden>
                         <button class="btn btn-primary"
@@ -127,13 +108,14 @@
                         <br>
                         <code>
                             <div class="progress progress-sm active">
-                                <div class="progress-bar progress-bar-light-blue progress-bar-striped bar"  role="progressbar"
+                                <div class="progress-bar progress-bar-light-blue progress-bar-striped bar"
+                                     role="progressbar"
                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                    <span class="sr-only">20% Complete</span>
+                                    <span class="sr-only">0% Complete</span>
                                 </div>
                             </div>
                         </code>
-                        <div class="overlay text-center btn" id="subiendo" >
+                        <div class="overlay text-center btn" id="subiendo">
                             <i class="fa fa-refresh fa-spin fa-1x"> </i>
                             <h6>subiendo...</h6>
                         </div>
@@ -165,26 +147,47 @@
         $('.combo').html(html);
 
 
+        //cargar CK Editor descripcion
+        var html2 = '      <div class="box box-primary">\n' +
+            '                            <div class="box-header ">\n' +
+            '                                <h3 class="box-title ">Descripcion\n' +
+            '                                    <small>CK Editor</small>\n' +
+            '                                </h3>\n' +
+            '                                <!-- tools box -->\n' +
+            '                                <div class="pull-right box-tools ">\n' +
+            '                                    <button type="button" class="btn btn-primary btn-sm" data-widget="collapse"\n' +
+            '                                            data-toggle="tooltip"\n' +
+            '                                            title="Collapse">\n' +
+            '                                        <i class="fa fa-minus"></i></button>\n' +
+            '                                </div>\n' +
+            '                                <!-- /. tools -->\n' +
+            '                            </div>\n' +
+            '                            <!-- /.box-header -->\n' +
+            '                            <div class="box-body pad">\n' +
+            '                                 <textarea id="descripcion_publicacion" name="descripcion_publicacion"\n' +
+            '                                           placeholder="ingrese texto aqui" rows="10" cols="80">\n' +
+            '                                </textarea>\n' +
+            '                            </div>\n' +
+            '                        </div>\n';
+        $('.descripcion').html(html2);
 
+
+        //funcion para cambiar si se inserta una foto o un video
         function opcion() {
-            var a = $("#tipo_publicacion option:selected" ).val();
-            if (a == 1){
+            var a = $("#tipo_publicacion option:selected").val();
+            if (a == 1) {
                 var html = '         <label for="URLpublicacion">' +
                     '                            Insertar foto ' +
                     '                        </label>\n' +
                     '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*" >';
             } else {
                 var html = '         <label for="URLpublicacion">' +
-                    '                            Insertar video (max 100mb)' +
+                    '                            Insertar video' +
                     '                        </label>\n' +
                     '                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="video/mp4" >';
-
-
             }
             $('.URLmedia').html(html);
         }
-
-
 
 
     </script>
