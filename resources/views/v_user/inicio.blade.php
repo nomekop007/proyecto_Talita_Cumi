@@ -2,41 +2,38 @@
 
 
 @section('header')
-    <div class="page-header header-filter clear-filter menu">
-        @endsection
-        @section('boton')
-            <div class="col-md-6 offset-md-3 text-right" style="position: absolute; color: white;margin-top: 30vh">
-                <h1 style="font-family: 'Parisienne', cursive;font-weight: 700 ;font-size: 6.5vw" class="text-center">
-                    Ballet
-                    Cristiano Talita-Cumi
+    <header style="height: 100%;min-height: 30rem;padding-bottom: 0" class="masthead ">
+        <div class="container ">
+            <div class="row h-100 align-items-center justify-content-center text-center wow bounceInRight ">
+                <div class="col-lg-12 align-self-end ">
+                    <h1 style="padding-top: 150px;font-family: 'Parisienne', cursive;font-size: 6.5vw;color: white"><b>Ballet
+                            Cristiano Talita-Cumi</b></h1>
+                </div>
 
             </div>
-    </div>
+        </div>
+    </header>
 @endsection
-
-
-
-
-
 
 @section('contenido')
 
-    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center ">ASPECTOS DESTACADOS</h1>
+
+    <section class="wow bounceInRight">
+        <h1 style="font-family: 'Montserrat', sans-serif; text-align: center ">ASPECTOS DESTACADOS</h1>
+    </section>
+
     <br>
 
 
     <!--modificacion Diego -->
+    <div class="container wow bounceInLeft">
     <div class="row">
         <div class="col-md-11 mx-auto">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
                 <div class="carousel-inner tam">
-
-
                     <div class="carousel-item active">
                         <img src="/imagen_user/2019.jpg" class="d-block w-100" alt="...">
                     </div>
-
                     @foreach($publicaciones as $p)
                         @if($p->categoria == 2)
                             @if($p->estado == 'activo')
@@ -56,8 +53,6 @@
                             @endif
                         @endif
                     @endforeach
-
-
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -69,21 +64,24 @@
                 </a>
             </div>
         </div>
-
-
+    </div>
     </div>
     <!--fin modificacion Diego -->
     <br>
 
-    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">PROXIMOS EVENTOS</h1>
+    <section>
+        <div class="container wow bounceInRight">
+            <div class="row">
+                <div class="col">
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">PROXIMOS EVENTOS</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <br>
 
-
-
-
-<div class="container">
-
+<div class="container wow bounceInLeft">
         <div class="page-wrapper">
             <div class="post-slider">
                 <div class="text-right mb-4">
@@ -101,9 +99,6 @@
                                          style="height: 225px; width: 100%; display: block;">
                                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                                         <h4 class="text-center">{{$e->tituloEvento}}</h4>
-
-                                        <p class="card-text text-center" style="">ubicacion en la academia Talita-Cumi Talca</p>
-
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">{{$e->fechaInicio}}</small>
                                             <small class="text-muted">{{$e->fechaFin}}</small>
@@ -122,43 +117,33 @@
 
     <br>
     <!--boton remplazado por a -->
-    <l style="background-color:black"
-       class="btn btn-lg">
+    <l style="background-color:black" class="btn btn-lg wow bounceInRight">
         <a style="color: white;" href="{{ route('vista_eventos') }}">
             <span> VER MÁS →</span></a></l>
 </div>
 
+    <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <br><br><br>
-    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">SIGUENOS EN NUESTRAS REDES SOCIALES</h1>
+    <section>
+        <div class="container wow bounceInLeft">
+            <div class="row">
+                <div class="col">
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">SIGUENOS EN NUESTRAS REDES SOCIALES</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <br>
 
-    <div class="text-center">
-        <a href="#"><img src="{{ asset('imagen_user/facebooklogo.png') }}" alt="" width="100"></a>
-        <a href="#"><img src="{{ asset('imagen_user/instagramlogo.jpg') }}" alt="" width="100"></a>
+    <div class="text-center wow bounceInRight">
+        <a href="#"><img src="{{ asset('imagen_user/facebooklogo.png') }}" alt="" width="60"></a>
+        <a href="#"><img src="{{ asset('imagen_user/instagramlogo.png') }}" alt="" width="60"></a>
     </div>
 
     <br>
 
-    <div class="container">
+    <div class="container wow bounceInLeft">
         <div class="card" id="galeriaImagenes"><br>
             <h1 style="font-family: 'Montserrat', sans-serif; text-align: center" class="text-center">Galeria de
                 Imagenes</h1>
@@ -194,20 +179,37 @@
 
     <br>
 
-    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">UBICANOS</h1>
+    <section>
+        <div class="container wow bounceInRight">
+            <div class="row">
+                <div class="col">
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">UBICANOS</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <br>
 
-    <div id="map" class="container map" style="height: 300PX">
+    <div id="map" class="container map wow bounceInLeft" style="height: 300PX">
     </div>
 
     <br>
 
-    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">EQUIPO DE TRABAJO</h1>
+    <section>
+        <div class="container wow bounceInRight">
+            <div class="row">
+                <div class="col">
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">EQUIPO DE TRABAJO</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <br>
 
-    <div class="container">
+    <div class="container wow bounceInLeft">
         <div class="row">
 
             <div class="col-md-4">
@@ -263,9 +265,5 @@
         </div>
     </div>
     <br>
-
-
-
-
-
 @endsection
+

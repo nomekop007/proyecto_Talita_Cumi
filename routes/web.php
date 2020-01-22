@@ -71,3 +71,17 @@ Route::post('upEvento','evento_controller@subir')->name('upEvento');
 //vista eventos
 Route::get('vista_eventos','usuario_controller@vista_eventos')->name('vista_eventos');
 
+//vista tienda
+Route::get('vista_tienda','usuario_controller@vista_tienda')->name('vista_tienda');
+
+//vista Mision y Vision
+
+Route::get('vista_MisionyVision','usuario_controller@vista_MisionyVision')->name('vista_MisionyVision');
+
+//vista galeria
+
+Route::get('vista_galeria','usuario_controller@vista_galeria')->name('vista_galeria');
+
+//vista historia
+
+Route::get('vista_historia','usuario_controller@vista_historia')->name('vista_historia');
