@@ -1,0 +1,24 @@
+
+
+
+
+.post-slider .slider-title {
+    text-align: center;
+    margin: 30px auto;
+}
+
+
+.post-slider .post-wrapper {
+    width: 100%;
+
+    margin: 0px auto;
+    overflow: hidden;
+
+}
+
+.post-slider .post-wrapper .post {
+
+    margin: 0px 10px;
+    display: inline-block;
+
+}

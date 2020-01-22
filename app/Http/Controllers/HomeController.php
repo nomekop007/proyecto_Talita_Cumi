@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\publicacion;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $publicacions = publicacion::all();
+        /*para que empieze seleccionada la opcion 3 (publicaciones) */
+        $data = array(
+            'n3' => 'active',
+            'n1' => '',
+            'n2' => '',
+            'n4' => ''
+        );
+
+        return view('v_admin.v_publicaciones',
+            ['publicaciones' => $publicacions,
+                'menus' => $data]);
     }
 }
