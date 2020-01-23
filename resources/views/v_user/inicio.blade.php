@@ -25,7 +25,7 @@
     <br>
 
 
-    <!--modificacion Diego -->
+
     <div class="container wow bounceInLeft">
     <div class="row">
         <div class="col-md-11 mx-auto">
@@ -40,8 +40,13 @@
                                 <div class="carousel-item ">
 
                                     @if($p->tipo == 1)
-                                        <img alt="First slide" class="d-block w-100"
-                                             src="{{ Storage::url($p->URLpublicacion) }}" alt="">
+                    <form action="{{ route('vista_detalle') }}" method="get">
+                    {{ csrf_field() }}
+                    <input name="id" type="hidden" value="{{base64_encode($p->id)}}">
+
+                                        <input type=image alt="First slide" class="d-block w-100"
+                                             src="{{ Storage::url($p->URLpublicacion) }}">
+                     </form>
                                     @endif
 
                                     @if($p->tipo == 2)
@@ -66,7 +71,7 @@
         </div>
     </div>
     </div>
-    <!--fin modificacion Diego -->
+   
     <br>
 
     <section>
@@ -92,11 +97,18 @@
                     @foreach($eventos as $e)
                         @if($e->estado == 'activo')
                             <div class="post">
+                                <form 
+                                 method="get"
+                                action="{{ route('vista_detalle') }}">
+                                 {{ csrf_field() }}
+                                 <input type="hidden" name="id" value="{{base64_encode($e->id)}}">
 
                                 <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" alt="" src="{{ Storage::url($e->URLfoto) }}"
+
+                                    <input type=image class="card-img-top" alt="" src="{{ Storage::url($e->URLfoto) }}"
                                          data-holder-rendered="true"
                                          style="height: 225px; width: 100%; display: block;">
+                                          
                                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                                         <h4 class="text-center">{{$e->tituloEvento}}</h4>
                                         <div class="d-flex justify-content-between align-items-center">
@@ -105,7 +117,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                </form>
                             </div>
                         @endif
                     @endforeach
@@ -150,6 +162,7 @@
             <div class="card-body ">
                 <div class="row">
                     @foreach($publicaciones as $p)
+                    @if( $loop->index <= 6 )
                         @if($p->categoria == 1)
                             @if($p->estado == 'activo')
                                 @if($p->tipo == 1)
@@ -167,8 +180,12 @@
                                     </div>
 
                                 @endif
+                             
                             @endif
+                            
                         @endif
+                    @endif
+                        
                     @endforeach
 
 
@@ -265,5 +282,7 @@
         </div>
     </div>
     <br>
+    
+  
 @endsection
 

@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+      <!-- habilita el jax para poder enviar los datos -->
+    <meta content="{{ csrf_token() }}" name="csrf-token">
+    
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,7 +46,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a style="" class="nav-link" href="{{ route('index') }}"><b>Areas de Formacion</b></a>
+                <a style="" class="nav-link" href="#!"><b>Areas de Formacion</b></a>
             </li>
             <li class="nav-item active">
                 <a style="" class="nav-link" href="{{ route('vista_galeria') }}"><b>Galeria</b></a>
@@ -53,6 +56,11 @@
             </li>
             <li class="nav-item active">
                 <a style="" class="nav-link" href="{{ route('vista_MisionyVision') }}"><b>Mision y Vision</b></a>
+            </li>
+            <li class="nav-item active">
+                <a style="" class="nav-link" href="{{ route('vista_tienda') }}">
+                <i class="fas fa-shopping-cart fa-2x"></i>
+            </a>
             </li>
         </ul>
     </div>
@@ -65,15 +73,7 @@
 
 @yield('contenido')
 
-<section>
-    @yield('tienda')
-</section>
 
-@yield('misionvision')
-
-@yield('galeria')
-
-@yield('historia')
 
 <!-- Footer -->
 <footer style="background-color: black;color: white" class="page-footer font-small blue pt-4">
@@ -111,16 +111,19 @@
 
                 <ul class="list-unstyled ">
                     <li>
-                        <a style="color: white" href="{{ route('vista_historia') }}">HISTORIA</a>
+                        <a style="color: white" href="{{ route('vista_historia') }}">Historia</a>
                     </li>
                     <li>
-                        <a style="color: white" href="{{ route('vista_MisionyVision') }}">MISION Y VISION</a>
+                        <a style="color: white" href="{{ route('vista_MisionyVision') }}">Mision y Vision</a>
                     </li>
                     <li>
-                        <a style="color: white" href="{{ route('vista_galeria') }}">GALERIA</a>
+                        <a style="color: white" href="{{ route('vista_galeria') }}">Galeria
                     </li>
                     <li>
-                        <a style="color: white" href="#!">AREA DE FORMACION</a>
+                        <a style="color: white" href="#!">Area de Formacion</a>
+                    </li>
+                    <li>
+                        <a style="color: white" href="{{ route('vista_tienda') }}">Tienda Online</a>
                     </li>
                 </ul>
 

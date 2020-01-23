@@ -14,45 +14,33 @@
 @endsection
 
 
-@section('galeria')
+@section('contenido')
     <div class="container">
         <div class="row">
             <div class="card" id="galeriaImagenes"><br>
                 <div class="card-body ">
                     <div class="row">
-                        <div class="col-sm-4 mb-2">
-                            <a id="" data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                        src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                        src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a id="" data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                        src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                        src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a id="" data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                        src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
-                        <div class="col-sm-4 mb-2">
-                            <a data-fancybox="gallery" href="{{ asset('imagen_user/fondoInicio.jpg') }}"><img
-                                        src="{{ asset('imagen_user/fondoInicio.jpg') }}"></a>
-                        </div>
+                        @foreach($publicaciones as $p)
+                        @if($p->categoria == 1)
+                            @if($p->estado == 'activo')
+                                @if($p->tipo == 1)
+
+                                    <div class="col-sm-3 mb-1">
+                                        <a data-fancybox="gallery" href="{{ Storage::url($p->URLpublicacion) }}">
+                                            <img src="{{ Storage::url($p->URLpublicacion) }}"></a>
+                                    </div>
+                                @endif
+
+                                @if($p->tipo == 2)
+                                    <div class="col-sm-3 mb-1">
+                                        <a data-fancybox="gallery" href="{{ Storage::url($p->URLpublicacion) }}">
+                                            <img src=""></a>
+                                    </div>
+
+                                @endif
+                            @endif
+                        @endif
+                    @endforeach
                     </div>
                 </div>
             </div>

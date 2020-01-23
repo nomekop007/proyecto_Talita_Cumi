@@ -13,12 +13,12 @@
     </header>
 @endsection
 
-@section('misionvision')
+@section('contenido')
     <div class="container">
         <div class="row">
             <div class="col">
                 <img hspace="5" src="{{ asset('imagen_user/fondoInicio.jpg') }}" class="img-fluid rounded float-right" width="40%" alt="">
-                <h2 style="font-weight: 700;font-family: 'Montserrat', sans-serif;">Visión</h2>
+                <h2 style="font-weight: 700;font-family: 'Montserrat', sans-serif;">Mision</h2>
                 <p style="font-weight: 700;font-family: 'Montserrat', sans-serif;">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium harum modi officiis
                     asperiores, pariatur est blanditiis voluptates, reiciendis nobis ea cupiditate non porro
@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col">
                 <img hspace="5" src="{{ asset('imagen_user/fondoInicio.jpg') }}" class="img-fluid rounded float-right" width="40%" alt="">
-                <h2 style="font-weight: 700;font-family: 'Montserrat', sans-serif;">Misión</h2>
+                <h2 style="font-weight: 700;font-family: 'Montserrat', sans-serif;">Vision</h2>
                 <p style="font-weight: 700;font-family: 'Montserrat', sans-serif;">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium harum modi officiis
                     asperiores, pariatur est blanditiis voluptates, reiciendis nobis ea cupiditate non porro

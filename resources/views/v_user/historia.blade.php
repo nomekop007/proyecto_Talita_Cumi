@@ -13,7 +13,7 @@
     </header>
 @endsection
 
-@section('historia')
+@section('contenido')
 
 
     <div class="container">

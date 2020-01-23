@@ -12,6 +12,7 @@ class usuario_controller extends Controller
 
     public function index()
     {
+        //colocar condiccion de que publicidad saldra 
         $publicacions = publicacion::all();
         $eventos = evento::all();
 
@@ -38,10 +39,26 @@ class usuario_controller extends Controller
     }
 
     public function vista_galeria(){
-        return view('v_user.galeria');
+         $publicacions = publicacion::all();
+        return view('v_user.galeria',
+            ['publicaciones' => $publicacions]);
     }
 
     public function vista_historia(){
         return view('v_user.historia');
+    }
+
+
+    public function vista_detalle(Request $request){
+         $id = base64_decode($request->id);
+
+              $objeto = evento::find($id);
+                $tipo = 0;
+            if ($objeto == null) {
+               $objeto = publicacion::find($id);
+               $tipo = 1;
+            }
+        return view('v_user.detalle',['objeto' => $objeto,
+                                        'tipo'=> $tipo]);
     }
 }
