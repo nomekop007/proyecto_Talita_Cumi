@@ -1,6 +1,11 @@
 $(document).ready(function () {
     $('.carousel').carousel();
 
+
+    var descrip = $('#descripcion').val();
+    $('#descrip').html(descrip);
+
+
     var map = L.map('map').setView([-35.430869, -71.662904], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -21,6 +26,5 @@ $(document).ready(function () {
 
     });
 
- 
 })
 

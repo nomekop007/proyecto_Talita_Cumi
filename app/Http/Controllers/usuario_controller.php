@@ -54,10 +54,18 @@ class usuario_controller extends Controller
 
               $objeto = evento::find($id);
                 $tipo = 0;
-            if ($objeto == null) {
+        
+        return view('v_user.detalle',['objeto' => $objeto,
+                                        'tipo'=> $tipo]);
+    }
+
+
+        public function vista_detallePublicacion(Request $request){
+         $id = base64_decode($request->id);
+
                $objeto = publicacion::find($id);
                $tipo = 1;
-            }
+               
         return view('v_user.detalle',['objeto' => $objeto,
                                         'tipo'=> $tipo]);
     }

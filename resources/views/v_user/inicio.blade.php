@@ -28,11 +28,11 @@
 
     <div class="container wow bounceInLeft">
     <div class="row">
-        <div class="col-md-11 mx-auto">
+        <div class="col-md-12 mx-auto">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner tam">
                     <div class="carousel-item active">
-                        <img src="/imagen_user/2019.jpg" class="d-block w-100" alt="...">
+                        <img src="/imagen_user/2019.jpg" style="height: 450px; width: 100%; display: block; alt="...">
                     </div>
                     @foreach($publicaciones as $p)
                         @if($p->categoria == 2)
@@ -40,17 +40,17 @@
                                 <div class="carousel-item ">
 
                                     @if($p->tipo == 1)
-                    <form action="{{ route('vista_detalle') }}" method="get">
+                    <form action="{{ route('vista_detallePublicacion') }}" method="get">
                     {{ csrf_field() }}
                     <input name="id" type="hidden" value="{{base64_encode($p->id)}}">
 
-                                        <input type=image alt="First slide" class="d-block w-100"
+                                        <input type=image alt="First slide" style="height: 450px; width: 100%; display: block;" 
                                              src="{{ Storage::url($p->URLpublicacion) }}">
                      </form>
                                     @endif
 
                                     @if($p->tipo == 2)
-                                        <video alt="First slide" class="d-block w-100" controls width=600>
+                                        <video alt="First slide" style="height: 450px; width: 100%; display: block;" controls width=500>
                                             <source src="{{ Storage::url($p->URLpublicacion) }}" type="video/mp4">
                                         </video>
                                     @endif
@@ -112,8 +112,8 @@
                                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                                         <h4 class="text-center">{{$e->tituloEvento}}</h4>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">{{$e->fechaInicio}}</small>
-                                            <small class="text-muted">{{$e->fechaFin}}</small>
+                                            <small class="text-muted">{{$e->fechaInicio->toFormattedDateString() }}</small>
+                                            <small class="text-muted">{{$e->fechaFin->toFormattedDateString()}}</small>
                                         </div>
                                     </div>
                                 </div>

@@ -9,19 +9,41 @@
 
 @section('contenido')
 
+<!--ventana eventos -->
 @if($tipo == 0)
     <div class="container">
+
         <div class="row">
-           <h5>esto sera el detalle evento!! de : {{$objeto->tituloEvento}}</h5>
+        <div class="col-md-3">
+             <h2> {{$objeto->tituloEvento}}</h2>
+                <p>  {{ $objeto->fechaInicio->format('l j F Y ') }}</p>
+                 <p> {{ $objeto->fechaFin->format('l j F Y ') }}</p>
+        </div>
+             <div class="col-md-9">
+                
+                <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionEvento}}">
+
+               <div id="descrip"></div>
+                     
+                
+               
+                   
+             </div>
+          
         </div>
 
     </div>
 @endif
 
+<!--ventana publicaciones -->
 @if($tipo == 1)
      <div class="container">
         <div class="row">
-           <h5>esto sera el detalle publicacion!! de : {{$objeto->tituloPublicacion}}</h5>
+           <div class="col-md-12" id="descrip">
+                
+                <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionPublicacion}}">
+
+              </div>
         </div>
     </div>
 @endif
