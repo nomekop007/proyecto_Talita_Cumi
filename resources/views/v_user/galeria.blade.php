@@ -25,14 +25,14 @@
                             @if($p->estado == 'activo')
                                 @if($p->tipo == 1)
 
-                                    <div class="col-sm-3 mb-1">
+                                    <div class="col-sm-4 mb-1">
                                         <a data-fancybox="gallery" href="{{ Storage::url($p->URLpublicacion) }}">
                                             <img src="{{ Storage::url($p->URLpublicacion) }}"></a>
                                     </div>
                                 @endif
 
                                 @if($p->tipo == 2)
-                                    <div class="col-sm-3 mb-1">
+                                    <div class="col-sm-4 mb-1">
                                         <a data-fancybox="gallery" href="{{ Storage::url($p->URLpublicacion) }}">
                                             <img src=""></a>
                                     </div>

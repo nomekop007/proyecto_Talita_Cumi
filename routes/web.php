@@ -86,9 +86,13 @@ Route::get('vista_galeria','usuario_controller@vista_galeria')->name('vista_gale
 
 Route::get('vista_historia','usuario_controller@vista_historia')->name('vista_historia');
 
+// vista area de formacion
+Route::get('vista_area','usuario_controller@vista_area')->name('vista_area'); 
+
 //vista detalle eventos
 
 Route::get('vista_detalle','usuario_controller@vista_detalle')->name('vista_detalle');
+
 
 //vista detalle publicaciones
 Route::get('vista_detallePublicacion','usuario_controller@vista_detallePublicacion')->name('vista_detallePublicacion');

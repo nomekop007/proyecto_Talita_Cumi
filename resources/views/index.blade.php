@@ -46,7 +46,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a style="" class="nav-link" href="#!"><b>Areas de Formacion</b></a>
+                <a style="" class="nav-link" href="{{ route('vista_area') }}"><b>Areas de Formacion</b></a>
             </li>
             <li class="nav-item active">
                 <a style="" class="nav-link" href="{{ route('vista_galeria') }}"><b>Galeria</b></a>
@@ -88,7 +88,8 @@
             <div class="col-md-12 mt-md-0 mt-3">
 
                 <!-- Content -->
-                <h2 class="text-center">BALLET CRISTIANO TALITA CUMI</h2>
+
+                <h3 class="text-center">BALLET CRISTIANO TALITA CUMI</h3>
                 <p class="text-center">Here you can use rows and columns to organize your footer content.</p>
 
             </div>
@@ -120,7 +121,7 @@
                         <a style="color: white" href="{{ route('vista_galeria') }}">Galeria
                     </li>
                     <li>
-                        <a style="color: white" href="#!">Area de Formacion</a>
+                        <a style="color: white" href="{{ route('vista_area') }}">Area de Formacion</a>
                     </li>
                     <li>
                         <a style="color: white" href="{{ route('vista_tienda') }}">Tienda Online</a>
@@ -152,8 +153,8 @@
                 <!-- Links -->
                 <h5 class="text-uppercase"><b>REDES SOCIALES</b></h5>
 
-                <a href="#"><img src="{{ asset('imagen_user/facebooklogo.png') }}" alt="" width="50"></a>
-                <a href="#"><img src="{{ asset('imagen_user/instagramlogo.png') }}" alt="" width="50 "></a>
+                <a href="https://www.facebook.com/balletcristiano.talitacumi.9"><img src="{{ asset('imagen_user/facebooklogo.png') }}" alt="" width="50"></a>
+                <a href="https://www.instagram.com/ballettalitacumi/?hl=es-la"><img src="{{ asset('imagen_user/instagramlogo.png') }}" alt="" width="50 "></a>
 
             </div>
 

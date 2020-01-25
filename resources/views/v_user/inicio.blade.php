@@ -17,14 +17,10 @@
 
 @section('contenido')
 
-
+<br><br>
     <section class="wow bounceInRight">
-        <h1 style="font-family: 'Montserrat', sans-serif; text-align: center ">ASPECTOS DESTACADOS</h1>
+        <h1 style="font-family: 'Montserrat', sans-serif; text-align: center ">Aspectos destacados</h1>
     </section>
-
-    <br>
-
-
 
     <div class="container wow bounceInLeft">
     <div class="row">
@@ -72,19 +68,17 @@
     </div>
     </div>
    
-    <br>
 
+    <br><br>
     <section>
         <div class="container wow bounceInRight">
             <div class="row">
                 <div class="col">
-                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">PROXIMOS EVENTOS</h1>
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">Proximos eventos</h1>
                 </div>
             </div>
         </div>
     </section>
-
-    <br>
 
 <div class="container wow bounceInLeft">
         <div class="page-wrapper">
@@ -110,7 +104,7 @@
                                          style="height: 225px; width: 100%; display: block;">
                                           
                                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                                        <h4 class="text-center">{{$e->tituloEvento}}</h4>
+                                        <h5 class="text-center">{{$e->tituloEvento}}</h5>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">{{$e->fechaInicio->toFormattedDateString() }}</small>
                                             <small class="text-muted">{{$e->fechaFin->toFormattedDateString()}}</small>
@@ -131,34 +125,15 @@
     <!--boton remplazado por a -->
     <l style="background-color:black" class="btn btn-lg wow bounceInRight">
         <a style="color: white;" href="{{ route('vista_eventos') }}">
-            <span> VER MÁS →</span></a></l>
+            <span> Ver todos los eventos →</span></a></l>
 </div>
 
-    <br>
+    <br><br>
 
-    <section>
-        <div class="container wow bounceInLeft">
-            <div class="row">
-                <div class="col">
-                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">SIGUENOS EN NUESTRAS REDES SOCIALES</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <br>
-
-    <div class="text-center wow bounceInRight">
-        <a href="#"><img src="{{ asset('imagen_user/facebooklogo.png') }}" alt="" width="60"></a>
-        <a href="#"><img src="{{ asset('imagen_user/instagramlogo.png') }}" alt="" width="60"></a>
-    </div>
-
-    <br>
 
     <div class="container wow bounceInLeft">
         <div class="card" id="galeriaImagenes"><br>
-            <h1 style="font-family: 'Montserrat', sans-serif; text-align: center" class="text-center">Galeria de
-                Imagenes</h1>
+            <h1 style="font-family: 'Montserrat', sans-serif; text-align: center" class="text-center">Galeria multimedia</h1>
             <div class="card-body ">
                 <div class="row">
                     @foreach($publicaciones as $p)
@@ -194,44 +169,41 @@
         </div>
     </div>
 
-    <br>
+    <br><br>
 
     <section>
         <div class="container wow bounceInRight">
             <div class="row">
                 <div class="col">
-                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">UBICANOS</h1>
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">Ubicacion</h1>
                 </div>
             </div>
         </div>
     </section>
 
-    <br>
 
     <div id="map" class="container map wow bounceInLeft" style="height: 300PX">
     </div>
 
-    <br>
+    <br><br>
 
     <section>
         <div class="container wow bounceInRight">
             <div class="row">
                 <div class="col">
-                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">EQUIPO DE TRABAJO</h1>
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">Instructores de la Academia</h1>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <br>
 
     <div class="container wow bounceInLeft">
         <div class="row">
 
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                    <img class="card-img-top" alt="" src="{{ asset('imagen_user/usuarios.jpeg') }}"
                          data-holder-rendered="true"
                          style="height: 225px; width: 100%; display: block;">
                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
@@ -240,7 +212,7 @@
                             additional
                             content. This content is a little bit longer.</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">18 de Agosto</small>
+                          
                         </div>
                     </div>
                 </div>
@@ -248,7 +220,7 @@
 
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                    <img class="card-img-top" alt="" src="{{ asset('imagen_user/usuarios.jpeg') }}"
                          data-holder-rendered="true"
                          style="height: 225px; width: 100%; display: block;">
                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
@@ -257,7 +229,7 @@
                             additional
                             content. This content is a little bit longer.</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">18 de Agosto</small>
+                          
                         </div>
                     </div>
                 </div>
@@ -265,7 +237,7 @@
 
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" alt="" src="{{ asset('imagen_user/fondoInicio.jpg') }}"
+                    <img class="card-img-top" alt="" src="{{ asset('imagen_user/usuarios.jpeg') }}"
                          data-holder-rendered="true"
                          style="height: 225px; width: 100%; display: block;">
                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
@@ -274,7 +246,7 @@
                             additional
                             content. This content is a little bit longer.</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">18 de Agosto</small>
+                            
                         </div>
                     </div>
                 </div>
@@ -283,6 +255,24 @@
     </div>
     <br>
     
-  
+    <section>
+        <div class="container wow bounceInLeft">
+            <div class="row">
+                <div class="col">
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">Siguenos en nuestras redes sociales</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="text-center wow bounceInRight">
+        <a href="https://www.facebook.com/balletcristiano.talitacumi.9"><img src="{{ asset('imagen_user/facebooklogo.png') }}" alt="" width="50"></a>
+        <a href="https://www.instagram.com/ballettalitacumi/?hl=es-la"><img src="{{ asset('imagen_user/instagramlogo.png') }}" alt="" width="50"></a>
+    </div>
+    <br>
+    <br>
+    <br>
 @endsection
 

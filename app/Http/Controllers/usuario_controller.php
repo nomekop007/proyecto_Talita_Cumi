@@ -49,6 +49,12 @@ class usuario_controller extends Controller
     }
 
 
+    public function vista_area()
+    {
+       return view('v_user.areaFormacion');
+    }
+
+
     public function vista_detalle(Request $request){
          $id = base64_decode($request->id);
 
