@@ -28,7 +28,7 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner tam">
                     <div class="carousel-item active">
-                        <img src="/imagen_user/2019.jpg" style="height: 450px; width: 100%; display: block; alt="...">
+                        <img src="/imagen_user/2019.jpg" style="height: 450px; width: 100%; display: block;" alt="...">
                     </div>
                     @foreach($publicaciones as $p)
                         @if($p->categoria == 2)
@@ -191,7 +191,7 @@
         <div class="container wow bounceInRight">
             <div class="row">
                 <div class="col">
-                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">Instructores de la Academia</h1>
+                    <h1 style="font-family: 'Montserrat', sans-serif; text-align: center">Profesores de la Academia</h1>
                 </div>
             </div>
         </div>

@@ -36,37 +36,43 @@
             <div class="form-group col-md-12">
                 <p class="barra_plomo text-center">
                     Crear Publicacion en el sitio web
-                </p><br>
+                </p>
                 <div class="form row">
 
 
-                    <div class="form-group col-md-6">
-                        <label for="Categoria">
-                            seleccionar Ubicacion
-                        </label>
-                        <select class="form-control" id="Categoria" name="Categoria">
-                            <option value="2" class="inicio">
-                                En pagina de Inicio
-                            </option>
-                            <option value="1" class="galeria">
-                                En galeria multimedia
-                            </option>
-                            <option value="3" class="tienda">
-                                En Tienda Online
-                            </option>
-                        </select>
+
+            <h3 class="text-center titulo_seleccion">Seleccione el tipo de publicacion</h3>
+
+                <input type="" name="categoria" id="Categoria" hidden="" value="0">
+
+                    <div class="form-group col-md-4 inicio">
+                 <div class="card">
+                    <input type=image id="btnSeleccionar1" class="card-img-top " value="2" src="{{ asset('imagen_user/inicio.jpg') }}" alt="Card image cap" style="height: 100%; width: 100%;">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Pagina inicio</h3>
+                    </div>
+                </div>
+                    </div>
+                    <div class="form-group col-md-4 galeria">
+                 <div class="card">
+                    <input type=image id="btnSeleccionar2" class="card-img-top " value="1" src="{{ asset('imagen_user/galeria.jpeg') }}" alt="Card image cap" style="height: 100%; width: 100%;">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Galeria multimedia</h3>
+
+                    </div>
+                </div>
+                    </div>
+                    <div class="form-group col-md-4 tienda">
+                 <div class="card">
+                    <input type=image id="btnSeleccionar3" class="card-img-top " value="3" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap" style="height: 100%; width: 100%;">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Tienda Online</h3>
+                    </div>
+                </div>
                     </div>
 
-                    <div class="form-group col-md-2 seleccionar">
-                        <label for="Categoria">
 
-                        </label>
-                        <button class="btn btn-primary  form-control"
-                                id="btnSeleccionar"
-                                type="submit">
-                            seleccionar
-                        </button>
-                    </div>
+
 
                     <div class="form-group col-md-6 titulo" hidden>
                         <label for="titulo_publicacion">

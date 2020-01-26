@@ -10,16 +10,38 @@ $(document).ready(function () {
 
 
 
-    //selecionar ubicacion
-    $('#btnSeleccionar').click(function (event) {
+    //selecionar pagina inicio
+    $('#btnSeleccionar1').click(function (event) {
         event.preventDefault();
-
-        var c = $('#Categoria').val();
+        $('.titulo_seleccion').html('Pagina inicio');
+        var c = $('#btnSeleccionar1').val();
         console.log(c)
-        //1   En galeria multimedia
-        //2    En pagina de Inicio
-        //3   En Tienda Online
+        $('#Categoria').val(c);
 
+        if (c != 1) {
+            $('.descripcion').show();
+            $('.titulo').show();
+        }
+
+    
+        $('.URLmedia').show();
+        $('.enviar').show();
+
+
+
+
+        $('.galeria').hide();
+        $('.tienda').hide();
+        $('.inicio').hide();
+    });
+
+ //selecionar galeria
+    $('#btnSeleccionar2').click(function (event) {
+        event.preventDefault();
+        $('.titulo_seleccion').html('galeria multimedia');
+        var c = $('#btnSeleccionar2').val();
+        console.log(c)
+      $('#Categoria').val(c);
         if (c != 1) {
             $('.descripcion').show();
             $('.titulo').show();
@@ -29,13 +51,33 @@ $(document).ready(function () {
         $('.URLmedia').show();
         $('.enviar').show();
 
-        $('#Categoria').attr("disabled", true);
-        $('.seleccionar').hide();
+        $('.galeria').hide();
+        $('.tienda').hide();
+        $('.inicio').hide();
     });
 
+ //selecionar tienda
+    $('#btnSeleccionar3').click(function (event) {
+        event.preventDefault();
+         $('.titulo_seleccion').html('Tienda Online');
+        var c = $('#btnSeleccionar3').val();
+        console.log(c)
 
+       $('#Categoria').val(c);
 
+        if (c != 1) {
+            $('.descripcion').show();
+            $('.titulo').show();
+        }
 
+       
+        $('.URLmedia').show();
+        $('.enviar').show();
+
+        $('.galeria').hide();
+        $('.tienda').hide();
+        $('.inicio').hide();
+    });
 
 
 
