@@ -365,12 +365,12 @@ $(document).ready(function () {
                         '                        <input class="form-control" id="titulo_publicacionX" maxlength="40" name="titulo_publicacionX"\n' +
                         '                               placeholder="ingrese un titulo" type="text" value="' + datos['tituloPublicacion'] + '">\n' +
                         '                    </div>\n' +
-                        '                    <div class="form-group col-md-6">\n' +
+                        '                    <div class="form-group col-md-6" hidden>\n' +
                         '                        <label for="tipo_publicacionX">\n' +
                         '                            Tipo Publicacion\n' +
                         '                        </label>\n' +
                         '                        <br>\n' +
-                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX" onchange="opcionX()" >\n' +
+                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX" onchange="opcionX()">\n' +
                         '                            <option value="1" class="v-fotoX">\n' +
                         '                               Foto\n' +
                         '                            </option>\n' +
@@ -380,7 +380,7 @@ $(document).ready(function () {
                         '                        </select>\n' +
                         '                        </br>\n' +
                         '                    </div>\n' +
-                        '                    <div class="form-group col-md-6">\n' +
+                        '                    <div class="form-group col-md-6" hidden>\n' +
                         '                        <label for="CategoriaX">\n' +
                         '                            Ubicacion de la Publicacion\n' +
                         '                        </label>\n' +

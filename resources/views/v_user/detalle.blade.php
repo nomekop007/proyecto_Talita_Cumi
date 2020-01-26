@@ -37,13 +37,14 @@
 
 <!--ventana publicaciones -->
 @if($tipo == 1)
-     <div class="container">
+     <div class="container col-md-9">
+          <h1 class="text-center">{{$objeto->tituloPublicacion}} </h1>
         <div class="row">
+
            <div class="col-md-12" id="descrip">
-                
                 <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionPublicacion}}">
 
-              </div>
+          </div>
         </div>
     </div>
 @endif
