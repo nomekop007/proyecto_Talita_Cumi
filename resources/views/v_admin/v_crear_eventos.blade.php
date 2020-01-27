@@ -60,7 +60,7 @@
                     </div>
                     <div class="form-group col-md-5">
                         <label for="URLevento">
-                            Insertar foto
+                            Insertar foto de referencia
                         </label>
                         <input accept="image/*" id="URLevento" name="URLevento" type="file">
 

@@ -13,7 +13,7 @@ $(document).ready(function () {
     //selecionar pagina inicio
     $('#btnSeleccionar1').click(function (event) {
         event.preventDefault();
-        $('.titulo_seleccion').html('Pagina inicio');
+        $('.titulo_seleccion').html('agregar publicacion en Pagina inicio');
         var c = $('#btnSeleccionar1').val();
         console.log(c)
         $('#Categoria').val(c);
@@ -38,7 +38,7 @@ $(document).ready(function () {
  //selecionar galeria
     $('#btnSeleccionar2').click(function (event) {
         event.preventDefault();
-        $('.titulo_seleccion').html('galeria multimedia');
+        $('.titulo_seleccion').html('agregar multimedia en galeria');
         var c = $('#btnSeleccionar2').val();
         console.log(c)
       $('#Categoria').val(c);
@@ -59,7 +59,7 @@ $(document).ready(function () {
  //selecionar tienda
     $('#btnSeleccionar3').click(function (event) {
         event.preventDefault();
-         $('.titulo_seleccion').html('Tienda Online');
+         $('.titulo_seleccion').html('agregar producto en Tienda Online');
         var c = $('#btnSeleccionar3').val();
         console.log(c)
 
@@ -72,6 +72,8 @@ $(document).ready(function () {
 
        
         $('.URLmedia').show();
+        $('.precio').show();
+
         $('.enviar').show();
 
         $('.galeria').hide();
@@ -95,6 +97,7 @@ $(document).ready(function () {
         var url = $('#formulario').attr('action');
         var opcion = $('#Categoria').val();
 
+
         var paqueteDeDatos = new FormData();
         //rescatar los valores de los input y guardarlas en un formData
         paqueteDeDatos.append('Categoria', $('#Categoria').prop('value'));
@@ -102,62 +105,63 @@ $(document).ready(function () {
         paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacion').prop('value'));
 
 
-        //preguntar si la categoria es en galeria
-        if (opcion != 1) {
+        //pregunta si se eligio pagina inicio
+        if (opcion == 2) {
             paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
             paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
-
-
-
             //octener valor input por sus id
             var titulo_publicacion = $('#titulo_publicacion').val();
             var URLpublicacion = $('#URLpublicacion').val();
             var descripcion_publicacion = CKEDITOR.instances['descripcion_publicacion'].getData();
-
             if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0) {
                 swal('Campos Vacios', 'faltan datos ', 'error')
             } else {
-
-
                 var archivo = $('#URLpublicacion')[0].files[0].size;
-
-
                 if (archivo > 108000000) {
                     swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
                 } else {
-
                     guardarPublicacion(url,paqueteDeDatos);
-
                 }
             }
 
 
-            //en caso de ser galeria
-        } else {
-
-            //octener valor input por sus id
+        //pregunta si se eligio galeria
+        } else if(opcion == 1){
             var URLpublicacion = $('#URLpublicacion').val();
-
             if (URLpublicacion.length == 0) {
                 swal('Campos Vacios', 'falta seleccionar archivo ', 'error')
             } else {
-
-
                 var archivo = $('#URLpublicacion')[0].files[0].size;
-                console.log(archivo)
-
-
                 if (archivo > 108000000) {
                     swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
                 } else {
-
                   guardarPublicacion(url,paqueteDeDatos);
-
                 }
             }
 
 
+        //pregunta si se eligio tienda online
+        }else{
+            paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacion').prop('value'));
+            paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacion'].getData());
+            paqueteDeDatos.append('precio', $('#precio').prop('value'));
+            //octener valor input por sus id
+            var titulo_publicacion = $('#titulo_publicacion').val();
+            var URLpublicacion = $('#URLpublicacion').val();
+            var precio = $('#precio').val();
+            var descripcion_publicacion = CKEDITOR.instances['descripcion_publicacion'].getData();
+            if (titulo_publicacion.length == 0 || URLpublicacion.length == 0 || descripcion_publicacion.length == 0 || precio.length == 0) {
+                swal('Campos Vacios', 'faltan datos ', 'error')
+            } else {
+                var archivo = $('#URLpublicacion')[0].files[0].size;
+                if (archivo > 108000000) {
+                    swal('archivo muy grande', 'el archivo no debe superar los 100MB', 'error')
+                } else {
+                    guardarPublicacion(url,paqueteDeDatos);
+                }
+            }
         }
+
 
 
     }

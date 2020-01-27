@@ -20,8 +20,8 @@ class EventoTable extends Migration
             $table->text('descripcionEvento');
             $table->String('URLfoto');
             $table->String('estado'); //activo / inactivo
-            $table->dateTime('fechaInicio');
-            $table->dateTime('fechaFin');
+            $table->dateTime('fecha');
+            $table->String('ubicacion');
             $table->timestamps();
         });
     }

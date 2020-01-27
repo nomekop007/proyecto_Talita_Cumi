@@ -23,6 +23,7 @@ class PublicacionTable extends Migration
             $table->integer('tipo'); // 1:Foto , 2:video
             $table->integer('categoria'); 
             //1:Galeria multimedia , 2:Pagina de inicio , 3:Tienda online
+            $table->integer('precio')->nullable(); // en caso de der tienda online 
             $table->timestamps();
         });
     }

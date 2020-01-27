@@ -8,7 +8,7 @@ use Jenssegers\Date\Date;
 class evento extends Model
 {
   protected $fillable = [
-        'tituloEvento','descripcionEvento','URLfoto','estado','fechaInicio','fechaFin',
+        'tituloEvento','descripcionEvento','URLfoto','estado','fecha','ubicacion',
     ];
 
 /*
@@ -16,10 +16,8 @@ class evento extends Model
     	'fechaInicio','fechaFin',];
 */
 
-   public function getfechaInicioAttribute($date){
+   public function getfechaAttribute($date){
     	return new Date($date);
     }
-    public function getfechaFinAttribute($date){
-    	return new Date($date);
-    }
+
 }

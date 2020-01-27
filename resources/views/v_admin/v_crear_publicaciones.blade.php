@@ -41,7 +41,7 @@
 
 
 
-            <h3 class="text-center titulo_seleccion">Seleccione el tipo de publicacion</h3>
+            <h3 class="text-center titulo_seleccion">Seleccione el tipo de publicacion</h3><br><br>
 
                 <input type="" name="categoria" id="Categoria" hidden="" value="0">
 
@@ -76,28 +76,38 @@
 
                     <div class="form-group col-md-6 titulo" hidden>
                         <label for="titulo_publicacion">
-                            Titulo Publicacion
+                            Titulo 
                         </label>
                         <input class="form-control" id="titulo_publicacion" maxlength="40" name="titulo_publicacion"
                                placeholder="ingrese un titulo" type="text">
                     </div>
 
+                         <div class="form-group col-md-6 precio" hidden>
+                        <label for="precio">
+                            precio producto(corregir validacion)
+                        </label>
+                        <input class="form-control" id="precio" name="precio" type="number" placeholder="ingrese precio producto">
+                    </div>
+
 
                     <div class="form-group col-md-6 tipo" hidden>
                         <label for="tipo_publicacion">
-                            Tipo Publicacion
+                            Tipo multimedia
                         </label>
                         <select class="form-control combo" id="tipo_publicacion" name="tipo_publicacion" onchange="opcion()">
                             <!--se carga abajo en el script -->
                         </select>
                     </div>
+
                     <div class="form-group col-md-6 URLmedia" hidden>
                         <label for="URLpublicacion">
                             Insertar foto
                         </label>
-                        <input id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*">
+                        <input  id="URLpublicacion" name="URLpublicacion" type="file" accept="image/*">
                     </div>
 
+               
+                  
 
                     <div class="form-group col-md-12 descripcion">
                         <!--se carga abajo en el script -->

@@ -41,9 +41,17 @@ class publicacion_controller extends Controller
     {
         $publicacion = new publicacion();
 
-        if ($Request->Categoria != 1){
+        if ($Request->Categoria == 2){ //pagina inicio
             $publicacion->tituloPublicacion = $Request->titulo_publicacion;
             $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
+        }else if ($Request->Categoria == 1){ // galeria
+
+            //no se agregar ni titulo ni detalle
+
+        }else{ //tienda
+            $publicacion->tituloPublicacion = $Request->titulo_publicacion;
+            $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
+            $publicacion->precio = $Request->precio;
         }
 
         $publicacion->tipo = $Request->tipo_publicacion;
