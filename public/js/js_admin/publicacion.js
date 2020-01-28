@@ -334,7 +334,9 @@ $(document).ready(function () {
                 id: id
             },
             success: function (datos) { //remplazando los datos del modal con los de la base de datos
-                if (datos['categoria'] != 1) {
+               
+
+                if (datos['categoria'] == 2) {
                     $('#mimodalLabel_editar').html(datos['tituloPublicacion']);
 
                     var c = datos['categoria'];
@@ -440,7 +442,7 @@ $(document).ready(function () {
                     });
 
 
-                } else {
+                } else if(datos['categoria'] == 1) {
 
                     $('#mimodalLabel_editar').html('Media N°' + datos['id'] + ' de la galeria de imagenes');
                     //completar formulario
@@ -478,6 +480,125 @@ $(document).ready(function () {
                         '        </div>';
 
                     $('.b_editar').html(html);
+
+
+
+
+                }else {
+
+
+   $('#mimodalLabel_editar').html(datos['tituloPublicacion']);
+
+                    var c = datos['categoria'];
+                    var i = 0;
+                    var x = 0;
+
+                    if (c == 2) {
+                        a1 = 'Pagina de Inicio';
+                        a2 = 'Tienda Online';
+
+                        i = 2;
+                        x = 3;
+                    } else {
+                        a1 = 'Tienda Online';
+                        a2 = 'Pagina de Inicio';
+                        i = 3;
+                        x = 2;
+                    }
+
+
+                    //completar formulario
+                    var html = '<div class="form-row">\n' +
+                        '            <div class="form-group col-md-12">\n' +
+                        '                <div class="form row">\n' +
+                        '<input id="edi" name="idModalEditarPublicacion" type="hidden" value="' + id + '">' +
+                        '<input id="cat" name="idModalEditarPublicacion2" type="hidden" value="' + datos['categoria'] + '">' +
+                        '\n' +
+                        '                    <div class="form-group col-md-6">\n' +
+                        '                        <label for="titulo_publicacionX">\n' +
+                        '                            Titulo Producto\n' +
+                        '                        </label>\n' +
+                        '                        <input class="form-control" id="titulo_publicacionX" maxlength="40" name="titulo_publicacionX"\n' +
+                        '                               placeholder="ingrese un titulo" type="text" value="' + datos['tituloPublicacion'] + '">\n' +
+                        '                    </div>\n' +
+                        '                    <div class="form-group col-md-6" hidden>\n' +
+                        '                        <label for="tipo_publicacionX">\n' +
+                        '                            Tipo Publicacion\n' +
+                        '                        </label>\n' +
+                        '                        <br>\n' +
+                        '                        <select class="form-control" id="tipo_publicacionX" name="tipo_publicacionX" onchange="opcionX()">\n' +
+                        '                            <option value="1" class="v-fotoX">\n' +
+                        '                               Foto\n' +
+                        '                            </option>\n' +
+                        '                            <option value="2" class="v-videoX">\n' +
+                        '                               Video\n' +
+                        '                            </option>\n' +
+                        '                        </select>\n' +
+                        '                        </br>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="form-group col-md-6" hidden>\n' +
+                        '                        <label for="CategoriaX">\n' +
+                        '                            Ubicacion de la Publicacion\n' +
+                        '                        </label>\n' +
+                        '                        <br>\n' +
+                        '                        <select class="form-control" id="CategoriaX" name="CategoriaX">\n' +
+                        '                            <option value="' + i + '">\n' +
+                        '                                ' +
+                        a1
+                        + '\n' +
+                        '                            </option>\n' +
+                        '                            <option value="' + x + '">\n' +
+                        '                                ' +
+                        a2
+                        + '\n' +
+                        '                            </option>\n' +
+                        '                        </select>\n' +
+                        '                        </br>\n' +
+                        '                    </div>\n' +
+                        '<div class="form-group col-md-6 precio">\n' +
+                        '<label for="precioX">\n'+
+                        '  precio producto(corregir validacion)\n'+
+                        '</label>\n'+
+                        '<input class="form-control" id="precioX" name="precioX" type="number" placeholder="ingrese precio producto" value="' + datos['precio'] + '">\n'+
+                        '</div>\n'+
+                        '                    <div class="form-group col-md-6 URLmediaX">\n' +
+                        '                        <label for="URLpublicacionX">\n' +
+                        '                            Actualizar foto (opcional)\n' +
+                        '                        </label>\n' +
+                        '                        <input id="URLpublicacionX" name="URLpublicacionX" type="file" accept="image/*"   >\n' +
+                        '                    </div>\n' +
+                        '                    <div class="form-group col-md-12">\n' +
+                        '\n' +
+                        '                        <div class="box box-primary">\n' +
+                        '                            <div class="box-header">\n' +
+                        '                                <h3 class="box-title">Descripcion\n' +
+                        '                                    <small>CK Editor</small>\n' +
+                        '                                </h3>\n' +
+                        '                            </div>\n' +
+                        '                            <!-- /.box-header -->\n' +
+                        '                            <div class="box-body pad">\n' +
+                        '                    <textarea id="descripcion_publicacionX" name="descripcion_publicacionX" placeholder="ingrese texto aqui" rows="10" cols="80">\n' +
+                        '                                ' +
+                        datos['descripcionPublicacion']
+                        + '\n' +
+                        '                    </textarea>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '            </div>\n' +
+                        '        </div>';
+
+
+                    $('.b_editar').html(html);
+
+
+                    $(function () {
+                        CKEDITOR.replace('descripcion_publicacionX')
+                    });
+
+
+
 
                 }
             },
@@ -525,7 +646,7 @@ $(document).ready(function () {
 
 
 
-        } else {
+        } else if(t == 2){
             var titulo = $('#titulo_publicacionX').val();
             var descripcion = CKEDITOR.instances['descripcion_publicacionX'].getData();
 
@@ -555,6 +676,38 @@ $(document).ready(function () {
                 actualizar(url,paqueteDeDatos);
 
             }
+        }else{
+
+            var titulo = $('#titulo_publicacionX').val();
+            var descripcion = CKEDITOR.instances['descripcion_publicacionX'].getData();
+            var precio = $('#precioX').val()
+            if (descripcion.length == 0 || titulo.length == 0 || precio == 0) {
+
+                swal('algo paso', 'faltaron datos que completar ', 'error')
+
+            } else {
+
+                var paqueteDeDatos = new FormData();
+                //rescatar los valores de los input y guardarlas en un formData
+                paqueteDeDatos.append('id', $('#edi').prop('value'));
+
+                paqueteDeDatos.append('titulo_publicacion', $('#titulo_publicacionX').prop('value'));
+                paqueteDeDatos.append('descripcion_publicacion', CKEDITOR.instances['descripcion_publicacionX'].getData());
+                paqueteDeDatos.append('Categoria', $('#CategoriaX').prop('value'));
+                paqueteDeDatos.append('tipo_publicacion', $('#tipo_publicacionX').prop('value'));
+                paqueteDeDatos.append('precio', $('#precioX').prop('value'));
+                var file = $('#URLpublicacionX').val();
+                if (file == "") {
+                    paqueteDeDatos.append('URLpublicacion', 'x');
+
+                } else {
+                    paqueteDeDatos.append('URLpublicacion', $('#URLpublicacionX')[0].files[0]);
+                }
+
+                actualizar(url,paqueteDeDatos);
+
+            }
+
         }
 
 

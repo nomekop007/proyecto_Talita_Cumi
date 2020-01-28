@@ -46,9 +46,8 @@ class evento_controller extends Controller
         $evento->descripcionEvento = $Request->descripcion_evento;
         $evento->URLfoto = $Request->file('URLevento')->store('public/evento');
         $evento->estado = "inactivo";
-
-        $evento->fechaInicio = $Request->fechaInicio;
-        $evento->fechaFin = $Request->fechaFin;
+        $evento->fecha = $Request->fecha;
+        $evento->ubicacion = $Request->ubicacion;
 
 
         //guardar en la base de datos

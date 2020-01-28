@@ -37,7 +37,7 @@
                     Crear Evento en el sitio web
                 </p><br>
                 <div class="form row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-6">
                         <label for="titulo_evento">
                             Titulo evento
                         </label>
@@ -45,9 +45,9 @@
                                placeholder="ingrese un titulo" type="text">
                         </input>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for="fecha_evento">
-                            Fecha evento
+                            Fecha del evento
                         </label>
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -58,7 +58,18 @@
                             </input>
                         </div>
                     </div>
-                    <div class="form-group col-md-5">
+
+                    <div class="form-group col-md-6">
+                        <label for="ubicacion_evento">
+                            Ubicacion del evento
+                        </label>
+                        <input class="form-control" id="ubicacion_evento" maxlength="30" name="ubicacion_evento"
+                               placeholder="ingrese ubicacion" type="text">
+                        </input>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
                         <label for="URLevento">
                             Insertar foto de referencia
                         </label>
@@ -68,14 +79,14 @@
                     <div class="form-group col-md-12">
 
 
-                        <div class="box box-info">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Descripcion
                                     <small>CK Editor</small>
                                 </h3>
                                 <!-- tools box -->
                                 <div class="pull-right box-tools">
-                                    <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    <button type="button" class="btn btn-primary btn-sm" data-widget="collapse" data-toggle="tooltip"
                                             title="Collapse">
                                         <i class="fa fa-minus"></i></button>
                                 </div>
@@ -125,7 +136,7 @@
     </script>
     <!-- bootstrap datepicker -->
     <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
-    <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js')}}"></script>
 
 
 @endsection

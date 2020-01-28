@@ -110,18 +110,24 @@ class publicacion_controller extends Controller
         $publicacion = publicacion::find($id);
 
 
-        if ($publicacion->categoria != 1){
+        if ($publicacion->categoria == 2){ // pagina inicio
 
             $publicacion->tituloPublicacion = $request->titulo_publicacion;
             $publicacion->categoria = $request->Categoria;
             $publicacion->descripcionPublicacion = $request->descripcion_publicacion;
+        }else if($publicacion->categoria == 1){ //galeria
+
+        }else{ // carro
+             $publicacion->tituloPublicacion = $request->titulo_publicacion;
+            $publicacion->categoria = $request->Categoria;
+            $publicacion->descripcionPublicacion = $request->descripcion_publicacion;
+            $publicacion->precio = $request->precio;
         }
 
 
 
         // pregunta si no se selecciono un nuevo archivo
         if ($request->URLpublicacion != 'x') {
-
 
             $url = $publicacion->URLpublicacion;
             $publicacion->tipo = $request->tipo_publicacion;

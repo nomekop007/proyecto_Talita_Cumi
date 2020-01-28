@@ -82,7 +82,7 @@
                                placeholder="ingrese un titulo" type="text">
                     </div>
 
-                         <div class="form-group col-md-6 precio" hidden>
+                    <div class="form-group col-md-6 precio" hidden>
                         <label for="precio">
                             precio producto(corregir validacion)
                         </label>

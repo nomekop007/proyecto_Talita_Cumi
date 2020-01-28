@@ -9,13 +9,8 @@ $(document).ready(function () {
     $('#subiendo').hide();
 
 //Date range picker with time picker
-    $('#fecha_evento').daterangepicker({
-        timePicker: true, timePickerIncrement: 30,
-        locale: {
-            format: 'YYYY/MM/DD hh:mm',
-            daysOfWeek: ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'],
-            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-        },
+    $('#fecha_evento').datepicker({
+          autoclose: true
     });
 
     //valida los campos y guarda en base de datos
@@ -33,19 +28,22 @@ $(document).ready(function () {
         paqueteDeDatos.append('URLevento', $('#URLevento')[0].files[0]);
         paqueteDeDatos.append('titulo_evento', $('#titulo_evento').prop('value'));
         paqueteDeDatos.append('descripcion_evento', CKEDITOR.instances['descripcion_evento'].getData());
-
-        var fecha_evento = $('#fecha_evento').val();
-        var dates = fecha_evento.split(" - ");
-        paqueteDeDatos.append('fechaInicio', dates[0]);
-        paqueteDeDatos.append('fechaFin', dates[1]);
+        
+            //reparar fecha de evento
+        paqueteDeDatos.append('fecha',  $('#fecha_evento').val() );
+        paqueteDeDatos.append('ubicacion', $('#ubicacion_evento').val());
 
 
         //octener valor input por sus id
         var titulo_evento = $('#titulo_evento').val();
         var url = $('#URLevento').val();
         var descripcion_evento = CKEDITOR.instances['descripcion_evento'].getData();
+        var fecha_evento = $('#fecha_evento').val();
+        var ubicacion_evento = $('#ubicacion_evento').val();
 
-        if (titulo_evento.length == 0 || url.length == 0 || descripcion_evento.length == 0) {
+        console.log(fecha_evento);
+
+        if (titulo_evento.length == 0 || url.length == 0 || descripcion_evento.length == 0 || fecha_evento.length == 0 || ubicacion_evento.length == 0 ) {
 
             swal('Campos Vacios', 'faltan datos ', 'error');
 
