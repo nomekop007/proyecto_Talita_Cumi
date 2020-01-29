@@ -30,7 +30,10 @@
                         Titulo
                     </th>
                     <th scope="col">
-                        Fechas
+                        Ubicacion
+                    </th>
+                    <th scope="col">
+                        Fecha
                     </th>
                     <th scope="col">
                         Foto
@@ -51,19 +54,20 @@
                     <tr class="TablaEvento{{ $e->id }}">
                         <td>
                             <div style="visibility: hidden">.</div>
-
                             {{ $e->tituloEvento }}
                         </td>
                         <td>
-                            Inicio: <p>{{ $e->fechaInicio }}</p>
-                            Fin: <p>{{ $e->fechaFin }}</p>
+                            {{ $e->ubicacion }}
+                        </td>
+                        <td>
+                           {{ $e->fecha }}
                         </td>
                         <td>
                             <img class="btn-img"
                                  data-url="{{ Storage::url($e->URLfoto) }}"
                                  data-toggle="modal"
                                  data-target=".media_modal"
-                                 width="160px" src="{{ Storage::url($e->URLfoto) }}" alt="">
+                                 width="100px" src="{{ Storage::url($e->URLfoto) }}" alt="">
 
                         </td>
                         <td>

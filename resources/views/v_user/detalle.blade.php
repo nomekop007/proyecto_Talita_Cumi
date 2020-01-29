@@ -10,16 +10,17 @@
 @section('contenido')
 
 <!--ventana eventos -->
+
 @if($tipo == 0)
     <div class="container">
 
         <div class="row">
-        <div class="col-md-4">
-             <h1> {{$objeto->tituloEvento}}</h1>
+        <div class="col-md-3">
+             <h3> {{$objeto->tituloEvento}}</h3>
                 <small>  {{ $objeto->fecha->format('l, j F, Y - H:i a') }}</small>
                 <h6>  {{ $objeto->ubicacion }}</h6>
         </div>
-             <div class="col-md-8">
+             <div class="col-md-9">
                 
                 <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionEvento}}">
 
@@ -48,5 +49,6 @@
         </div>
     </div>
 @endif
+
 <br><br><br><br><br><br><br><br><br><br>
 @endsection
