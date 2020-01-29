@@ -43,11 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
  <!-- daterange picker -->
-  <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
- <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-colorpicker.min.css')}}">
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="{{ asset('adminLTE_adin/plugins/timepicker/bootstrap-timepicker.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css') }}">
 
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('adminLTE_admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">

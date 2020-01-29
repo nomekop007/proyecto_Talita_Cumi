@@ -104,10 +104,11 @@
                                          style="height: 225px; width: 100%; display: block;">
                                           
                                     <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
-                                        <h5 class="text-center">{{$e->tituloEvento}}</h5>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">{{$e->fechaInicio->toFormattedDateString() }}</small>
-                                            <small class="text-muted">{{$e->fechaFin->toFormattedDateString()}}</small>
+                                        <h5>{{$e->tituloEvento}}</h5>
+                                        <p>{{$e->ubicacion}}</p>
+                                        <div class="d-flex justify-content-between align-items-center  ">
+                                            <small class="text-muted ">{{$e->fecha->toFormattedDateString() }}</small>
+                                            
                                         </div>
                                     </div>
                                 </div>

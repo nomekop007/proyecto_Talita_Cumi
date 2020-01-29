@@ -8,9 +8,12 @@ $(document).ready(function () {
 
     $('#subiendo').hide();
 
-//Date range picker with time picker
-    $('#fecha_evento').datepicker({
-          autoclose: true
+    $('#fecha_evento').datetimepicker({
+        format: "yyyy-mm-dd hh:ii",
+        autoclose: true,
+        todayBtn: true,
+        startDate: "2020-01-01 00:00",
+        minuteStep: 10
     });
 
     //valida los campos y guarda en base de datos
@@ -27,9 +30,9 @@ $(document).ready(function () {
         //rescatar los valores de los input y guardarlas en un formData
         paqueteDeDatos.append('URLevento', $('#URLevento')[0].files[0]);
         paqueteDeDatos.append('titulo_evento', $('#titulo_evento').prop('value'));
+
+
         paqueteDeDatos.append('descripcion_evento', CKEDITOR.instances['descripcion_evento'].getData());
-        
-            //reparar fecha de evento
         paqueteDeDatos.append('fecha',  $('#fecha_evento').val() );
         paqueteDeDatos.append('ubicacion', $('#ubicacion_evento').val());
 
@@ -193,21 +196,24 @@ $(document).ready(function () {
             },
             success: function (datos) { //remplazando los datos del modal con los de la base de datos
                 $('#mimodalLabel_editar').html(datos['tituloEvento']);
+                var fecha = datos['fecha'];
+                //acorar string
+                var resultado = fecha.date.substr(0,16);
 
                 //completar formulario
                 var html = '     <div class="form-row">\n' +
                     '            <div class="form-group col-md-12">\n' +
                     '                <div class="form row">\n' +
                     '<input id="edi" name="idModalEditarEvento" type="hidden" value="' + id + '">' +
-                    '                    <div class="form-group col-md-3">\n' +
+                    '                    <div class="form-group col-md-6">\n' +
                     '                        <label for="titulo_eventoX">\n' +
                     '                            Titulo evento\n' +
                     '                        </label>\n' +
                     '                        <input class="form-control" id="titulo_eventoX" maxlength="30" name="titulo_eventoX"\n' +
-                    '                               placeholder="ingrese un titulo" type="text"  value="' + datos['tituloEvento'] + '">\n' +
+                    '                               placeholder="ingrese un titulo" type="text" value="' + datos['tituloEvento'] + '">\n' +
                     '                        </input>\n' +
                     '                    </div>\n' +
-                    '                    <div class="form-group col-md-4">\n' +
+                    '                    <div class="form-group col-md-6">\n' +
                     '                        <label for="fecha_eventoX">\n' +
                     '                            Fecha evento\n' +
                     '                        </label>\n' +
@@ -216,11 +222,19 @@ $(document).ready(function () {
                     '                                <i class="fa fa-clock-o">\n' +
                     '                                </i>\n' +
                     '                            </div>\n' +
-                    '                            <input class="form-control pull-right" id="fecha_eventoX" name="fecha_eventoX" type="text">\n' +
+                    '                            <input class="form-control pull-right" id="fecha_eventoX" value="' + resultado + '"  name="fecha_eventoX"  type="text">\n' +
                     '                            </input>\n' +
                     '                        </div>\n' +
                     '                    </div>\n' +
-                    '                    <div class="form-group col-md-5">\n' +
+                    ' <div class="form-group col-md-6">\n' +
+                    '                      <label for="ubicacion_eventoX">\n' +
+                    '                         Ubicacion del evento\n' +
+                    '                    </label>\n' +
+                    '                     <input class="form-control" id="ubicacion_eventoX" maxlength="30" name="ubicacion_eventoX"\n' +
+                    '                            placeholder="ingrese ubicacion" type="text" value="' + datos['ubicacion'] + '">\n' +
+                    '                     </input>\n' +
+                    '                 </div>\n' +
+                    '                    <div class="form-group col-md-6">\n' +
                     '                        <label for="URLeventoX">\n' +
                     '                            Actualizar foto(Opcional)\n' +
                     '                        </label>\n' +
@@ -259,17 +273,16 @@ $(document).ready(function () {
                 });
 
                 //configuracion inial datarangepicker
-                $('#fecha_eventoX').daterangepicker({
-                    timePicker: true, timePickerIncrement: 30,
-                    locale: {
-                        format: 'YYYY/MM/DD hh:mm',
-                        daysOfWeek: ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'],
-                        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-                    },
-                    "startDate": datos['fechaInicio'],
-                    "endDate": datos['fechaFin'],
-                    "autoApply": true
+                $('#fecha_eventoX').datetimepicker({
+                    format: "yyyy-mm-dd hh:ii",
+                    autoclose: true,
+                    todayBtn: true,
+                    startDate: "2020-01-01 00:00",
+                    defaultDate: "2020-01-01 00:00",
+                    minuteStep: 10
                 });
+
+
 
             },
             error: function (error) {
@@ -287,9 +300,11 @@ $(document).ready(function () {
         event.preventDefault();
 
         var titulo = $('#titulo_eventoX').val();
+        var ubicacion = $('#ubicacion_eventoX').val();
+        var fecha = $('#fecha_eventoX').val();
         var descripcion = CKEDITOR.instances['descripcion_eventoX'].getData();
 
-        if (descripcion.length == 0 || titulo.length == 0) {
+        if (descripcion.length == 0 || titulo.length == 0 || fecha.length == 0 || ubicacion.length == 0) {
 
             swal('algo paso', 'faltaron datos que completar ', 'error')
 
@@ -299,12 +314,10 @@ $(document).ready(function () {
             //rescatar los valores de los input y guardarlas en un formData
             paqueteDeDatos.append('id', $('#edi').prop('value'));
             paqueteDeDatos.append('titulo_evento', $('#titulo_eventoX').prop('value'));
+            paqueteDeDatos.append('ubicacion_evento', $('#ubicacion_eventoX').prop('value'));
             paqueteDeDatos.append('descripcion_evento', CKEDITOR.instances['descripcion_eventoX'].getData());
-
-            var fecha_evento = $('#fecha_eventoX').val();
-            var dates = fecha_evento.split(" - ");
-            paqueteDeDatos.append('fechaInicio', dates[0]);
-            paqueteDeDatos.append('fechaFin', dates[1]);
+            paqueteDeDatos.append('fecha_evento', $('#fecha_eventoX').val());
+           
 
 
             var file = $('#URLeventoX').val();

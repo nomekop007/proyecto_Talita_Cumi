@@ -49,12 +49,13 @@
                         <label for="fecha_evento">
                             Fecha del evento
                         </label>
+
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-clock-o">
                                 </i>
                             </div>
-                            <input class="form-control pull-right" id="fecha_evento" name="fecha_evento" type="text">
+                            <input class="form-control pull-right" id="fecha_evento" name="fecha_evento" type="text" placeholder="ingrese fecha">
                             </input>
                         </div>
                     </div>
@@ -136,7 +137,7 @@
     </script>
     <!-- bootstrap datepicker -->
     <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>
-    <script src="{{ asset('adminLTE_admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js')}}"></script>
+    <script src="{{ asset('bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js')}}"></script>
 
 
 @endsection

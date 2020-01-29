@@ -99,8 +99,8 @@ class evento_controller extends Controller
 
         $evento->tituloEvento = $request->titulo_evento;
         $evento->descripcionEvento = $request->descripcion_evento;
-        $evento->fechaInicio = $request->fechaInicio;
-        $evento->fechaFin = $request->fechaFin;
+        $evento->fecha = $request->fecha_evento;
+        $evento->ubicacion = $request->ubicacion_evento;
 
 
         // pregunta si no se selecciono un nuevo archivo

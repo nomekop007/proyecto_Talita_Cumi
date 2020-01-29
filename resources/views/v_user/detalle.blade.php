@@ -14,12 +14,12 @@
     <div class="container">
 
         <div class="row">
-        <div class="col-md-3">
-             <h2> {{$objeto->tituloEvento}}</h2>
-                <p>  {{ $objeto->fechaInicio->format('l j F Y ') }}</p>
-                 <p> {{ $objeto->fechaFin->format('l j F Y ') }}</p>
+        <div class="col-md-4">
+             <h1> {{$objeto->tituloEvento}}</h1>
+                <small>  {{ $objeto->fecha->format('l, j F, Y - H:i a') }}</small>
+                <h6>  {{ $objeto->ubicacion }}</h6>
         </div>
-             <div class="col-md-9">
+             <div class="col-md-8">
                 
                 <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionEvento}}">
 
