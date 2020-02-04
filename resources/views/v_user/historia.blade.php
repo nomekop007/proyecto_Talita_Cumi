@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('header')
-<header class="masthead " style="height: 100%;min-height: 30rem;padding-bottom: 0">
+<header class="masthead menu" style="height: 100%;min-height: 30rem;padding-bottom: 0">
     <div class="container ">
         <div class="row h-100 align-items-center justify-content-center text-center wow bounceInRight">
             <div class="col-lg-12 align-self-end ">

@@ -2,7 +2,7 @@
 
 
 @section('header')
-    <header style="height: 100%;min-height: 30rem;padding-bottom: 0" class="masthead ">
+    <header style="height: 100%;min-height: 30rem;padding-bottom: 0" class="masthead menu">
         <div class="container ">
             <div class="row h-100 align-items-center justify-content-center text-center wow bounceInRight ">
                 <div class="col-lg-12 align-self-end ">
@@ -93,7 +93,7 @@
                             <div class="post">
                                 <form 
                                  method="get"
-                                action="{{ route('vista_detalle') }}">
+                                action="{{ route('vista_detalleEvento') }}">
                                  {{ csrf_field() }}
                                  <input type="hidden" name="id" value="{{base64_encode($e->id)}}">
 

@@ -57,9 +57,11 @@
                             {{ $e->tituloEvento }}
                         </td>
                         <td>
+                            <div style="visibility: hidden">.</div>
                             {{ $e->ubicacion }}
                         </td>
                         <td>
+                            <div style="visibility: hidden">.</div>
                            {{ $e->fecha }}
                         </td>
                         <td>

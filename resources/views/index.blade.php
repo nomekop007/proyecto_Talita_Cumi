@@ -124,7 +124,7 @@
                         <a style="color: white" href="{{ route('vista_area') }}">Area de Formacion</a>
                     </li>
                     <li>
-                        <a style="color: white" href="{{ route('vista_tienda') }}">Tienda Online</a>
+                        <a style="color: white" href="{{ route('vista_tienda') }}">Tienda de Muestra</a>
                     </li>
                 </ul>
 
@@ -164,8 +164,8 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div style="font-family: 'Montserrat', sans-serif;" class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a style="color: white" href="https://www.caceresdesign.com" target="_blank">www.caceresdesign.com</a>
+    <div style="font-family: 'Montserrat', sans-serif;" class="footer-copyright text-center py-3"> Copyright© 2020
+        <a style="color: white" target="_blank">Ballet TalitaCumi!. Todos los derechos Reservados </a>
     </div>
     <!-- Copyright -->
 </footer>

@@ -1,11 +1,11 @@
 @extends('index')
 
 @section('header')
-    <header style="height: 100%;min-height: 30rem;padding-bottom: 0" class="masthead ">
+    <header style="height: 100%;min-height: 30rem;padding-bottom: 0" class="masthead menu">
         <div class="container ">
             <div class="row h-100 align-items-center justify-content-center text-center wow bounceInRight">
                 <div class="col-lg-12 align-self-end ">
-                    <h1 style="padding-top: 150px;font-family: 'Parisienne', cursive;font-size: 6.5vw;color: white"><b>Tienda Online de la Academia</b></h1>
+                    <h1 style="padding-top: 150px;font-family: 'Parisienne', cursive;font-size: 6.5vw;color: white"><b>Tienda de Muestra de la Academia</b></h1>
                 </div>
 
             </div>
@@ -18,101 +18,23 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
+            @foreach($publicaciones as $p)
+                @if($p->categoria == 3)
+                    @if($p->estado == 'activo')
+                    <div class="card">
+                        <form action="{{ route('vista_detalleTienda') }}" method="get">
+                         <input name="id" type="hidden" value="{{base64_encode($p->id)}}">
+                        <input type=image class="card-img-top" src="{{ Storage::url($p->URLpublicacion) }}" alt="Card image cap">
+                        </form>
+                            <div class="card-body text-center">
+                              <h3 class="card-title">{{$p->tituloPublicacion}}</h3>
+                                 <p class="card-text">Precio : ${{$p->precio}} </p>
+                            </div>
 
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('imagen_user/carro.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-
-                    </div>
-                </div>
+                    @endif
+                @endif
+            @endforeach
             </div>
         </div>
     </div>

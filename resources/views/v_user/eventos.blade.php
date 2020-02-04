@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('header')
-<header class="masthead " style="height: 100%;min-height: 30rem;padding-bottom: 0">
+<header class="masthead menu" style="height: 100%;min-height: 30rem;padding-bottom: 0">
     <div class="container ">
         <div class="row h-100 align-items-center justify-content-center text-center wow bounceInRight">
             <div class="col-lg-12 align-self-end ">
@@ -23,12 +23,10 @@
                 @if($e->estado == 'activo')
         <div class="col-md-12">
             <div class="card mb-4 box-shadow {{ $e->id }}">
-                <form action="{{ route('vista_detalle') }}" method="get">
+                <form action="{{ route('vista_detalleEvento') }}" method="get">
                     {{ csrf_field() }}
                     <input name="id" type="hidden" value="{{base64_encode($e->id)}}">
-                        <input type=image class="card-img-top" data-holder-rendered="true" src="{{ Storage::url($e->URLfoto) }}" style="height: 325px; width: 100%; display: block;">
-                        </img>
-                    </input>
+                        <input type=image class="card-img-top" data-holder-rendered="true" src="{{ Storage::url($e->URLfoto) }}" style="height:auto; width: 100%; display: block;">
                 </form>
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">
@@ -36,10 +34,10 @@
                     </h4>
                     <div class="d-flex justify-content-between align-items-center">
                         <small class="text-muted">
-                            {{$e->fechaInicio}}
+                            {{$e->fecha}}
                         </small>
                         <small class="text-muted">
-                            {{$e->fechaFin}}
+                            {{$e->ubicacion}}
                         </small>
                     </div>
                 </div>

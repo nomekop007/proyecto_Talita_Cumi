@@ -26,12 +26,14 @@ class usuario_controller extends Controller
     public function vista_eventos(){
 
         $eventos = evento::all();
-
         return view('v_user.eventos',['eventos'=> $eventos]);
     }
 
      public function vista_tienda(){
-        return view('v_user.tienda');
+
+         $publicacions = publicacion::all();
+        return view('v_user.tienda',
+            ['publicaciones' => $publicacions]);
     }
 
     public function vista_MisionyVision(){
@@ -55,7 +57,7 @@ class usuario_controller extends Controller
     }
 
 
-    public function vista_detalle(Request $request){
+    public function vista_detalleEvento(Request $request){
          $id = base64_decode($request->id);
 
               $objeto = evento::find($id);
@@ -74,5 +76,17 @@ class usuario_controller extends Controller
                
         return view('v_user.detalle',['objeto' => $objeto,
                                         'tipo'=> $tipo]);
+
     }
+        public function vista_detalleTienda(Request $request){
+         $id = base64_decode($request->id);
+
+               $objeto = publicacion::find($id);
+               $tipo = 2;
+               
+        return view('v_user.detalle',['objeto' => $objeto,
+                                        'tipo'=> $tipo]);
+    }
+
+    
 }

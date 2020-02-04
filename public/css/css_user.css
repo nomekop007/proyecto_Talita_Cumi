@@ -22,14 +22,14 @@
 }
 
 .menu{
-    background: url('../imagen_user/fondoInicio.jpg');
-    width: 100%;
-    height: auto;
-    /*transform: translate3d(0px, 0px, 0px);*/
-    background-blend-mode: soft-light;
-    background-size: cover;
+       background-image: url('../imagen_user/fondoInicio.jpg');
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* efecto paradax*/
+    background-size: cover;
+    -webkit-box-shadow: 0px 8px 5px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 8px 5px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 8px 5px -6px rgba(0,0,0,0.75);
 
 }
 @media (min-width: 768px) {
@@ -131,16 +131,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-header{
-    background-image: url('../imagen_user/fondoInicio.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-box-shadow: 0px 8px 5px -6px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 8px 5px -6px rgba(0,0,0,0.75);
-    box-shadow: 0px 8px 5px -6px rgba(0,0,0,0.75);
-}
+
 
 .bg-negro{
     background-color: white !important;

@@ -202,10 +202,10 @@ desired effect
     <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-            Anything you want
+            fecha de renovacion del dominio :
         </div>
         <!-- Default to the left -->
-        <strong>mi Compañia &copy; 2019 <a href="#">Company</a>.</strong> todos los derechos reservados.
+        <strong>Ballet Cristiano &copy; 2020 <a href="#"></a>TalitaCumi</strong> todos los derechos reservados.
     </footer>
 
 

@@ -31,18 +31,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // redireccionamiento a vistas correspondientes
 Route::get('c_publicacion','publicacion_controller@v_create')->name('c_publicacion');
-Route::get('publicaciones','publicacion_controller@index')->name('publicaciones');
+Route::get('c_publicaciones','publicacion_controller@index')->name('publicaciones');
 
 Route::get('c_evento','evento_controller@v_create')->name('c_evento');
-Route::get('eventos','evento_controller@index')->name('eventos');
+Route::get('c_eventos','evento_controller@index')->name('eventos');
 
 
 
 
 
 // crear publicaciones y eventos
-Route::post('crearPublicacion','publicacion_controller@crearPublicacion')->name('crearPublicacion');
-Route::post('crearEvento','evento_controller@crearEvento')->name('crearEvento');
+Route::post('c_crearPublicacion','publicacion_controller@crearPublicacion')->name('crearPublicacion');
+Route::post('c_crearEvento','evento_controller@crearEvento')->name('crearEvento');
 
 
 // buscar publicaciones y eventos
@@ -69,30 +69,34 @@ Route::post('upEvento','evento_controller@subir')->name('upEvento');
 //--------------------------vistas usuario---------------------------------------------
 
 //vista eventos
-Route::get('vista_eventos','usuario_controller@vista_eventos')->name('vista_eventos');
+Route::get('eventos','usuario_controller@vista_eventos')->name('vista_eventos');
 
 //vista tienda
-Route::get('vista_tienda','usuario_controller@vista_tienda')->name('vista_tienda');
+Route::get('tienda','usuario_controller@vista_tienda')->name('vista_tienda');
 
 //vista Mision y Vision
 
-Route::get('vista_MisionyVision','usuario_controller@vista_MisionyVision')->name('vista_MisionyVision');
+Route::get('MisionyVision','usuario_controller@vista_MisionyVision')->name('vista_MisionyVision');
 
 //vista galeria
 
-Route::get('vista_galeria','usuario_controller@vista_galeria')->name('vista_galeria');
+Route::get('galeria','usuario_controller@vista_galeria')->name('vista_galeria');
 
 //vista historia
 
-Route::get('vista_historia','usuario_controller@vista_historia')->name('vista_historia');
+Route::get('historia','usuario_controller@vista_historia')->name('vista_historia');
 
 // vista area de formacion
-Route::get('vista_area','usuario_controller@vista_area')->name('vista_area'); 
+Route::get('areaFormacion','usuario_controller@vista_area')->name('vista_area'); 
+
+
 
 //vista detalle eventos
 
-Route::get('vista_detalle','usuario_controller@vista_detalle')->name('vista_detalle');
-
+Route::get('detalleEvento','usuario_controller@vista_detalleEvento')->name('vista_detalleEvento');
 
 //vista detalle publicaciones
-Route::get('vista_detallePublicacion','usuario_controller@vista_detallePublicacion')->name('vista_detallePublicacion');
+Route::get('detallePublicacion','usuario_controller@vista_detallePublicacion')->name('vista_detallePublicacion');
+
+//vista detalle Tienda
+Route::get('detalleTienda','usuario_controller@vista_detalleTienda')->name('vista_detalleTienda');

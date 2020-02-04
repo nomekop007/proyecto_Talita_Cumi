@@ -90,7 +90,7 @@
                                 <i>Pagina de inicio</i>
                             @endif
                             @if($p->categoria == 3)
-                                <i>Tienda online</i>
+                                <i>Tienda Online</i>
                             @endif
                         </td>
                         <td>
