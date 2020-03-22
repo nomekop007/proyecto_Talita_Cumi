@@ -17,14 +17,15 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 mb-3">
+            
             @foreach($publicaciones as $p)
                 @if($p->categoria == 3)
                     @if($p->estado == 'activo')
-                    <div class="card">
+                    <div class="col-sm-4 mb-3">
+                    <div class="card ">
                         <form action="{{ route('vista_detalleTienda') }}" method="get">
                          <input name="id" type="hidden" value="{{base64_encode($p->id)}}">
-                        <input type=image class="card-img-top" src="{{ Storage::url($p->URLpublicacion) }}" alt="Card image cap">
+                        <input type=image class="card-img" style="height: 350px; width: 100%; display: block;" src="{{ Storage::url($p->URLpublicacion) }}" alt="Card image cap" >
                         </form>
                             <div class="card-body text-center">
                               <h3 class="card-title">{{$p->tituloPublicacion}}</h3>
@@ -32,10 +33,11 @@
                             </div>
 
                     </div>
+                    </div>
                     @endif
                 @endif
             @endforeach
-            </div>
+            
         </div>
     </div>
 

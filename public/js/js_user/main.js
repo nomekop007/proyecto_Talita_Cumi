@@ -13,7 +13,7 @@ $(document).ready(function () {
     }).addTo(map);
 
     L.marker([-35.430869, -71.662904]).addTo(map)
-        .bindPopup('BALLET CRISTIANO TALITA CUMI')
+        .bindPopup('Ballet cristiano Talita Cumi')
         .openPopup();
 
     $('.post-wrapper').slick({

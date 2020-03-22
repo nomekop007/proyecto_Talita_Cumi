@@ -20,13 +20,14 @@
 <div class="container">
     <div class="row">
         @foreach($eventos as $e)
-                @if($e->estado == 'activo')
+        @if($e->estado == 'activo')
         <div class="col-md-12">
             <div class="card mb-4 box-shadow {{ $e->id }}">
                 <form action="{{ route('vista_detalleEvento') }}" method="get">
                     {{ csrf_field() }}
                     <input name="id" type="hidden" value="{{base64_encode($e->id)}}">
-                        <input type=image class="card-img-top" data-holder-rendered="true" src="{{ Storage::url($e->URLfoto) }}" style="height:auto; width: 100%; display: block;">
+                    <input type=image class="card-img-top" data-holder-rendered="true"
+                        src="{{ Storage::url($e->URLfoto) }}" style="height:auto; width: 100%; display: block;">
                 </form>
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">
@@ -46,5 +47,5 @@
     </div>
 </div>
 @endif
-            @endforeach
+@endforeach
 @endsection
