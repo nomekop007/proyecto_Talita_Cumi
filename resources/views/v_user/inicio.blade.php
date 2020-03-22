@@ -256,4 +256,30 @@
 <br>
 <br>
 
+<script>
+    $(window).scroll(function () {
+    if ($("#menu").offset().top > 500) {
+        $("#menu").addClass("bg-negro");
+        $("#menu").addClass("texto-negro");
+    } else {
+        $("#menu").removeClass("bg-negro");
+        $("#menu").removeClass("texto-negro");
+    }
+});
+</script>
+<script>
+    $(function () {
+    $.scrollUp({
+        scrollName: 'scrollUp', // Element ID
+        topDistance: '300', // Distance from top before showing element (px)
+        topSpeed: 300, // Speed back to top (ms)
+        animation: 'fade', // Fade, slide, none
+        animationInSpeed: 200, // Animation in speed (ms)
+        animationOutSpeed: 200, // Animation out speed (ms)
+        scrollImg: true,
+        activeOverlay: true, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+
+    });
+});
+</script>
 @endsection

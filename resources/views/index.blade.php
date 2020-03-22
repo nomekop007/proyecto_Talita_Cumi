@@ -39,7 +39,7 @@
         style="background-color: transparent;font-family: 'Montserrat', sans-serif;background-color: transparent; transition: all 1s ease;">
         <a style="font-family: 'Parisienne', cursive;" class="navbar-brand " href="{{ route('index') }}">
             <img src="{{ asset('imagen_user/logo.png') }}" alt="" width=50">
-            <b style="font-size: 30px;color: bisque">Talita-Cumi</b></a>
+            <b style="font-size: 30px;color: burlywood">Talita-Cumi</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -221,7 +221,7 @@
     <script src="{{asset('js/js_user/jquery.scrollUp.min.js')}}"></script>
     <script>
         $(window).scroll(function () {
-        if ($("#menu").offset().top > 500) {
+        if ($("#menu").offset().top > 160) {
             $("#menu").addClass("bg-negro");
             $("#menu").addClass("texto-negro");
         } else {
