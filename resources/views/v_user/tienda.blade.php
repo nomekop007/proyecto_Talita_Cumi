@@ -18,9 +18,7 @@
     <div class="container">
         <div class="row">
             
-            @foreach($publicaciones as $p)
-                @if($p->categoria == 3)
-                    @if($p->estado == 'activo')
+            @foreach($tienda as $p)
                     <div class="col-sm-4 mb-3">
                     <div class="card ">
                         <form action="{{ route('vista_detalleTienda') }}" method="get">
@@ -34,8 +32,6 @@
 
                     </div>
                     </div>
-                    @endif
-                @endif
             @endforeach
             
         </div>

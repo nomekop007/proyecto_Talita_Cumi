@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('header')
-<header style="min-height: 3.5rem;" class="menu">
+<header style="min-height: 7rem;" class="menu">
 
 </header>
 @endsection
@@ -24,7 +24,9 @@
 
       <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionEvento}}">
 
-      <div id="descrip"></div>
+      <div class="col-md-12">
+         {!! $objeto->descripcionPublicacion !!}
+        </div>
 
 
 
@@ -42,9 +44,9 @@
   <h1 class="text-center">{{$objeto->tituloPublicacion}} </h1>
   <div class="row">
 
-    <div class="col-md-12" id="descrip">
-      <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionPublicacion}}">
-
+    <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionPublicacion}}">
+    <div class="col-md-12">
+         {!! $objeto->descripcionPublicacion !!}
     </div>
   </div>
 </div>
@@ -63,7 +65,9 @@
       <br>
       <input type="" name="des" id="descripcion" hidden="true" value="{{$objeto->descripcionPublicacion}}">
 
-      <div id="descrip"></div>
+      <div class="col-md-12">
+         {!! $objeto->descripcionPublicacion !!}
+        </div>
 
 
 
@@ -75,5 +79,5 @@
 </div>
 @endif
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br>
 @endsection

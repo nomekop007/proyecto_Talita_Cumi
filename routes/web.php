@@ -11,13 +11,14 @@ Route::get('/','usuario_controller@index')->name('index');
 
 
 // Authentication Routes...
-Route::get('cpanel', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('cpanel', 'Auth\LoginController@login');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes... !!!!!COMENTAR ESTAS LINEAS AL TERMINAR DE CREAR LOS USUARIOS!!!!
+/*
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+Route::post('register', 'Auth\RegisterController@register');*/
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

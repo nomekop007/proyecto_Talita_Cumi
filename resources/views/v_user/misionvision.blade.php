@@ -1,64 +1,70 @@
 @extends('index')
 
 @section('header')
-<header class="masthead menu" style="height: 100%;min-height: 10rem;padding-bottom: 0">
+<header class="masthead menu" style="height: 100%;min-height: 20rem;padding-bottom: 0">
     <div class="container ">
-        <div class="row h-100 align-items-center justify-content-center text-center wow bounceInRight">
-            <div class="col-lg-12 align-self-end ">
-                <h1 style="padding-top: 70px;font-family: 'Parisienne', cursive;font-size: 4.5vw;color: white">
-                    <b style="color: bisque">
-                        Mision y Vision de la Academia</b>
-                </h1>
-            </div>
+        <div class="row">
+            <div class="col-lg-12" style="margin-top: 500px;position: relative;">
 
+            </div>
         </div>
     </div>
+    <h1 class="text-center wow bounceInRight" style="font-family: ginebra;background-color: black;font-size: 10vh;color: white">
+            Misión y Visión de la Academia
+        </h1>
 </header>
 @endsection
 
 @section('contenido')
-<div class="container">
+<div style="height: 60px;"></div>
+<div class="container text-justify">
     <div class="row">
-        <div class="col">
-            <img hspace="5" src="{{ asset('imagen_user/fondoInicio.jpg') }}" class="img-fluid rounded float-right"
-                width="40%" alt="">
-            <h2 style="font-weight: 700;font-family: 'Montserrat', sans-serif;">Mision</h2>
-            <p style="font-weight: 700;font-family: 'Montserrat', sans-serif;">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium harum modi officiis
-                asperiores, pariatur est blanditiis voluptates, reiciendis nobis ea cupiditate non porro
-                repudiandae nemo aperiam voluptatum dolor, totam aliquid?
-            </p>
-            <br>
-            <p style="font-weight: 700;font-family: 'Montserrat', sans-serif;">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perferendis harum quod facilis
-                est? Reiciendis, natus nemo inventore nostrum tempore corporis dicta cum maiores quasi sint
-                perspiciatis et eos eaque.
-            </p>
+        <div class="col-md-12">
+            <h1 style="font-family: 'Montserrat', sans-serif;font-size: 7.5v"><b>Misión</b></h1>
         </div>
-    </div>
-</div>
-<br><br>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <img hspace="5" src="{{ asset('imagen_user/fondoInicio.jpg') }}" class="img-fluid rounded float-right"
-                width="40%" alt="">
-            <h2 style="font-weight: 700;font-family: 'Montserrat', sans-serif;">Vision</h2>
-            <p style="font-weight: 700;font-family: 'Montserrat', sans-serif;">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium harum modi officiis
-                asperiores, pariatur est blanditiis voluptates, reiciendis nobis ea cupiditate non porro
-                repudiandae nemo aperiam voluptatum dolor, totam aliquid?
-            </p>
-            <br>
-            <p style="font-weight: 700;font-family: 'Montserrat', sans-serif;">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perferendis harum quod facilis
-                est? Reiciendis, natus nemo inventore nostrum tempore corporis dicta cum maiores quasi sint
-                perspiciatis et eos eaque.
-            </p>
-        </div>
-    </div>
-</div>
 
-<br>
+        <div class="col-md-7">
+            <p style="font-family: 'Montserrat', sans-serif;font-size:2.5vh">
+                <b>
+                    Transmitir la Adoración a Dios a través de la danza a niñas,
+                    jóvenes y adultos, desarrollando la gracia, expresión y creatividad
+                    por medio del Ballet Clásico, Contemporáneo y Jazz, siempre con una
+                    estrecha relación con Dios, Inspiradas por Él, entregando un mensaje
+                    de Paz y Unidad.
+
+                </b>
+            </p>
+        </div>
+        <div class="col-md-5"><img class="rounded" style="width: 100%;height: 100%;" src="{{ asset('imagen_user/mision.jpg') }}">
+        </div>
+
+    </div>
+    <div style="height: 60px;"></div>
+    <div class="row">
+        <div class="col-md-12 ">
+            <h1 style="font-family: 'Montserrat', sans-serif;font-size: 7.5v"><b>Visión</b>
+            </h1>
+        </div>
+
+        <div class="col-md-7">
+
+            <p style="font-family: 'Montserrat', sans-serif;font-size:2.5vh">
+                <b>
+                    Entregar una formación Artística-Cristiana de excelencia en unidad
+                    y amor, en donde Jesús es el Centro del Arte, desarrollando la
+                    Danza, como una expresión de Fe, restauración y adoración a Dios,
+                    dando a conocer su Palabra, que llegue a muchos corazones como una
+                    danza viva en su Espíritu, “Talita-Cumi” Niña, a ti te digo
+                    ¡¡¡Levántate!!!
+
+                </b>
+            </p>
+        </div>
+        <div class="col-md-5"><img class="rounded" style="width: 100%;height: 100%;" src="{{ asset('imagen_user/vision.jpg') }}">
+        </div>
+
+    </div>
+    <br><br><br>
+</div>
 
 @endsection

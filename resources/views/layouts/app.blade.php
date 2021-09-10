@@ -20,18 +20,12 @@
             <div class="container">
                 <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <span class="logo-mini"><img src="{{ asset('imagen_user/logo.png') }}" alt="" width="40"></span>
-                       Talita-Cumi
+                        <span class="logo-mini"><img src="{{ asset('imagen_user/logo3.png') }}" alt="" width="25">
+                         Talita-Cumi
+                        </span>
                     </a>
                 </div>
 
@@ -62,6 +56,7 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
+                                         Cerrar sesion
                                     </li>
                                 </ul>
                             </li>

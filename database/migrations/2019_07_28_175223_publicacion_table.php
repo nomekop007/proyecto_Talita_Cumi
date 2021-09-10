@@ -25,6 +25,7 @@ class PublicacionTable extends Migration
             //1:Galeria multimedia , 2:Pagina de inicio , 3:Tienda online
             $table->integer('precio')->nullable(); // en caso de der tienda online 
             $table->timestamps();
+            $table->String('creator');
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\publicacion;
+use Image;
 
 class publicacion_controller extends Controller
 {
@@ -40,7 +41,7 @@ class publicacion_controller extends Controller
     public function crearPublicacion(Request $Request)
     {
         $publicacion = new publicacion();
-
+        $publicacion->creator = auth()->user()->name;
         if ($Request->Categoria == 2){ //pagina inicio
             $publicacion->tituloPublicacion = $Request->titulo_publicacion;
             $publicacion->descripcionPublicacion = $Request->descripcion_publicacion;
@@ -59,7 +60,24 @@ class publicacion_controller extends Controller
         $publicacion->estado = "inactivo";
 
         if ($Request->tipo_publicacion == 1) {
-            $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/foto');
+
+                /* crea la imagen original */
+            $path = $Request->file('URLpublicacion')->store('public/foto');
+                /* extrae el nombre del archivo */
+            $fileName = collect(explode('/', $path))->last();
+
+             /* remplaza la imagen original por la nueva */
+            $image = Image::make($Request->file('URLpublicacion'));
+            /* refigura la imagen */
+            $image->resize(1280, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+              });
+                /* guarda la nueva imagen en el storage */
+              $image->save("storage/foto/$fileName");
+
+
+            $publicacion->URLpublicacion = $path;
         } else {
             $publicacion->URLpublicacion = $Request->file('URLpublicacion')->store('public/video');
         }
@@ -108,7 +126,7 @@ class publicacion_controller extends Controller
     {
         $id = base64_decode($request->id);
         $publicacion = publicacion::find($id);
-
+        $publicacion->creator = auth()->user()->name;
 
         if ($publicacion->categoria == 2){ // pagina inicio
 
@@ -139,8 +157,25 @@ class publicacion_controller extends Controller
                 unlink(storage_path('app/' . $url));
             }
 
+
+                 /* crea la imagen original */
+                 $path = $request->file('URLpublicacion')->store('public/foto');
+                 /* extrae el nombre del archivo */
+             $fileName = collect(explode('/', $path))->last();
+ 
+              /* remplaza la imagen original por la nueva */
+             $image = Image::make($request->file('URLpublicacion'));
+             /* refigura la imagen */
+             $image->resize(1280, null, function ($constraint) {
+                 $constraint->aspectRatio();
+                 $constraint->upsize();
+               });
+                 /* guarda la nueva imagen en el storage */
+               $image->save("storage/foto/$fileName");
+ 
+
             if ($publicacion->tipo == 1) {
-                $publicacion->URLpublicacion = $request->file('URLpublicacion')->store('public/foto');
+                $publicacion->URLpublicacion = $path;
             } else {
                 $publicacion->URLpublicacion = $request->file('URLpublicacion')->store('public/video');
             }

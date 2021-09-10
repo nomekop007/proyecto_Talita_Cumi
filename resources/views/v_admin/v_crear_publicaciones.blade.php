@@ -42,12 +42,12 @@
 
 
             <h3 class="text-center titulo_seleccion">Seleccione el tipo de publicacion</h3><br><br>
-
+            
                 <input type="" name="categoria" id="Categoria" hidden="" value="0">
 
                     <div class="form-group col-md-4 inicio">
                  <div class="card">
-                    <input type=image id="btnSeleccionar1" class="card-img-top " value="2" src="{{ asset('imagen_user/inicio.jpg') }}" alt="Card image cap" style="height: 100%; width: 100%;">
+                    <input type=image id="btnSeleccionar1" class="card-img-top " value="2" src="{{ asset('imagen_user/inicio.png') }}" alt="Card image cap" style="height: 100%; width: 100%;">
                     <div class="card-body">
                         <h3 class="card-title text-center">Pagina inicio</h3>
                     </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group col-md-4 galeria">
                  <div class="card">
-                    <input type=image id="btnSeleccionar2" class="card-img-top " value="1" src="{{ asset('imagen_user/galeria.jpeg') }}" alt="Card image cap" style="height: 100%; width: 100%;">
+                    <input type=image id="btnSeleccionar2" class="card-img-top " value="1" src="{{ asset('imagen_user/fotos.png') }}" alt="Card image cap" style="height: 100%; width: 100%;">
                     <div class="card-body">
                         <h3 class="card-title text-center">Galeria multimedia</h3>
 
@@ -132,8 +132,8 @@
                             </div>
                         </code>
                         <div class="overlay text-center btn" id="subiendo">
-                            <i class="fa fa-refresh fa-spin fa-1x"> </i>
-                            <h6>subiendo...</h6>
+                            <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                            <h3>Subiendo Archivo...</h3>
                         </div>
                     </div>
 
@@ -212,6 +212,6 @@
     <script>
         $(function () {
             CKEDITOR.replace('descripcion_publicacion')
-        })
+        });
     </script>
 @endsection

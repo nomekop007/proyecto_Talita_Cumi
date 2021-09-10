@@ -254,8 +254,8 @@
                 <div class="modal-footer btn_editar">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">cancelar</button>
                     <div class="overlay text-center btn" id="subiendo" >
-                        <i class="fa fa-refresh fa-spin fa-1x"> </i>
-                        <h6>actualizando...</h6>
+                        <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                        <h5>actualizando Archivo...</h5>
                     </div>
                     <button class="btn btn-danger btn btn-delete btn-sm"
                             data-url="{{ route('getPublicidad') }}">

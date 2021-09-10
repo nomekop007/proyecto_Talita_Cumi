@@ -22,6 +22,7 @@ class EventoTable extends Migration
             $table->String('estado'); //activo / inactivo
             $table->dateTime('fecha');
             $table->String('ubicacion');
+            $table->String('creator');
             $table->timestamps();
         });
     }

@@ -1,0 +1,61 @@
+[24-Mar-2020 22:02:21 America/Santiago] PHP Warning:  symlink(): No such file or directory in /home1/talitacu/public_html/index.php on line 2
+[24-Mar-2020 22:02:22 America/Santiago] PHP Warning:  symlink(): No such file or directory in /home1/talitacu/public_html/index.php on line 2
+[24-Mar-2020 22:02:52 America/Santiago] PHP Warning:  symlink(): No such file or directory in /home1/talitacu/public_html/index.php on line 2
+[24-Mar-2020 22:03:10 America/Santiago] PHP Warning:  symlink(): No such file or directory in /home1/talitacu/public_html/index.php on line 2
+[24-Mar-2020 22:03:15 America/Santiago] PHP Warning:  symlink(): No such file or directory in /home1/talitacu/public_html/index.php on line 2
+[24-Mar-2020 22:04:09 America/Santiago] PHP Warning:  symlink(): No such file or directory in /home1/talitacu/public_html/index.php on line 2
+[24-Mar-2020 22:04:10 America/Santiago] PHP Warning:  symlink(): No such file or directory in /home1/talitacu/public_html/index.php on line 2
+[06-Apr-2020 16:48:26 America/Santiago] PHP Warning:  require(/home1/talitacu/public_html/../laravel/vendor/autoload.php): failed to open stream: No such file or directory in /home1/talitacu/public_html/index.php on line 25
+[06-Apr-2020 16:48:26 America/Santiago] PHP Warning:  require(/home1/talitacu/public_html/../laravel/vendor/autoload.php): failed to open stream: No such file or directory in /home1/talitacu/public_html/index.php on line 25
+[06-Apr-2020 16:48:26 America/Santiago] PHP Fatal error:  require(): Failed opening required '/home1/talitacu/public_html/../laravel/vendor/autoload.php' (include_path='.:/opt/php71/lib/php') in /home1/talitacu/public_html/index.php on line 25
+[06-Apr-2020 16:55:11 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 16:55:11 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 16:55:11 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:20:51 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:20:51 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:20:51 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:21:04 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:21:04 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:21:04 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:21:53 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:21:53 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:21:53 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:22:12 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:22:12 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:22:12 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:24:45 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:24:45 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:24:45 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:25:06 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:25:06 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:25:06 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:25:20 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:25:20 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:25:21 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:27:01 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:27:01 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:27:01 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:27:03 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:27:03 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:27:03 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:30:38 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:30:38 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:30:38 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:31:13 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:31:13 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:31:13 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:31:46 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:31:46 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:31:46 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:32:12 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:32:12 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:32:12 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:32:51 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:32:51 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:32:51 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:33:05 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:33:05 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:33:05 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[06-Apr-2020 17:33:18 America/Santiago] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[06-Apr-2020 17:33:18 America/Santiago] PHP Warning:  Module 'SourceGuardian' already loaded in Unknown on line 0
+[06-Apr-2020 17:33:18 America/Santiago] PHP Parse error:  syntax error, unexpected '?' in /home1/talitacu/laravel/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233

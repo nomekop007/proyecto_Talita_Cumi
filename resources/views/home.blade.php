@@ -80,9 +80,9 @@ desired effect
         <!-- Logo -->
         <a href="#" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><img src="{{ asset('imagen_user/logo.png') }}" alt="" width="50"></span>
+            <span class="logo-mini"><img src="{{ asset('imagen_user/logo3.png') }}" alt="" width="50"></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><img src="{{ asset('imagen_user/logo.png') }}" alt="" width="50"><b>Talita-Cumi</b></span>
+            <span class="logo-lg"><img src="{{ asset('imagen_user/logo3.png') }}" alt="" width="50"><b>Talita-Cumi</b></span>
         </a>
 
 
@@ -202,7 +202,7 @@ desired effect
     <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-            fecha de renovacion del dominio :
+            fecha limite de renovacion del dominio : 25/03/2021
         </div>
         <!-- Default to the left -->
         <strong>Ballet Cristiano &copy; 2020 <a href="#"></a>TalitaCumi</strong> todos los derechos reservados.
@@ -226,8 +226,7 @@ desired effect
 <script src="{{ asset('js/js_admin/sweetalert2.min.js')}}"></script>
 
 <!-- editor de texto-->
-<script src="{{ asset('adminLTE_admin/bower_components/ckeditor/ckeditor.js')}}"></script>
-
+<script src="{{ asset('ckeditor1/ckeditor.js')}}"></script>
 
 @yield('jsextra')
 

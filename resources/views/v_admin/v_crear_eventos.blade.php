@@ -114,9 +114,9 @@
                                 </div>
                             </div>
                         </code>
-                        <div class="overlay text-center btn" id="subiendo" >
-                            <i class="fa fa-refresh fa-spin fa-1x"> </i>
-                            <h6>subiendo...</h6>
+                        <div class="overlay text-center btn" id="subiendo">
+                            <i class="fa fa-refresh fa-spin fa-2x"> </i>
+                            <h3>Subiendo Archivo...</h3>
                         </div>
                     </div>
                 </div>
@@ -131,9 +131,9 @@
 
     <!--editor de texto avanzado -->
     <script>
-        $(function () {
-            CKEDITOR.replace('descripcion_evento')
-        })
+     $(function () {
+            CKEDITOR.replace('descripcion_evento');
+    })
     </script>
     <!-- bootstrap datepicker -->
     <script src="{{ asset('adminLTE_admin/bower_components/moment/min/moment.min.js')}}"></script>

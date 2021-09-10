@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\evento;
+use Image;
 
 
 class evento_controller extends Controller
@@ -44,7 +45,24 @@ class evento_controller extends Controller
 
         $evento->tituloEvento = $Request->titulo_evento;
         $evento->descripcionEvento = $Request->descripcion_evento;
-        $evento->URLfoto = $Request->file('URLevento')->store('public/evento');
+        $evento->creator = auth()->user()->name;
+
+        /* crea la imagen original */
+        $path = $Request->file('URLevento')->store('public/evento');
+        /* extrae el nombre del archivo */
+        $fileName = collect(explode('/', $path))->last();
+        /* remplaza la imagen original por la nueva */
+        $image = Image::make($Request->file('URLevento'));
+        /* refigura la imagen */
+        $image->resize(1280, null, function ($constraint) {
+        $constraint->aspectRatio();
+        $constraint->upsize();
+        });
+        /* guarda la nueva imagen en el storage */
+        $image->save("storage/evento/$fileName");
+
+
+        $evento->URLfoto = $path;
         $evento->estado = "inactivo";
         $evento->fecha = $Request->fecha;
         $evento->ubicacion = $Request->ubicacion;
@@ -96,7 +114,7 @@ class evento_controller extends Controller
     {
         $id = base64_decode($request->id);
         $evento = evento::find($id);
-
+        $evento->creator = auth()->user()->name;
         $evento->tituloEvento = $request->titulo_evento;
         $evento->descripcionEvento = $request->descripcion_evento;
         $evento->fecha = $request->fecha_evento;
@@ -115,7 +133,22 @@ class evento_controller extends Controller
                 unlink(storage_path('app/' . $url));
             }
 
-         $evento->URLfoto = $request->file('URLevento')->store('public/evento');
+        /* crea la imagen original */
+        $path = $request->file('URLevento')->store('public/evento');
+        /* extrae el nombre del archivo */
+        $fileName = collect(explode('/', $path))->last();
+        /* remplaza la imagen original por la nueva */
+        $image = Image::make($request->file('URLevento'));
+        /* refigura la imagen */
+        $image->resize(1280, null, function ($constraint) {
+        $constraint->aspectRatio();
+        $constraint->upsize();
+        });
+        /* guarda la nueva imagen en el storage */
+        $image->save("storage/evento/$fileName");
+
+
+         $evento->URLfoto = $path;
     
         }
 

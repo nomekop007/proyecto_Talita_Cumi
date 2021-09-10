@@ -1,18 +1,19 @@
 @extends('index')
 
 @section('header')
-<header class="masthead menu" style="height: 100%;min-height: 30rem;padding-bottom: 0">
+<header class="masthead menu" style="height: 100%;min-height: 20rem;padding-bottom: 0">
     <div class="container ">
-        <div class="row h-100 align-items-center justify-content-center text-center wow bounceInRight">
-            <div class="col-lg-12 align-self-end ">
-                <h1 style="padding-top: 150px;font-family: 'Parisienne', cursive;font-size: 6.5vw;color: white">
-                    <b>
-                        Eventos de la Academia
-                    </b>
-                </h1>
+        <div class="row">
+            <div class="col-lg-12" style="margin-top: 500px;position: relative;">
+
             </div>
         </div>
     </div>
+    <h1 class="wow bounceInRight rounded text-center" style=" background-color: black ;font-family: ginebra;margin-top: 20px;font-size: 10vh;color: white">
+
+        Eventos de la Academia
+
+    </h1>
 </header>
 @endsection
 
@@ -26,8 +27,7 @@
                 <form action="{{ route('vista_detalleEvento') }}" method="get">
                     {{ csrf_field() }}
                     <input name="id" type="hidden" value="{{base64_encode($e->id)}}">
-                    <input type=image class="card-img-top" data-holder-rendered="true"
-                        src="{{ Storage::url($e->URLfoto) }}" style="height:auto; width: 100%; display: block;">
+                    <input type=image class="card-img-top" data-holder-rendered="true" src="{{ Storage::url($e->URLfoto) }}" style="height:auto; width: 100%; display: block;">
                 </form>
                 <div class="card-body" style="font-family: 'Montserrat', sans-serif;">
                     <h4 class="text-center">

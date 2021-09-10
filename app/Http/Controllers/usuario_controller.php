@@ -13,11 +13,13 @@ class usuario_controller extends Controller
     public function index()
     {
         //colocar condiccion de que publicidad saldra 
-        $publicacions = publicacion::all();
-        $eventos = evento::all();
+        $inicio = publicacion::where("estado","=","activo")->where("categoria","=",2)->get();
+        $galeria = publicacion::where("estado","=","activo")->where("categoria","=",1)->get()->take(6);
+        $eventos = evento::where("estado","=","activo")->get();
 
         return view('v_user.inicio',
-            ['publicaciones' => $publicacions,
+            ['inicio' => $inicio,
+            'galeria' => $galeria,
                 'eventos'=> $eventos]);
     }
 
@@ -31,9 +33,9 @@ class usuario_controller extends Controller
 
      public function vista_tienda(){
 
-         $publicacions = publicacion::all();
+         $tienda = publicacion::where("estado","=","activo")->where("categoria","=",3)->get();
         return view('v_user.tienda',
-            ['publicaciones' => $publicacions]);
+            ['tienda' => $tienda]);
     }
 
     public function vista_MisionyVision(){
@@ -41,9 +43,9 @@ class usuario_controller extends Controller
     }
 
     public function vista_galeria(){
-         $publicacions = publicacion::all();
+         $galeria = publicacion::where("estado","=","activo")->where("categoria","=",1)->get();
         return view('v_user.galeria',
-            ['publicaciones' => $publicacions]);
+            ['galeria' => $galeria]);
     }
 
     public function vista_historia(){
